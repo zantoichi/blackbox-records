@@ -1,0 +1,15 @@
+title: Blackbox Records
+description: Experimental record label with a focus on boundary-pushing electronic music.
+url: ""
+baseurl: ""
+permalink: pretty
+
+collections:
+  artists:
+    output: true
+  releases:
+    output: true
+  news:
+    output: true
+  shows:
+    output: true

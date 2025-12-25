@@ -1,0 +1,25 @@
+<header class="site-header">
+  <div class="site-header__inner site-container">
+    <div class="site-brand">
+      <a class="site-brand__link" href="{{ '/' | relative_url }}">
+        <span class="site-brand__logo" aria-hidden="true"></span>
+        <span class="site-brand__text">{{ site.title }}</span>
+      </a>
+      <span class="site-brand__tagline">Placeholder identity until final branding.</span>
+    </div>
+    <div class="site-header__nav">
+      {% include nav.html %}
+      <form class="site-header__form" action="#" method="post">
+        <label class="visually-hidden" for="newsletter-email">Newsletter email</label>
+        <input
+          class="site-header__input"
+          id="newsletter-email"
+          name="email"
+          type="email"
+          placeholder="Email"
+          autocomplete="email">
+        <button class="site-header__button" type="submit">Go</button>
+      </form>
+    </div>
+  </div>
+</header>

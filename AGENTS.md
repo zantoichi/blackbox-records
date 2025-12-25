@@ -152,6 +152,7 @@ Implementation detail reminder:
 A task is done when:
 
 - `bundle exec jekyll build` succeeds.
+- Ensure we are fully aligned with figma. ALWAYS be aligned with figma for now. Fonts are okay to be placeholders.
 - Navigation, layouts, and responsive behavior match Figma intent (within reason for placeholders).
 - No non-placeholder branding assets are added before final phase.
 - No Payhip code is added before Phase 3 (unless explicitly authorized).
