@@ -124,18 +124,14 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-4);
+  gap: 0;
   flex-wrap: wrap;
-}
-
-.site-brand {
-  max-width: 26rem;
 }
 
 .site-brand__link {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
+  gap: 0;
   font-family: var(--font-display);
   font-size: var(--step-0);
   letter-spacing: 0.12em;
@@ -145,22 +141,10 @@ img {
 
 .site-brand__logo {
   width: 13.125rem;
-  height: 8.75rem;
-  border: 2px solid var(--color-white);
-  background: linear-gradient(135deg, rgba(180, 31, 106, 0.2), transparent 60%);
-  display: inline-block;
-}
-
-.site-brand__text {
-  display: inline-block;
-}
-
-.site-brand__tagline {
+  height: auto;
   display: block;
-  margin-top: var(--space-1);
-  color: rgba(255, 255, 255, 0.72);
-  font-size: var(--step--1);
-  letter-spacing: 0.05em;
+  object-fit: contain;
+  object-position: left center;
 }
 
 .site-header__nav {
@@ -180,7 +164,7 @@ img {
 .nav-list {
   list-style: none;
   display: flex;
-  gap: var(--space-2);
+  gap: 0;
   margin: 0;
   padding: 0;
   flex-wrap: wrap;
@@ -233,9 +217,13 @@ img {
   border: none;
   background: var(--color-white);
   color: var(--color-ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-size: 0.7rem;
+  line-height: 1;
   cursor: pointer;
 }
 
@@ -302,7 +290,7 @@ img {
 
 .footer-column {
   display: grid;
-  gap: var(--space-2);
+  gap: var(--space-4);
   align-content: start;
 }
 
@@ -343,8 +331,8 @@ img {
 .footer-link {
   color: var(--color-white);
   text-transform: uppercase;
-  letter-spacing: 0.045em;
-  font-size: var(--step-0);
+  letter-spacing: 0.038em;
+  font-size: var(--step-1);
 }
 
 .footer-brand {
@@ -353,13 +341,16 @@ img {
 
 .footer-logo {
   width: min(100%, 18.375rem);
-  aspect-ratio: 293.85 / 194.84;
-  border: 2px solid var(--color-white);
-  background: linear-gradient(135deg, rgba(180, 31, 106, 0.25), transparent 70%);
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: left center;
 }
 
 .footer-meta {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
   gap: 0.35rem;
 }
 
@@ -373,7 +364,6 @@ img {
   font-size: var(--step--1);
   letter-spacing: 0.05em;
   color: var(--color-accent);
-  text-transform: uppercase;
 }
 
 @media (max-width: 60rem) {

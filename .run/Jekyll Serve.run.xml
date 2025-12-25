@@ -1,14 +1,16 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Jekyll Serve" type="ShConfigurationType" factoryName="Shell Script">
-    <option name="INTERPRETER_PATH" value="C:\Windows\System32\cmd.exe" />
-    <option name="INTERPRETER_OPTIONS" value="/c" />
-    <option name="SCRIPT_PATH" value="$PROJECT_DIR$\scripts\jekyll-serve.cmd" />
-    <option name="SCRIPT_TEXT" value="" />
+  <configuration default="false" name="Jekyll Serve" type="ShConfigurationType">
+    <option name="SCRIPT_TEXT" value="bundle exec jekyll serve" />
+    <option name="INDEPENDENT_SCRIPT_PATH" value="false" />
+    <option name="SCRIPT_PATH" value="$PROJECT_DIR$/scripts/jekyll-serve.cmd" />
     <option name="SCRIPT_OPTIONS" value="" />
-    <option name="WORKING_DIRECTORY" value="C:\Users\SVall\WebstormProjects\blackbox-records" />
-    <option name="EXECUTE_IN_TERMINAL" value="false" />
-    <option name="PARENT_ENVS" value="true" />
-    <option name="PASS_PARENT_ENVS" value="true" />
+    <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+    <option name="SCRIPT_WORKING_DIRECTORY" value="" />
+    <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+    <option name="INTERPRETER_PATH" value="" />
+    <option name="INTERPRETER_OPTIONS" value="" />
+    <option name="EXECUTE_IN_TERMINAL" value="true" />
+    <option name="EXECUTE_SCRIPT_FILE" value="false" />
     <envs />
     <method v="2" />
   </configuration>

@@ -2,10 +2,9 @@
   <div class="site-header__inner site-container">
     <div class="site-brand">
       <a class="site-brand__link" href="{{ '/' | relative_url }}">
-        <span class="site-brand__logo" aria-hidden="true"></span>
-        <span class="site-brand__text">{{ site.title }}</span>
+        <img class="site-brand__logo" src="{{ '/assets/images/blackbox_records_logo.jpg' | relative_url }}" alt="Blackbox Records logo">
+        <span class="visually-hidden">{{ site.title }}</span>
       </a>
-      <span class="site-brand__tagline">Placeholder identity until final branding.</span>
     </div>
     <div class="site-header__nav">
       {% include nav.html %}

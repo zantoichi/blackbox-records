@@ -1,14 +1,10 @@
 - title: Home
   url: /
-- title: Artists
-  url: /artists/
-- title: Releases
-  url: /releases/
-- title: News
-  url: /news/
-- title: Shows
-  url: /shows/
+- title: Bands
+  url: /bands/
+- title: Webstore
+  url: /shop/
 - title: About
   url: /about/
-- title: Contact
-  url: /contact/
+- title: News
+  url: /news/

@@ -3,7 +3,7 @@
     <div class="footer-column">
       <p class="footer-heading">Sitemap</p>
       <ul class="footer-list">
-        {% for item in site.data.nav %}
+        {% for item in site.data.footer_nav %}
         <li class="footer-item">
           <a class="footer-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
         </li>
@@ -21,9 +21,9 @@
       </ul>
     </div>
     <div class="footer-column footer-brand">
-      <div class="footer-logo" aria-hidden="true"></div>
+      <img class="footer-logo" src="{{ '/assets/images/blackbox_records_logo.jpg' | relative_url }}" alt="Blackbox Records logo">
       <div class="footer-meta">
-        <span class="footer-copy">© {{ 'now' | date: '%Y' }} {{ site.title }} | Built by_</span>
+        <span class="footer-copy">&copy; {{ 'now' | date: '%Y' }} {{ site.title }} | Built by_</span>
         <a class="footer-credit" href="#" rel="nofollow">Placeholder Studio</a>
       </div>
     </div>
