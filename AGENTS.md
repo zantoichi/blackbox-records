@@ -37,11 +37,6 @@ When branding is added at the end:
 
 ---
 
-## Design source of truth (Figma)
-
-Figma file (primary reference for layout, typography, spacing, components):
-https://www.figma.com/design/BL71iPpbLltfHckiWFH3uj/Spyros-Vallianos-s-team-library?node-id=3316-2670&t=aPrSgMgogQmvAhJJ-4
-
 Workflow:
 
 ### How Codex uses Figma as context

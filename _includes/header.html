@@ -1,13 +1,36 @@
-<header class="site-header">
-  <div class="site-header__inner site-container">
-    <div class="site-brand">
-      <a class="site-brand__link" href="{{ '/' | relative_url }}">
-        <img class="site-brand__logo" src="{{ '/assets/images/blackbox_records_logo.jpg' | relative_url }}" alt="Blackbox Records logo">
-        <span class="visually-hidden">{{ site.title }}</span>
-      </a>
-    </div>
-    <div class="site-header__nav">
-      {% include nav.html %}
-    </div>
+<header class="site-header" data-header>
+  <div class="site-container site-header__inner">
+    <a class="site-header__logo" href="{{ '/' | relative_url }}">
+      <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="BlackBox Records">
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <ul class="site-nav__list">
+        {% for item in site.data.nav %}
+        <li>
+          <a class="site-nav__link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    <button class="site-header__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav">
+      <span class="visually-hidden">Toggle navigation</span>
+      <svg class="icon icon--menu" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <svg class="icon icon--close" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M6 6l12 12M18 6l-12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+  <div class="site-header__mobile" id="mobile-nav" data-mobile-nav>
+    <nav aria-label="Mobile">
+      <ul class="site-nav__list site-nav__list--mobile">
+        {% for item in site.data.nav %}
+        <li>
+          <a class="site-nav__link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
   </div>
 </header>

@@ -1,10 +1,8 @@
-- title: Home
-  url: /
-- title: Bands
-  url: /bands/
-- title: Webstore
+- title: News
+  url: /news/
+- title: Artists
+  url: /artists/
+- title: Shop
   url: /shop/
 - title: About
   url: /about/
-- title: News
-  url: /news/

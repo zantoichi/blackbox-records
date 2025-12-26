@@ -1,31 +1,33 @@
 <footer class="site-footer">
-  <div class="site-footer__inner site-container">
-    <div class="footer-column">
-      <p class="footer-heading">Sitemap</p>
-      <ul class="footer-list">
+  <div class="site-container site-footer__inner">
+    <div class="site-footer__brand">
+      <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="BlackBox Records">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua.</p>
+    </div>
+    <div class="site-footer__column">
+      <h3>Sitemap</h3>
+      <ul>
         {% for item in site.data.nav %}
-        <li class="footer-item">
-          <a class="footer-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+        <li>
+          <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
         </li>
         {% endfor %}
       </ul>
     </div>
-    <div class="footer-column">
-      <p class="footer-heading">Social</p>
-      <ul class="footer-list footer-list--spaced">
+    <div class="site-footer__column">
+      <h3>Connect</h3>
+      <ul>
         {% for item in site.data.socials %}
-        <li class="footer-item">
-          <a class="footer-link" href="{{ item.url }}">{{ item.title }}</a>
+        <li>
+          <a href="{{ item.url }}">{{ item.title }}</a>
         </li>
         {% endfor %}
       </ul>
     </div>
-    <div class="footer-column footer-brand">
-      <img class="footer-logo" src="{{ '/assets/images/blackbox_records_logo.jpg' | relative_url }}" alt="Blackbox Records logo">
-      <div class="footer-meta">
-        <span class="footer-copy">&copy; {{ 'now' | date: '%Y' }} {{ site.title }} | Built by_</span>
-        <a class="footer-credit" href="#" rel="nofollow">Placeholder Studio</a>
-      </div>
-    </div>
+  </div>
+  <div class="site-footer__bottom site-container">
+    <p>&copy; {{ 'now' | date: '%Y' }} BlackBox Records. All rights reserved.</p>
+    <p>EST. MMXXIV</p>
   </div>
 </footer>
