@@ -5,6 +5,7 @@ description: BlackBox Records home.
 main_class: site-main--home
 body_class: home-snap
 ---
+
 <section class="hero snap-section" id="hero">
   <div class="hero__pattern" aria-hidden="true">
     <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">

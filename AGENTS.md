@@ -14,8 +14,7 @@ files; it sets conventions and intent). Codex reads `AGENTS.md` before doing wor
 
 Phase 0 (now): Site structure + layout system + content scaffolding + CSS foundations.
 Phase 1: Core pages (Home, Artists, Releases, News, Shows, About, Contact) with placeholder content.
-Phase 2: Refine styles to match Figma, responsive polish, performance/accessibility.
-Phase 3 (last): Payhip “Shop” integration + production product wiring.
+Phase 2 (last): Payhip “Shop” integration + production product wiring.
 
 Hard rule:
 
@@ -29,7 +28,7 @@ Until final phase:
 
 - Use placeholders for logos, wordmarks, icons, and any brand imagery.
 - Do not pull assets from reference sites.
-- Any typography choices should be temporary unless specified by Figma tokens.
+- Any typography choices should be temporary unless specified.
 
 When branding is added at the end:
 
@@ -38,11 +37,6 @@ When branding is added at the end:
 ---
 
 Workflow:
-
-### How Codex uses Figma as context
-
-Use the Figma MCP server to let Codex query frames, nodes, colors, type styles, spacing, etc.
-If MCP isn’t configured, treat Figma as a manual reference only.
 
 ---
 
@@ -102,7 +96,7 @@ Codex should:
 1) Read `_config.yml`, the main layout(s), and key includes before editing.
 2) Make small, reviewable changes (avoid sweeping refactors) that ideally should become commits using the Conventional
    Commits specification.
-3) Follow the sequencing rules (no Payhip until Phase 3).
+3) Follow the sequencing rules (no Payhip until Phase 2).
 4) Keep CSS consistent with the design tokens (type scale + spacing scale).
 5) Verify build success locally (`jekyll build`) before claiming completion.
 
@@ -122,7 +116,7 @@ Codex should NOT:
 
 ---
 
-## Payhip integration plan (Phase 3 only)
+## Payhip integration plan (Phase 2 only)
 
 Approach:
 
@@ -147,7 +141,6 @@ Implementation detail reminder:
 A task is done when:
 
 - `bundle exec jekyll build` succeeds.
-- Ensure we are fully aligned with figma. ALWAYS be aligned with figma for now. Fonts are okay to be placeholders.
-- Navigation, layouts, and responsive behavior match Figma intent (within reason for placeholders).
+- Fonts are okay to be placeholders.
 - No non-placeholder branding assets are added before final phase.
-- No Payhip code is added before Phase 3 (unless explicitly authorized).
+- No Payhip code is added before Phase 2 (unless explicitly authorized).

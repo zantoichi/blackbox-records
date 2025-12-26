@@ -1,8 +1,9 @@
-- title: News
-  url: /news/
-- title: Artists
-  url: /artists/
-- title: Shop
-  url: /shop/
-- title: About
-  url: /about/
+items:
+  - title: News
+    url: /news/
+  - title: Artists
+    url: /artists/
+  - title: Shop
+    url: /shop/
+  - title: About
+    url: /about/

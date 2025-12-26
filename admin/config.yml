@@ -1,0 +1,118 @@
+local_backend: true
+
+backend:
+  name: github
+  repo: zantoichi/blackbox-records
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+commit_messages:
+  create: "feat(content): create {{collection}}/{{slug}}"
+  update: "chore(content): update {{collection}}/{{slug}}"
+  delete: "chore(content): delete {{collection}}/{{slug}}"
+  uploadMedia: "chore(media): upload {{path}}"
+  deleteMedia: "chore(media): delete {{path}}"
+  openAuthoring: "chore(content): open {{collection}}/{{slug}}"
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: pages
+    label: Pages
+    files:
+      - name: home
+        label: Home
+        file: index.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: string, required: false }
+          - { label: Main Class, name: main_class, widget: string, required: false }
+          - { label: Body Class, name: body_class, widget: string, required: false }
+          - label: Body
+            name: body
+            widget: markdown
+            editor:
+              preview: false
+      - name: artists
+        label: Artists
+        file: artists/index.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: string, required: false }
+          - { label: Hero Kicker, name: hero_kicker, widget: string, required: false }
+      - name: news
+        label: News
+        file: news/index.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: string, required: false }
+          - label: Body
+            name: body
+            widget: markdown
+            editor:
+              preview: false
+      - name: about
+        label: About
+        file: about/index.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: string, required: false }
+          - label: Body
+            name: body
+            widget: markdown
+            editor:
+              preview: false
+      - name: shop
+        label: Shop
+        file: shop/index.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: string, required: false }
+          - label: Body
+            name: body
+            widget: markdown
+            editor:
+              preview: false
+  - name: data
+    label: Site Data
+    files:
+      - name: navigation
+        label: Navigation
+        file: _data/nav.yml
+        fields:
+          - label: Items
+            name: items
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: URL, name: url, widget: string }
+      - name: socials
+        label: Social Links
+        file: _data/socials.yml
+        fields:
+          - label: Items
+            name: items
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: URL, name: url, widget: string }
+  - name: artists_roster
+    label: Artists Roster
+    files:
+      - name: artists
+        label: Artists
+        file: _data/artists.yml
+        fields:
+          - label: Items
+            name: items
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Genre, name: genre, widget: string }
+              - { label: Image, name: image, widget: image }
+              - { label: Image Alt, name: image_alt, widget: string, required: false }
+              - { label: Bio, name: bio, widget: text }
+              - { label: URL, name: url, widget: string, required: false }
