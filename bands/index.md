@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Bands
-description: Roster overview placeholder.
+description: Bands placeholder.
 ---
-
-The current roster will be listed here once artist profiles are added.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.

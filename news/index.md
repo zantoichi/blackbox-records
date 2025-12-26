@@ -1,7 +1,6 @@
 ---
 layout: page
 title: News
-description: Latest updates placeholder.
+description: News placeholder.
 ---
-
-Updates and announcements will appear here.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse.

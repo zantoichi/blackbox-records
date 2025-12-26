@@ -3,5 +3,4 @@ layout: page
 title: About
 description: About the label placeholder.
 ---
-
-Blackbox Records is an independent label focused on forward-leaning electronic music.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.

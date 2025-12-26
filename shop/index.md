@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Webstore
-description: Shop placeholder page.
+description: Webstore placeholder.
 ---
-
-Store listings will be added in the final phase. For now, this page is a placeholder.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident.
