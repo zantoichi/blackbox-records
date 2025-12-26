@@ -6,6 +6,20 @@ main_class: site-main--home
 body_class: home-snap
 ---
 
+{% assign home = site.data.home %}
+{% assign releases = site.data.releases.items | sort: "year" | reverse | slice: 0, 3 %}
+{% assign artists = site.data.artists.items | slice: 0, 5 %}
+{% assign news_items = site.data.news.items | limit: 3 %}
+{% assign newsletter = site.data.newsletter %}
+{% assign current_year = 'now' | date: '%Y' | plus: 0 %}
+{% assign established_year = site.data.settings.established_year | default: current_year | plus: 0 %}
+{% assign years_active = current_year | minus: established_year | plus: 1 %}
+{% if years_active < 1 %}
+{% assign years_active = 1 %}
+{% endif %}
+{% assign artists_with_country = site.data.artists.items | where_exp: "item", "item.country" %}
+{% assign country_names = artists_with_country | map: "country" | uniq %}
+{% assign country_count = country_names | size %}
 <section class="hero snap-section" id="hero">
   <div class="hero__pattern" aria-hidden="true">
     <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
@@ -17,17 +31,16 @@ body_class: home-snap
   <div class="hero__ring hero__ring--lg" aria-hidden="true"></div>
   <div class="hero__ring hero__ring--md" aria-hidden="true"></div>
   <div class="hero__ring hero__ring--sm" aria-hidden="true"></div>
-
   <div class="hero__content site-container">
     <div class="hero__logo">
       <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="BlackBox Records">
     </div>
     <p class="hero__tagline">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor quis nisi tincidunt eleifend.
+      {{ home.hero.tagline }}
     </p>
     <div class="hero__actions">
-      <a class="button button--primary" href="{{ '/artists/' | relative_url }}">Explore Artists</a>
-      <a class="button button--outline" href="{{ '/shop/' | relative_url }}">Visit Shop</a>
+      <a class="button button--primary" href="{{ home.hero.primary_url | relative_url }}">{{ home.hero.primary_label }}</a>
+      <a class="button button--outline" href="{{ home.hero.secondary_url | relative_url }}">{{ home.hero.secondary_label }}</a>
     </div>
   </div>
 
@@ -43,45 +56,25 @@ body_class: home-snap
   <div class="site-container">
     <div class="section-header">
       <div>
-        <p class="section-kicker">Latest</p>
-        <h2 class="section-title">FEATURED RELEASES</h2>
+        <p class="section-kicker">{{ home.latest_releases.kicker }}</p>
+        <h2 class="section-title">{{ home.latest_releases.title | upcase }}</h2>
       </div>
-      <a class="section-link" href="{{ '/shop/' | relative_url }}">View All <span aria-hidden="true">&rarr;</span></a>
+      <a class="section-link" href="{{ home.latest_releases.link_url | relative_url }}">{{ home.latest_releases.link_label }} <span aria-hidden="true">&rarr;</span></a>
     </div>
-    <div class="release-grid">
-      <a class="release-card" href="{{ '/shop/' | relative_url }}">
-        <div class="release-card__media">
-          <img src="{{ '/assets/images/dark-album-cover-art-.jpg' | relative_url }}" alt="Lorem Ipsum Vol. I">
-          <div class="release-card__overlay">
-            <span>Listen</span>
+    <div class="release-grid release-grid--home">
+      {% for release in releases %}
+        <a class="release-card" href="{{ release.url | default: '/shop/' | relative_url }}">
+          <div class="release-card__media">
+            <img src="{{ release.image | relative_url }}" alt="{{ release.image_alt | default: release.title }}">
+            <div class="release-card__overlay">
+              <span>Listen</span>
+            </div>
           </div>
-        </div>
-        <p class="release-card__year">2024</p>
-        <h3 class="release-card__title">LOREM IPSUM VOL. I</h3>
-        <p class="release-card__artist">Artist Name</p>
-      </a>
-      <a class="release-card" href="{{ '/shop/' | relative_url }}">
-        <div class="release-card__media">
-          <img src="{{ '/assets/images/dark-album-cover-art-.jpg' | relative_url }}" alt="Dolor Sit Amet">
-          <div class="release-card__overlay">
-            <span>Listen</span>
-          </div>
-        </div>
-        <p class="release-card__year">2024</p>
-        <h3 class="release-card__title">DOLOR SIT AMET</h3>
-        <p class="release-card__artist">Another Artist</p>
-      </a>
-      <a class="release-card" href="{{ '/shop/' | relative_url }}">
-        <div class="release-card__media">
-          <img src="{{ '/assets/images/dark-album-cover-art-.jpg' | relative_url }}" alt="Consectetur">
-          <div class="release-card__overlay">
-            <span>Listen</span>
-          </div>
-        </div>
-        <p class="release-card__year">2024</p>
-        <h3 class="release-card__title">CONSECTETUR</h3>
-        <p class="release-card__artist">Third Artist</p>
-      </a>
+          <p class="release-card__year">{{ release.year }}</p>
+          <h3 class="release-card__title">{{ release.title | upcase }}</h3>
+          <p class="release-card__artist">{{ release.artist }}</p>
+        </a>
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -89,45 +82,27 @@ body_class: home-snap
 <section class="section section--border section--card snap-section" id="artists">
   <div class="site-container">
     <div class="section-header section-header--center">
-      <p class="section-kicker">Roster</p>
-      <h2 class="section-title">OUR ARTISTS</h2>
+      <p class="section-kicker">{{ home.artists.kicker }}</p>
+      <h2 class="section-title">{{ home.artists.title | upcase }}</h2>
     </div>
-    <div class="artist-grid">
-      <a class="artist-card" href="{{ '/artists/' | relative_url }}">
-        <img src="{{ '/assets/images/dark-band-photo-moody-.jpg' | relative_url }}" alt="Artist One">
-        <div class="artist-card__overlay"></div>
-        <div class="artist-card__content">
-          <p>Post-Metal</p>
-          <h3>ARTIST ONE <span aria-hidden="true">&nearr;</span></h3>
-        </div>
-      </a>
-      <a class="artist-card" href="{{ '/artists/' | relative_url }}">
-        <img src="{{ '/assets/images/dark-band-photo-moody-.jpg' | relative_url }}" alt="Artist Two">
-        <div class="artist-card__overlay"></div>
-        <div class="artist-card__content">
-          <p>Post-Punk</p>
-          <h3>ARTIST TWO <span aria-hidden="true">&nearr;</span></h3>
-        </div>
-      </a>
-      <a class="artist-card" href="{{ '/artists/' | relative_url }}">
-        <img src="{{ '/assets/images/dark-band-photo-moody-.jpg' | relative_url }}" alt="Artist Three">
-        <div class="artist-card__overlay"></div>
-        <div class="artist-card__content">
-          <p>Post-Hardcore</p>
-          <h3>ARTIST THREE <span aria-hidden="true">&nearr;</span></h3>
-        </div>
-      </a>
-      <a class="artist-card" href="{{ '/artists/' | relative_url }}">
-        <img src="{{ '/assets/images/dark-band-photo-moody-.jpg' | relative_url }}" alt="Artist Four">
-        <div class="artist-card__overlay"></div>
-        <div class="artist-card__content">
-          <p>Indie Rock</p>
-          <h3>ARTIST FOUR <span aria-hidden="true">&nearr;</span></h3>
-        </div>
-      </a>
+    <div class="artist-grid artist-grid--home" data-artist-grid data-max="5" data-baseurl="{{ site.baseurl }}">
+      {% for artist in artists %}
+        <a class="artist-card" href="{{ artist.url | default: '/artists/' | relative_url }}">
+          <img src="{{ artist.image | relative_url }}" alt="{{ artist.image_alt | default: artist.name }}">
+          <div class="artist-card__overlay"></div>
+          <div class="artist-card__content">
+            <p>{{ artist.genre }}</p>
+            <h3>{{ artist.name | upcase }} <span aria-hidden="true">&nearr;</span></h3>
+          </div>
+          <p class="artist-card__bio">{{ artist.bio }}</p>
+        </a>
+      {% endfor %}
     </div>
+    <script type="application/json" id="home-artists-data">
+      {{ site.data.artists.items | jsonify }}
+    </script>
     <div class="section-cta">
-      <a class="button button--outline" href="{{ '/artists/' | relative_url }}">View Full Roster</a>
+      <a class="button button--outline" href="{{ home.artists.cta_url | relative_url }}">{{ home.artists.cta_label }}</a>
     </div>
   </div>
 </section>
@@ -136,36 +111,22 @@ body_class: home-snap
   <div class="site-container">
     <div class="section-header">
       <div>
-        <p class="section-kicker">Updates</p>
-        <h2 class="section-title">LATEST NEWS</h2>
+        <p class="section-kicker">{{ home.news.kicker }}</p>
+        <h2 class="section-title">{{ home.news.title | upcase }}</h2>
       </div>
-      <a class="section-link" href="{{ '/news/' | relative_url }}">All News <span aria-hidden="true">&rarr;</span></a>
+      <a class="section-link" href="{{ home.news.link_url | relative_url }}">{{ home.news.link_label }} <span aria-hidden="true">&rarr;</span></a>
     </div>
     <div class="news-grid">
-      <a class="news-card" href="{{ '/news/' | relative_url }}">
-        <div class="news-card__media">
-          <img src="{{ '/assets/images/dark-concert-venue-.jpg' | relative_url }}" alt="Lorem ipsum">
-        </div>
-        <p class="news-card__date">Dec 2024</p>
-        <h3>Lorem ipsum dolor sit amet consectetur adipiscing</h3>
-        <p class="news-card__excerpt">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-      </a>
-      <a class="news-card" href="{{ '/news/' | relative_url }}">
-        <div class="news-card__media">
-          <img src="{{ '/assets/images/dark-concert-venue-.jpg' | relative_url }}" alt="Praesent vel tortor">
-        </div>
-        <p class="news-card__date">Nov 2024</p>
-        <h3>Praesent vel tortor quis nisi tincidunt eleifend</h3>
-        <p class="news-card__excerpt">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.</p>
-      </a>
-      <a class="news-card" href="{{ '/news/' | relative_url }}">
-        <div class="news-card__media">
-          <img src="{{ '/assets/images/dark-concert-venue-.jpg' | relative_url }}" alt="Vestibulum ante ipsum">
-        </div>
-        <p class="news-card__date">Oct 2024</p>
-        <h3>Vestibulum ante ipsum primis in faucibus</h3>
-        <p class="news-card__excerpt">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
-      </a>
+      {% for item in news_items %}
+        <a class="news-card" href="{{ item.url | default: '/news/' | relative_url }}">
+          <div class="news-card__media">
+            <img src="{{ item.image | relative_url }}" alt="{{ item.image_alt | default: item.title }}">
+          </div>
+          <p class="news-card__date">{{ item.date }}</p>
+          <h3>{{ item.title }}</h3>
+          <p class="news-card__excerpt">{{ item.excerpt }}</p>
+        </a>
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -174,29 +135,34 @@ body_class: home-snap
   <div class="site-container about-grid">
     <div class="about-image">
       <div class="about-image__frame"></div>
-      <img src="{{ '/assets/images/dark-recording-studio-vintage-equipment.jpg' | relative_url }}" alt="About BlackBox Records">
+      <img src="{{ home.journey.image | relative_url }}" alt="{{ home.journey.image_alt }}">
     </div>
     <div class="about-content">
-      <p class="section-kicker">About</p>
-      <h2 class="section-title">THE JOURNEY</h2>
+      <p class="section-kicker">{{ home.journey.kicker }}</p>
+      <h2 class="section-title">{{ home.journey.title | upcase }}</h2>
       <div class="about-content__body">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-        <p>Praesent vel tortor quis nisi tincidunt eleifend. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
+        {% for paragraph in home.journey.paragraphs %}
+          <p>{{ paragraph }}</p>
+        {% endfor %}
       </div>
       <div class="about-stats">
-        <div>
-          <p>12</p>
-          <span>Artists</span>
-        </div>
-        <div>
-          <p>40</p>
-          <span>Releases</span>
-        </div>
-        <div>
-          <p>1</p>
-          <span>Year</span>
-        </div>
+        {% for stat in home.journey.stats %}
+          {% if stat.key == "artists" %}
+            {% assign stat_value = site.data.artists.items | size %}
+          {% elsif stat.key == "releases" %}
+            {% assign stat_value = site.data.releases.items | size %}
+          {% elsif stat.key == "countries" %}
+            {% assign stat_value = country_count %}
+          {% elsif stat.key == "year" %}
+            {% assign stat_value = years_active %}
+          {% else %}
+            {% assign stat_value = stat.value %}
+          {% endif %}
+          <div>
+            <p>{{ stat_value }}</p>
+            <span>{{ stat.label }}</span>
+          </div>
+        {% endfor %}
       </div>
     </div>
   </div>
@@ -208,14 +174,14 @@ body_class: home-snap
     <span></span>
   </div>
   <div class="site-container newsletter__inner">
-    <p class="section-kicker">Newsletter</p>
-    <h2 class="section-title">JOIN THE JOURNEY</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor quis nisi tincidunt eleifend.</p>
+    <p class="section-kicker">{{ newsletter.kicker }}</p>
+    <h2 class="section-title">{{ newsletter.title | upcase }}</h2>
+    <p>{{ newsletter.description }}</p>
     <form class="newsletter__form">
       <label class="visually-hidden" for="newsletter-email">Email address</label>
-      <input id="newsletter-email" type="email" placeholder="your@email.com" required>
-      <button type="submit">Subscribe</button>
+      <input id="newsletter-email" type="email" placeholder="{{ newsletter.placeholder }}" required>
+      <button type="submit">{{ newsletter.button_label }}</button>
     </form>
-    <p class="newsletter__note">Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
+    <p class="newsletter__note">{{ newsletter.note }}</p>
   </div>
 </section>

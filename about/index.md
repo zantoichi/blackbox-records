@@ -4,65 +4,77 @@ title: About
 description: About the label.
 ---
 
+{% assign about = site.data.about %}
+{% assign newsletter = site.data.newsletter %}
+{% assign artist_count = site.data.artists.items | size %}
+{% assign release_count = site.data.releases.items | size %}
+{% assign artists_with_country = site.data.artists.items | where_exp: "item", "item.country" %}
+{% assign country_names = artists_with_country | map: "country" | uniq %}
+{% assign country_count = country_names | size %}
+{% assign current_year = 'now' | date: '%Y' | plus: 0 %}
+{% assign established_year = site.data.settings.established_year | default: current_year | plus: 0 %}
+{% assign years_active = current_year | minus: established_year | plus: 1 %}
+{% if years_active < 1 %}
+{% assign years_active = 1 %}
+{% endif %}
 <section class="page-hero">
   <div class="site-container">
-    <p class="page-hero__kicker">About</p>
-    <h1 class="page-hero__title">THE LABEL</h1>
+    <p class="page-hero__kicker">{{ about.hero.kicker }}</p>
+    <h1 class="page-hero__title">{{ about.hero.title | upcase }}</h1>
   </div>
 </section>
-
 <section class="page-hero-image">
-  <img src="{{ '/assets/images/dark-recording-studio-vintage-equipment.jpg' | relative_url }}" alt="BlackBox Records Studio">
+  <img src="{{ about.hero.image | relative_url }}" alt="{{ about.hero.image_alt }}">
   <div class="page-hero-image__overlay"></div>
 </section>
-
 <section class="section">
   <div class="site-container rich-text">
-    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+    <p class="lead">{{ about.lead }}</p>
 
-    <h2>MANIFEST</h2>
-    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <p>Praesent vel tortor quis nisi tincidunt eleifend. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. Nullam quis risus eget urna mollis ornare vel eu leo.</p>
-
-    <h2>PHILOSOPHY</h2>
-    <p>Curabitur blandit tempus porttitor. Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit sit amet non magna. Aenean lacinia bibendum nulla sed consectetur.</p>
-    <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+    {% for section in about.sections %}
+      <h2>{{ section.title | upcase }}</h2>
+      {% for paragraph in section.paragraphs %}
+        <p>{{ paragraph }}</p>
+      {% endfor %}
+    {% endfor %}
 
     <blockquote>
-      <p>&quot;LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT. SED DO EIUSMOD TEMPOR INCIDIDUNT.&quot;</p>
-      <cite>&mdash; Founder, BlackBox Records</cite>
+      <p>&quot;{{ about.quote.text }}&quot;</p>
+      <cite>&mdash; {{ about.quote.cite }}</cite>
     </blockquote>
 
-    <h2>CONTACT</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <h2>{{ about.contact.title | upcase }}</h2>
+    <p>{{ about.contact.intro }}</p>
     <ul>
-      <li><span>General:</span> info@blackboxrecords.com</li>
-      <li><span>Demo Submissions:</span> demos@blackboxrecords.com</li>
-      <li><span>Press:</span> press@blackboxrecords.com</li>
+      {% for item in about.contact.items %}
+        <li><span>{{ item.label }}:</span> {{ item.value }}</li>
+      {% endfor %}
     </ul>
 
   </div>
 </section>
 
 <section class="section section--border section--card">
-  <div class="site-container stats-grid">
-    <div>
-      <p>12</p>
-      <span>Artists</span>
+    <div class="site-container stats-grid">
+      {% for stat in about.stats %}
+        {% case stat.key %}
+          {% when "artists" %}
+            {% assign stat_value = artist_count %}
+          {% when "releases" %}
+            {% assign stat_value = release_count %}
+          {% when "countries" %}
+            {% assign stat_value = country_count %}
+          {% when "year" %}
+            {% assign stat_value = years_active %}
+          {% else %}
+            {% assign stat_value = stat.value %}
+        {% endcase %}
+        <div>
+          <p>{{ stat_value }}</p>
+          <span>{{ stat.label }}</span>
+        </div>
+      {% endfor %}
     </div>
-    <div>
-      <p>40</p>
-      <span>Releases</span>
-    </div>
-    <div>
-      <p>5</p>
-      <span>Countries</span>
-    </div>
-    <div>
-      <p>1</p>
-      <span>Year</span>
-    </div>
-  </div>
 </section>
 
 <section class="section section--border newsletter">
@@ -71,14 +83,14 @@ description: About the label.
     <span></span>
   </div>
   <div class="site-container newsletter__inner">
-    <p class="section-kicker">Newsletter</p>
-    <h2 class="section-title">JOIN THE JOURNEY</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor quis nisi tincidunt eleifend.</p>
+    <p class="section-kicker">{{ newsletter.kicker }}</p>
+    <h2 class="section-title">{{ newsletter.title | upcase }}</h2>
+    <p>{{ newsletter.description }}</p>
     <form class="newsletter__form">
       <label class="visually-hidden" for="about-newsletter-email">Email address</label>
-      <input id="about-newsletter-email" type="email" placeholder="your@email.com" required>
-      <button type="submit">Subscribe</button>
+      <input id="about-newsletter-email" type="email" placeholder="{{ newsletter.placeholder }}" required>
+      <button type="submit">{{ newsletter.button_label }}</button>
     </form>
-    <p class="newsletter__note">Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
+    <p class="newsletter__note">{{ newsletter.note }}</p>
   </div>
 </section>

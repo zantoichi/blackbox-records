@@ -1,0 +1,19 @@
+items:
+  - title: Lorem Ipsum Vol. I
+    year: 2024
+    artist: Artist Name
+    image: /assets/images/dark-album-cover-art-.jpg
+    image_alt: Lorem Ipsum Vol. I
+    url: /shop/
+  - title: Dolor Sit Amet
+    year: 2024
+    artist: Another Artist
+    image: /assets/images/dark-album-cover-art-.jpg
+    image_alt: Dolor Sit Amet
+    url: /shop/
+  - title: Consectetur
+    year: 2024
+    artist: Third Artist
+    image: /assets/images/dark-album-cover-art-.jpg
+    image_alt: Consectetur
+    url: /shop/

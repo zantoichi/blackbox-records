@@ -15,8 +15,8 @@ commit_messages:
   deleteMedia: "chore(media): delete {{path}}"
   openAuthoring: "chore(content): open {{collection}}/{{slug}}"
 
-media_folder: "assets/uploads"
-public_folder: "/assets/uploads"
+media_folder: "assets/images"
+public_folder: "/assets/images"
 
 collections:
   - name: pages
@@ -26,19 +26,16 @@ collections:
         label: Home
         file: index.md
         fields:
+          - { label: Layout, name: layout, widget: hidden, default: default }
           - { label: Title, name: title, widget: string }
           - { label: Description, name: description, widget: string, required: false }
-          - { label: Main Class, name: main_class, widget: string, required: false }
-          - { label: Body Class, name: body_class, widget: string, required: false }
-          - label: Body
-            name: body
-            widget: markdown
-            editor:
-              preview: false
+          - { label: Main Class, name: main_class, widget: hidden, default: site-main--home }
+          - { label: Body Class, name: body_class, widget: hidden, default: home-snap }
       - name: artists
         label: Artists
         file: artists/index.md
         fields:
+          - { label: Layout, name: layout, widget: hidden, default: default }
           - { label: Title, name: title, widget: string }
           - { label: Description, name: description, widget: string, required: false }
           - { label: Hero Kicker, name: hero_kicker, widget: string, required: false }
@@ -46,35 +43,199 @@ collections:
         label: News
         file: news/index.md
         fields:
+          - { label: Layout, name: layout, widget: hidden, default: default }
           - { label: Title, name: title, widget: string }
           - { label: Description, name: description, widget: string, required: false }
-          - label: Body
-            name: body
-            widget: markdown
-            editor:
-              preview: false
+          - { label: Hero Kicker, name: hero_kicker, widget: string, required: false }
       - name: about
         label: About
         file: about/index.md
         fields:
+          - { label: Layout, name: layout, widget: hidden, default: default }
           - { label: Title, name: title, widget: string }
           - { label: Description, name: description, widget: string, required: false }
-          - label: Body
-            name: body
-            widget: markdown
-            editor:
-              preview: false
       - name: shop
         label: Shop
         file: shop/index.md
         fields:
+          - { label: Layout, name: layout, widget: hidden, default: default }
           - { label: Title, name: title, widget: string }
           - { label: Description, name: description, widget: string, required: false }
-          - label: Body
-            name: body
-            widget: markdown
-            editor:
-              preview: false
+          - { label: Hero Kicker, name: hero_kicker, widget: string, required: false }
+  - name: home_content
+    label: Home Content
+    files:
+      - name: home
+        label: Home Sections
+        file: _data/home.yml
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Tagline, name: tagline, widget: text }
+              - { label: Primary Label, name: primary_label, widget: string }
+              - { label: Primary URL, name: primary_url, widget: string }
+              - { label: Secondary Label, name: secondary_label, widget: string }
+              - { label: Secondary URL, name: secondary_url, widget: string }
+          - label: Latest Releases
+            name: latest_releases
+            widget: object
+            fields:
+              - { label: Kicker, name: kicker, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Link Label, name: link_label, widget: string }
+              - { label: Link URL, name: link_url, widget: string }
+          - label: Artists Section
+            name: artists
+            widget: object
+            fields:
+              - { label: Kicker, name: kicker, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: CTA Label, name: cta_label, widget: string }
+              - { label: CTA URL, name: cta_url, widget: string }
+          - label: News Section
+            name: news
+            widget: object
+            fields:
+              - { label: Kicker, name: kicker, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Link Label, name: link_label, widget: string }
+              - { label: Link URL, name: link_url, widget: string }
+          - label: Journey Section
+            name: journey
+            widget: object
+            fields:
+              - { label: Kicker, name: kicker, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Image, name: image, widget: image }
+              - { label: Image Alt, name: image_alt, widget: string, required: false }
+              - label: Paragraphs
+                name: paragraphs
+                widget: list
+                field: { label: Paragraph, name: paragraph, widget: text }
+              - label: Stats
+                name: stats
+                widget: list
+                fields:
+                  - label: Type
+                    name: key
+                    widget: select
+                    options:
+                      - { label: Artists (auto), value: artists }
+                      - { label: Releases (auto), value: releases }
+                      - { label: Countries (auto), value: countries }
+                      - { label: Year (auto), value: year }
+                      - { label: Custom (manual), value: custom }
+                  - { label: Value, name: value, widget: string, required: false }
+                  - { label: Label, name: label, widget: string }
+  - name: releases
+    label: Releases
+    files:
+      - name: releases
+        label: Featured Releases
+        file: _data/releases.yml
+        fields:
+          - label: Items
+            name: items
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Year, name: year, widget: number }
+              - { label: Artist, name: artist, widget: string }
+              - { label: Image, name: image, widget: image }
+              - { label: Image Alt, name: image_alt, widget: string, required: false }
+              - { label: URL, name: url, widget: string, required: false }
+  - name: news_items
+    label: News Items
+    files:
+      - name: news
+        label: News
+        file: _data/news.yml
+        fields:
+          - label: Items
+            name: items
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Date, name: date, widget: string }
+              - { label: Excerpt, name: excerpt, widget: text }
+              - { label: Image, name: image, widget: image }
+              - { label: Image Alt, name: image_alt, widget: string, required: false }
+              - { label: URL, name: url, widget: string, required: false }
+  - name: about_content
+    label: About Content
+    files:
+      - name: about
+        label: About Page
+        file: _data/about.yml
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Kicker, name: kicker, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Image, name: image, widget: image }
+              - { label: Image Alt, name: image_alt, widget: string, required: false }
+          - { label: Lead, name: lead, widget: text }
+          - label: Sections
+            name: sections
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: string }
+              - label: Paragraphs
+                name: paragraphs
+                widget: list
+                field: { label: Paragraph, name: paragraph, widget: text }
+          - label: Quote
+            name: quote
+            widget: object
+            fields:
+              - { label: Text, name: text, widget: text }
+              - { label: Cite, name: cite, widget: string }
+          - label: Contact
+            name: contact
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Intro, name: intro, widget: text }
+              - label: Items
+                name: items
+                widget: list
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Value, name: value, widget: string }
+          - label: Stats
+            name: stats
+            widget: list
+            fields:
+              - label: Type
+                name: key
+                widget: select
+                options:
+                  - { label: Artists (auto), value: artists }
+                  - { label: Releases (auto), value: releases }
+                  - { label: Countries (auto), value: countries }
+                  - { label: Year (auto), value: year }
+                  - { label: Custom (manual), value: custom }
+              - { label: Value, name: value, widget: string, required: false }
+              - { label: Label, name: label, widget: string }
+  - name: newsletter
+    label: Newsletter
+    files:
+      - name: newsletter
+        label: Newsletter Content
+        file: _data/newsletter.yml
+        fields:
+          - { label: Kicker, name: kicker, widget: string }
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: text }
+          - { label: Placeholder, name: placeholder, widget: string }
+          - { label: Button Label, name: button_label, widget: string }
+          - { label: Note, name: note, widget: text }
   - name: data
     label: Site Data
     files:
@@ -112,7 +273,16 @@ collections:
             fields:
               - { label: Name, name: name, widget: string }
               - { label: Genre, name: genre, widget: string }
+              - { label: Country, name: country, widget: string, required: false }
               - { label: Image, name: image, widget: image }
               - { label: Image Alt, name: image_alt, widget: string, required: false }
               - { label: Bio, name: bio, widget: text }
               - { label: URL, name: url, widget: string, required: false }
+  - name: settings
+    label: Site Settings
+    files:
+      - name: settings
+        label: Settings
+        file: _data/settings.yml
+        fields:
+          - { label: Established Year, name: established_year, widget: number }

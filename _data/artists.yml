@@ -1,13 +1,43 @@
 items:
   - name: Artist One
     genre: Post-Metal
-    image: /assets/uploads/dark-band-photo-moody-.jpg
+    country: USA
+    image: /assets/images/dark-band-photo-moody-.jpg
     image_alt: Artist One
     bio: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     url: /artists/
   - name: Artist Two
     genre: Post-Punk
-    image: /assets/uploads/dark-band-photo-moody-.jpg
+    country: UK
+    image: /assets/images/dark-band-photo-moody-.jpg
     image_alt: Artist Two
     bio: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    url: /artists/
+  - name: Artist Three
+    genre: Post-Hardcore
+    country: Germany
+    image: /assets/images/dark-band-photo-moody-.jpg
+    image_alt: Artist Three
+    bio: Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+    url: /artists/
+  - name: Artist Four
+    genre: Indie Rock
+    country: France
+    image: /assets/images/dark-band-photo-moody-.jpg
+    image_alt: Artist Four
+    bio: Duis aute irure dolor in reprehenderit in voluptate velit.
+    url: /artists/
+  - name: Artist Five
+    genre: Shoegaze
+    country: Sweden
+    image: /assets/images/dark-band-photo-moody-.jpg
+    image_alt: Artist Five
+    bio: Excepteur sint occaecat cupidatat non proident sunt in culpa.
+    url: /artists/
+  - name: Artist Six
+    genre: Black Metal
+    country: Canada
+    image: /assets/images/dark-band-photo-moody-.jpg
+    image_alt: Artist Six
+    bio: Praesent vel tortor quis nisi tincidunt eleifend vestibulum.
     url: /artists/
