@@ -34,15 +34,11 @@ collections:
       - name: artists
         label: Artists
         file: artists/index.md
-          fields:
-              - { label:
-                Layout, name:
-                  layout, widget:
-                    hidden, default: default }
-                  - { label: Title, name: title, widget: string }
-                  - { label: Description, name: description, widget: string, required: false }
-                  - { label: Hero Kicker, name: hero_kicker, widget: string, required: false }
-                  - { label: Redirect URL, name: redirect_url, widget: hidden, default: "https://blackboxrecords-shop.fourthwall.com" }
+        fields:
+          - { label: Layout, name: layout, widget: hidden, default: default }
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: string, required: false }
+          - { label: Hero Kicker, name: hero_kicker, widget: string, required: false }
       - name: news
         label: News
         file: news/index.md
@@ -62,10 +58,11 @@ collections:
         label: Shop
         file: shop/index.md
         fields:
-          - { label: Layout, name: layout, widget: hidden, default: default }
+          - { label: Layout, name: layout, widget: hidden, default: redirect }
           - { label: Title, name: title, widget: string }
           - { label: Description, name: description, widget: string, required: false }
           - { label: Hero Kicker, name: hero_kicker, widget: string, required: false }
+          - { label: Redirect URL, name: redirect_url, widget: string, required: false }
   - name: home_content
     label: Home Content
     files:
