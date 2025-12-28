@@ -1,33 +1,44 @@
-<header class="site-header" data-header>
-  <div class="site-container site-header__inner">
-    <a class="site-header__logo" href="{{ '/' | relative_url }}">
+<header class="global-site-header" data-header>
+  <div class="page-content-width-constrained-container global-site-header__layout-row">
+    <a class="global-site-header__logo-link" href="{{ '/' | relative_url }}">
       <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="BlackBox Records">
     </a>
-    <nav class="site-nav" aria-label="Primary">
-      <ul class="site-nav__list">
+    <nav aria-label="Primary" class="global-site-navigation">
+      <ul class="global-site-navigation__list">
         {% for item in site.data.nav.items %}
+        {% assign nav_url = item.url %}
+        {% if item.key == 'releases' %}
+        {% assign nav_url = site.data.home.latest_releases.link_url %}
+        {% endif %}
         <li>
-          <a class="site-nav__link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+          <a class="global-site-navigation__link" href="{{ nav_url | relative_url }}">{{ item.title }}</a>
         </li>
         {% endfor %}
       </ul>
     </nav>
-    <button class="site-header__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav">
-      <span class="visually-hidden">Toggle navigation</span>
-      <svg class="icon icon--menu" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <button aria-controls="mobile-nav" aria-expanded="false" class="global-site-header__menu-toggle" data-nav-toggle
+            type="button">
+      <span class="accessibility-visually-hidden-text">Toggle navigation</span>
+      <svg aria-hidden="true" class="global-site-navigation-toggle-icon global-site-navigation-toggle-icon--open"
+           focusable="false" viewBox="0 0 24 24">
         <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </svg>
-      <svg class="icon icon--close" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <svg aria-hidden="true" class="global-site-navigation-toggle-icon global-site-navigation-toggle-icon--close"
+           focusable="false" viewBox="0 0 24 24">
         <path d="M6 6l12 12M18 6l-12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </svg>
     </button>
   </div>
-  <div class="site-header__mobile" id="mobile-nav" data-mobile-nav>
+  <div class="global-site-header__mobile-panel" data-mobile-nav id="mobile-nav">
     <nav aria-label="Mobile">
-      <ul class="site-nav__list site-nav__list--mobile">
+      <ul class="global-site-navigation__list">
         {% for item in site.data.nav.items %}
+        {% assign nav_url = item.url %}
+        {% if item.key == 'releases' %}
+        {% assign nav_url = site.data.home.latest_releases.link_url %}
+        {% endif %}
         <li>
-          <a class="site-nav__link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+          <a class="global-site-navigation__link" href="{{ nav_url | relative_url }}">{{ item.title }}</a>
         </li>
         {% endfor %}
       </ul>

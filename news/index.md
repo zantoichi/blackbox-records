@@ -4,23 +4,24 @@ title: News
 description: News updates.
 hero_kicker: Updates
 ---
-<section class="page-hero">
-  <div class="site-container">
-    <p class="page-hero__kicker">{{ page.hero_kicker }}</p>
-    <h1 class="page-hero__title">{{ page.title | upcase }}</h1>
+
+<section class="internal-page-hero-section">
+  <div class="page-content-width-constrained-container">
+    <p class="internal-page-hero-kicker-text">{{ page.hero_kicker }}</p>
+    <h1 class="internal-page-hero-title-text">{{ page.title | upcase }}</h1>
   </div>
 </section>
-<section class="section section--compact">
-  <div class="site-container">
-    <div class="news-grid news-grid--full">
+<section class="page-section-compact-spacing">
+  <div class="page-content-width-constrained-container">
+    <div class="news-summary-card-grid news-summary-card-grid--full">
       {% for item in site.data.news.items %}
-        <a class="news-card" href="{{ item.url | default: '/news/' | relative_url }}">
-          <div class="news-card__media">
+        <a class="news-summary-card-link" href="{{ item.url | default: '/news/' | relative_url }}">
+          <div class="news-summary-card-media-frame">
             <img src="{{ item.image | relative_url }}" alt="{{ item.image_alt | default: item.title }}">
           </div>
-          <p class="news-card__date">{{ item.date }}</p>
+          <p class="news-summary-card-date-text">{{ item.date }}</p>
           <h2>{{ item.title }}</h2>
-          <p class="news-card__excerpt">{{ item.excerpt }}</p>
+          <p class="news-summary-card-excerpt-text">{{ item.excerpt }}</p>
         </a>
       {% endfor %}
     </div>

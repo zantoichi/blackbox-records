@@ -8,9 +8,13 @@
 {% elsif site.description %}
 <meta name="description" content="{{ site.description }}">
 {% endif %}
+{% if page.redirect_url %}
+<meta content="0; url={{ page.redirect_url }}" http-equiv="refresh">
+<link href="{{ page.redirect_url }}" rel="canonical">
+{% endif %}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
   href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Geist+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap"
   rel="stylesheet">
-<link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+<link href="{{ '/assets/css/site-styles.css' | relative_url }}" rel="stylesheet">

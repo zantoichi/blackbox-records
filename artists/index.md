@@ -4,24 +4,25 @@ title: Artists
 description: Artists roster.
 hero_kicker: Roster
 ---
-<section class="page-hero">
-  <div class="site-container">
-    <p class="page-hero__kicker">{{ page.hero_kicker }}</p>
-    <h1 class="page-hero__title">{{ page.title | upcase }}</h1>
+
+<section class="internal-page-hero-section">
+  <div class="page-content-width-constrained-container">
+    <p class="internal-page-hero-kicker-text">{{ page.hero_kicker }}</p>
+    <h1 class="internal-page-hero-title-text">{{ page.title | upcase }}</h1>
   </div>
 </section>
-<section class="section section--compact">
-  <div class="site-container">
-    <div class="artist-grid artist-grid--full">
+<section class="page-section-compact-spacing">
+  <div class="page-content-width-constrained-container">
+    <div class="artist-roster-card-grid">
       {% for artist in site.data.artists.items %}
-        <a class="artist-card" href="{{ artist.url | default: '/artists/' | relative_url }}">
+        <a class="artist-roster-card-link" href="{{ artist.url | default: '/artists/' | relative_url }}">
           <img src="{{ artist.image | relative_url }}" alt="{{ artist.image_alt | default: artist.name }}">
-          <div class="artist-card__overlay"></div>
-          <div class="artist-card__content">
+          <div class="artist-roster-card-overlay-layer"></div>
+          <div class="artist-roster-card-text">
             <p>{{ artist.genre }}</p>
             <h3>{{ artist.name | upcase }} <span aria-hidden="true">&nearr;</span></h3>
           </div>
-          <p class="artist-card__bio">{{ artist.bio }}</p>
+          <p class="artist-roster-card-bio-text">{{ artist.bio }}</p>
         </a>
       {% endfor %}
     </div>

@@ -2,10 +2,9 @@
 layout: default
 title: Home
 description: BlackBox Records home.
-main_class: site-main--home
-body_class: home-snap
+main_class: page-main-content-region--home
+body_class: home-scroll-snap-container
 ---
-
 {% assign home = site.data.home %}
 {% assign releases = site.data.releases.items | sort: "year" | reverse | slice: 0, 3 %}
 {% assign artists = site.data.artists.items | slice: 0, 5 %}
@@ -20,132 +19,127 @@ body_class: home-snap
 {% assign artists_with_country = site.data.artists.items | where_exp: "item", "item.country" %}
 {% assign country_names = artists_with_country | map: "country" | uniq %}
 {% assign country_count = country_names | size %}
-<section class="hero snap-section" id="hero">
-  <div class="hero__pattern" aria-hidden="true">
+<section class="homepage-hero-section" id="homepage-hero-section">
+  <div class="homepage-hero-section__background-pattern-layer" aria-hidden="true">
     <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
       <path d="M50 100 Q45 70 50 50 Q55 30 50 0" stroke="currentColor" stroke-width="0.5" fill="none" />
       <path d="M30 100 Q35 60 40 40 Q45 20 50 0" stroke="currentColor" stroke-width="0.3" fill="none" />
       <path d="M70 100 Q65 60 60 40 Q55 20 50 0" stroke="currentColor" stroke-width="0.3" fill="none" />
     </svg>
   </div>
-  <div class="hero__ring hero__ring--lg" aria-hidden="true"></div>
-  <div class="hero__ring hero__ring--md" aria-hidden="true"></div>
-  <div class="hero__ring hero__ring--sm" aria-hidden="true"></div>
-  <div class="hero__content site-container">
-    <div class="hero__logo">
+  <div class="homepage-hero-section__orbit-ring-layer homepage-hero-section__orbit-ring-layer--large" aria-hidden="true"></div>
+  <div class="homepage-hero-section__orbit-ring-layer homepage-hero-section__orbit-ring-layer--medium" aria-hidden="true"></div>
+  <div class="homepage-hero-section__orbit-ring-layer homepage-hero-section__orbit-ring-layer--small" aria-hidden="true"></div>
+  <div class="homepage-hero-section__content-block page-content-width-constrained-container">
+    <div class="homepage-hero-section__logo-lockup">
       <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="BlackBox Records">
     </div>
-    <p class="hero__tagline">
+    <p class="homepage-hero-section__tagline-text">
       {{ home.hero.tagline }}
     </p>
-    <div class="hero__actions">
-      <a class="button button--primary" href="{{ home.hero.primary_url | relative_url }}">{{ home.hero.primary_label }}</a>
-      <a class="button button--outline" href="{{ home.hero.secondary_url | relative_url }}">{{ home.hero.secondary_label }}</a>
+    <div class="homepage-hero-section__action-buttons">
+      <a class="call-to-action-button call-to-action-button--primary" href="{{ home.hero.primary_url | relative_url }}">{{ home.hero.primary_label }}</a>
+      <a class="call-to-action-button call-to-action-button--outline" href="{{ home.hero.secondary_url | relative_url }}">{{ home.hero.secondary_label }}</a>
     </div>
   </div>
-
-  <div class="hero__scroll" aria-hidden="true">
+  <div class="homepage-hero-section__scroll-indicator" aria-hidden="true">
     <span>Scroll</span>
-    <div class="hero__scroll-line">
+    <div class="homepage-hero-section__scroll-indicator-line">
       <span></span>
     </div>
   </div>
 </section>
-
-<section class="section section--border snap-section" id="featured-releases">
-  <div class="site-container">
-    <div class="section-header">
+<section class="page-section-standard-spacing-with-divider" id="featured-releases">
+  <div class="page-content-width-constrained-container">
+    <div class="page-section-header-layout-spaced">
       <div>
-        <p class="section-kicker">{{ home.latest_releases.kicker }}</p>
-        <h2 class="section-title">{{ home.latest_releases.title | upcase }}</h2>
+        <p class="page-section-kicker-text">{{ home.latest_releases.kicker }}</p>
+        <h2 class="page-section-title-text">{{ home.latest_releases.title | upcase }}</h2>
       </div>
-      <a class="section-link" href="{{ home.latest_releases.link_url | relative_url }}">{{ home.latest_releases.link_label }} <span aria-hidden="true">&rarr;</span></a>
+      <a class="page-section-header-link" href="{{ home.latest_releases.link_url | relative_url }}">{{ home.latest_releases.link_label }} <span aria-hidden="true">&rarr;</span></a>
     </div>
-    <div class="release-grid release-grid--home">
+    <div class="release-summary-card-grid">
       {% for release in releases %}
-        <a class="release-card" href="{{ release.url | default: '/shop/' | relative_url }}">
-          <div class="release-card__media">
+        <a class="release-summary-card-link" href="{{ release.url | default: '/shop/' | relative_url }}">
+          <div class="release-summary-card-media-frame">
             <img src="{{ release.image | relative_url }}" alt="{{ release.image_alt | default: release.title }}">
-            <div class="release-card__overlay">
+            <div class="release-summary-card-overlay-layer">
               <span>Listen</span>
             </div>
           </div>
-          <p class="release-card__year">{{ release.year }}</p>
-          <h3 class="release-card__title">{{ release.title | upcase }}</h3>
-          <p class="release-card__artist">{{ release.artist }}</p>
+          <p class="release-summary-card-year-text">{{ release.year }}</p>
+          <h3 class="release-summary-card-title-text">{{ release.title | upcase }}</h3>
+          <p class="release-summary-card-artist-text">{{ release.artist }}</p>
         </a>
       {% endfor %}
     </div>
   </div>
 </section>
-
-<section class="section section--border section--card snap-section" id="artists">
-  <div class="site-container">
-    <div class="section-header section-header--center">
-      <p class="section-kicker">{{ home.artists.kicker }}</p>
-      <h2 class="section-title">{{ home.artists.title | upcase }}</h2>
+<section class="page-section-standard-spacing-with-divider-and-surface-background" id="artists">
+  <div class="page-content-width-constrained-container">
+    <div class="page-section-header-layout-centered-and-stacked">
+      <p class="page-section-kicker-text">{{ home.artists.kicker }}</p>
+      <h2 class="page-section-title-text">{{ home.artists.title | upcase }}</h2>
     </div>
-    <div class="artist-grid artist-grid--home" data-artist-grid data-max="5" data-baseurl="{{ site.baseurl }}">
+    <div class="artist-roster-card-grid artist-roster-card-grid--featured" data-featured-artist-grid data-max-items="5" data-site-base-url="{{ site.baseurl }}">
       {% for artist in artists %}
-        <a class="artist-card" href="{{ artist.url | default: '/artists/' | relative_url }}">
+        <a class="artist-roster-card-link" href="{{ artist.url | default: '/artists/' | relative_url }}">
           <img src="{{ artist.image | relative_url }}" alt="{{ artist.image_alt | default: artist.name }}">
-          <div class="artist-card__overlay"></div>
-          <div class="artist-card__content">
+          <div class="artist-roster-card-overlay-layer"></div>
+          <div class="artist-roster-card-text">
             <p>{{ artist.genre }}</p>
             <h3>{{ artist.name | upcase }} <span aria-hidden="true">&nearr;</span></h3>
           </div>
-          <p class="artist-card__bio">{{ artist.bio }}</p>
+          <p class="artist-roster-card-bio-text">{{ artist.bio }}</p>
         </a>
       {% endfor %}
     </div>
-    <script type="application/json" id="home-artists-data">
+    <script type="application/json" id="homepage-featured-artists-data">
       {{ site.data.artists.items | jsonify }}
     </script>
-    <div class="section-cta">
-      <a class="button button--outline" href="{{ home.artists.cta_url | relative_url }}">{{ home.artists.cta_label }}</a>
+    <div class="page-section-call-to-action-region">
+      <a class="call-to-action-button call-to-action-button--outline" href="{{ home.artists.cta_url | relative_url }}">{{ home.artists.cta_label }}</a>
     </div>
   </div>
 </section>
-
-<section class="section section--border snap-section" id="news">
-  <div class="site-container">
-    <div class="section-header">
+<section class="page-section-standard-spacing-with-divider" id="news">
+  <div class="page-content-width-constrained-container">
+    <div class="page-section-header-layout-spaced">
       <div>
-        <p class="section-kicker">{{ home.news.kicker }}</p>
-        <h2 class="section-title">{{ home.news.title | upcase }}</h2>
+        <p class="page-section-kicker-text">{{ home.news.kicker }}</p>
+        <h2 class="page-section-title-text">{{ home.news.title | upcase }}</h2>
       </div>
-      <a class="section-link" href="{{ home.news.link_url | relative_url }}">{{ home.news.link_label }} <span aria-hidden="true">&rarr;</span></a>
+      <a class="page-section-header-link" href="{{ home.news.link_url | relative_url }}">{{ home.news.link_label }} <span aria-hidden="true">&rarr;</span></a>
     </div>
-    <div class="news-grid">
+    <div class="news-summary-card-grid">
       {% for item in news_items %}
-        <a class="news-card" href="{{ item.url | default: '/news/' | relative_url }}">
-          <div class="news-card__media">
+        <a class="news-summary-card-link" href="{{ item.url | default: '/news/' | relative_url }}">
+          <div class="news-summary-card-media-frame">
             <img src="{{ item.image | relative_url }}" alt="{{ item.image_alt | default: item.title }}">
           </div>
-          <p class="news-card__date">{{ item.date }}</p>
+          <p class="news-summary-card-date-text">{{ item.date }}</p>
           <h3>{{ item.title }}</h3>
-          <p class="news-card__excerpt">{{ item.excerpt }}</p>
+          <p class="news-summary-card-excerpt-text">{{ item.excerpt }}</p>
         </a>
       {% endfor %}
     </div>
   </div>
 </section>
-
-<section class="section section--border section--card snap-section" id="journey">
-  <div class="site-container about-grid">
-    <div class="about-image">
-      <div class="about-image__frame"></div>
+<section class="page-section-standard-spacing-with-divider-and-surface-background" id="journey">
+  <div class="page-content-width-constrained-container about-section-layout-grid">
+    <div class="about-section-image-frame">
+      <div class="about-section-image-outline"></div>
       <img src="{{ home.journey.image | relative_url }}" alt="{{ home.journey.image_alt }}">
     </div>
-    <div class="about-content">
-      <p class="section-kicker">{{ home.journey.kicker }}</p>
-      <h2 class="section-title">{{ home.journey.title | upcase }}</h2>
-      <div class="about-content__body">
+    <div class="about-section-content-block">
+      <p class="page-section-kicker-text">{{ home.journey.kicker }}</p>
+      <h2 class="page-section-title-text">{{ home.journey.title | upcase }}</h2>
+      <div class="about-section-body-text">
         {% for paragraph in home.journey.paragraphs %}
           <p>{{ paragraph }}</p>
         {% endfor %}
       </div>
-      <div class="about-stats">
+      <div class="about-section-statistics-grid">
         {% for stat in home.journey.stats %}
           {% if stat.key == "artists" %}
             {% assign stat_value = site.data.artists.items | size %}
@@ -167,21 +161,20 @@ body_class: home-snap
     </div>
   </div>
 </section>
-
-<section class="section section--border newsletter snap-section" id="newsletter">
-  <div class="newsletter__rings" aria-hidden="true">
+<section class="newsletter-signup-area" id="newsletter-signup-area">
+  <div class="newsletter-background-ring-layer" aria-hidden="true">
     <span></span>
     <span></span>
   </div>
-  <div class="site-container newsletter__inner">
-    <p class="section-kicker">{{ newsletter.kicker }}</p>
-    <h2 class="section-title">{{ newsletter.title | upcase }}</h2>
+  <div class="page-content-width-constrained-container newsletter-content-block">
+    <p class="page-section-kicker-text">{{ newsletter.kicker }}</p>
+    <h2 class="page-section-title-text">{{ newsletter.title | upcase }}</h2>
     <p>{{ newsletter.description }}</p>
-    <form class="newsletter__form">
-      <label class="visually-hidden" for="newsletter-email">Email address</label>
+    <form class="newsletter-signup-form">
+      <label class="accessibility-visually-hidden-text" for="newsletter-email">Email address</label>
       <input id="newsletter-email" type="email" placeholder="{{ newsletter.placeholder }}" required>
       <button type="submit">{{ newsletter.button_label }}</button>
     </form>
-    <p class="newsletter__note">{{ newsletter.note }}</p>
+    <p class="newsletter-signup-note-text">{{ newsletter.note }}</p>
   </div>
 </section>

@@ -3,6 +3,8 @@ items:
     url: /news/
   - title: Artists
     url: /artists/
+  - title: Releases
+    key: releases
   - title: Shop
     url: /shop/
   - title: About

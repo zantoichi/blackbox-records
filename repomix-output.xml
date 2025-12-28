@@ -1,0 +1,5070 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+  This section contains a summary of this file.
+
+  <purpose>
+    This file contains a packed representation of the entire repository's contents.
+    It is designed to be easily consumable by AI systems for analysis, code review,
+    or other automated processes.
+  </purpose>
+
+  <file_format>
+    The content is organized as follows:
+    1. This summary section
+    2. Repository information
+    3. Directory structure
+    4. Repository files (if enabled)
+    5. Multiple file entries, each consisting of:
+    - File path as an attribute
+    - Full contents of the file
+  </file_format>
+
+  <usage_guidelines>
+    - This file should be treated as read-only. Any changes should be made to the
+    original repository files, not this packed version.
+    - When processing this file, use the file path to distinguish
+    between different files in the repository.
+    - Be aware that this file may contain sensitive information. Handle it with
+    the same level of security as you would the original repository.
+  </usage_guidelines>
+
+  <notes>
+    - Some files may have been excluded based on .gitignore rules and Repomix's configuration
+    - Binary files are not included in this packed representation. Please refer to the Repository Structure section for
+    a complete list of file paths, including binary files
+    - Files matching patterns in .gitignore are excluded
+    - Files matching default ignore patterns are excluded
+    - Files are sorted by Git change count (files with more changes are at the bottom)
+  </notes>
+
+</file_summary>
+
+<directory_structure>
+_config.yml
+_data/about.yml
+_data/artists.yml
+_data/home.yml
+_data/nav.yml
+_data/news.yml
+_data/newsletter.yml
+_data/releases.yml
+_data/settings.yml
+_data/socials.yml
+_includes/footer.html
+_includes/head.html
+_includes/header.html
+_layouts/default.html
+_layouts/redirect.html
+.editorconfig
+.gitignore
+.run/Jekyll Dev (Local + Decap).run.xml
+.run/Jekyll Serve.run.xml
+about/index.md
+admin/config.yml
+admin/index.html
+AGENTS.md
+artists/index.md
+assets/css/site.css
+assets/images/placeholder.svg
+assets/js/site.js
+compressed-repo.md
+Gemfile
+index.md
+news/index.md
+README.md
+scripts/dev.ps1
+shop/index.md
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="_layouts/redirect.html">
+  <!doctype html>
+  <html lang="en">
+    <head>
+      {% include head.html %}
+      <script>
+        if (window.location && "{{ page.redirect_url }}") {
+        window.location.replace("{{ page.redirect_url }}");
+        }
+      </script>
+    </head>
+    <body class="redirect-page">
+      <main class="redirect-page__content">
+        <p>Redirecting...</p>
+        <p>
+          <a href="{{ page.redirect_url }}">Continue</a>
+        </p>
+      </main>
+    </body>
+  </html>
+</file>
+
+<file path="compressed-repo.md">
+  This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+  The content has been processed where content has been compressed (code blocks are separated by ⋮---- delimiter).
+
+  # File Summary
+
+  ## Purpose
+  This file contains a packed representation of the entire repository's contents.
+  It is designed to be easily consumable by AI systems for analysis, code review,
+  or other automated processes.
+
+  ## File Format
+  The content is organized as follows:
+  1. This summary section
+  2. Repository information
+  3. Directory structure
+  4. Repository files (if enabled)
+  5. Multiple file entries, each consisting of:
+  a. A header with the file path (## File: path/to/file)
+  b. The full contents of the file in a code block
+
+  ## Usage Guidelines
+  - This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+  - When processing this file, use the file path to distinguish
+  between different files in the repository.
+  - Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+
+  ## Notes
+  - Some files may have been excluded based on .gitignore rules and Repomix's configuration
+  - Binary files are not included in this packed representation. Please refer to the Repository Structure section for a
+  complete list of file paths, including binary files
+  - Files matching patterns in .gitignore are excluded
+  - Files matching default ignore patterns are excluded
+  - Content has been compressed - code blocks are separated by ⋮---- delimiter
+  - Files are sorted by Git change count (files with more changes are at the bottom)
+
+  # Directory Structure
+  ```
+  _config.yml
+  _data/about.yml
+  _data/artists.yml
+  _data/home.yml
+  _data/nav.yml
+  _data/news.yml
+  _data/newsletter.yml
+  _data/releases.yml
+  _data/settings.yml
+  _data/socials.yml
+  _includes/footer.html
+  _includes/head.html
+  _includes/header.html
+  _layouts/default.html
+  .editorconfig
+  .gitignore
+  .run/Jekyll Dev (Local + Decap).run.xml
+  .run/Jekyll Serve.run.xml
+  about/index.md
+  admin/config.yml
+  admin/index.html
+  AGENTS.md
+  artists/index.md
+  assets/css/site.css
+  assets/images/placeholder.svg
+  assets/js/site.js
+  Gemfile
+  index.md
+  news/index.md
+  README.md
+  scripts/dev.ps1
+  shop/index.md
+  ```
+
+  # Files
+
+  ## File: _data/about.yml
+  ```yaml
+  hero:
+  kicker: About
+  title: The Label
+  image: /assets/images/dark-recording-studio-vintage-equipment.jpg
+  image_alt: BlackBox Records Studio
+  lead: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
+  magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+  sections:
+  - title: Manifest
+  paragraphs:
+  - Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+  sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  - Praesent vel tortor quis nisi tincidunt eleifend. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+  posuere cubilia curae. Nullam quis risus eget urna mollis ornare vel eu leo.
+  - title: Philosophy
+  paragraphs:
+  - Curabitur blandit tempus porttitor. Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
+  varius blandit sit amet non magna. Aenean lacinia bibendum nulla sed consectetur.
+  - Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+  Nullam id dolor id nibh ultricies vehicula ut id elit.
+  quote:
+  text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.
+  cite: Founder, BlackBox Records
+  contact:
+  title: Contact
+  intro: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  items:
+  - label: General
+  value: info@blackboxrecords.com
+  - label: Demo Submissions
+  value: demos@blackboxrecords.com
+  - label: Press
+  value: press@blackboxrecords.com
+  stats:
+  - key: artists
+  label: Artists
+  - key: releases
+  label: Releases
+  - key: countries
+  label: Countries
+  - key: year
+  label: Year
+  ```
+
+  ## File: _data/home.yml
+  ```yaml
+  hero:
+  tagline: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor quis nisi tincidunt eleifend.
+  primary_label: Explore Artists
+  primary_url: /artists/
+  secondary_label: Visit Shop
+  secondary_url: /shop/
+  latest_releases:
+  kicker: Latest
+  title: Latest Releases
+  link_label: View All
+  link_url: /shop/
+  artists:
+  kicker: Roster
+  title: Featured Roster
+  cta_label: View Full Roster
+  cta_url: /artists/
+  news:
+  kicker: Updates
+  title: Latest News
+  link_label: All News
+  link_url: /news/
+  journey:
+  kicker: About
+  title: The Journey
+  image: /assets/images/dark-recording-studio-vintage-equipment.jpg
+  image_alt: About BlackBox Records
+  paragraphs:
+  - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna
+  aliqua.
+  - Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+  - Praesent vel tortor quis nisi tincidunt eleifend. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+  posuere cubilia curae.
+  stats:
+  - key: artists
+  label: Artists
+  - key: releases
+  label: Releases
+  ```
+
+  ## File: _data/news.yml
+  ```yaml
+  items:
+  - title: Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+  date: Dec 2024
+  excerpt: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+  enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+  image: /assets/images/dark-concert-venue-.jpg
+  image_alt: Lorem ipsum
+  url: /news/
+  ```
+
+  ## File: _data/newsletter.yml
+  ```yaml
+  kicker: Newsletter
+  title: Join the Journey
+  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor quis nisi tincidunt
+  eleifend.
+  placeholder: your@email.com
+  button_label: Subscribe
+  note: Lorem ipsum dolor sit amet, consectetur adipiscing.
+  ```
+
+  ## File: _data/releases.yml
+  ```yaml
+  items:
+  - title: Lorem Ipsum Vol. I
+  year: 2024
+  artist: Artist Name
+  image: /assets/images/dark-album-cover-art-.jpg
+  image_alt: Lorem Ipsum Vol. I
+  url: /shop/
+  - title: Dolor Sit Amet
+  year: 2024
+  artist: Another Artist
+  image: /assets/images/dark-album-cover-art-.jpg
+  image_alt: Dolor Sit Amet
+  url: /shop/
+  - title: Consectetur
+  year: 2024
+  artist: Third Artist
+  image: /assets/images/dark-album-cover-art-.jpg
+  image_alt: Consectetur
+  url: /shop/
+  ```
+
+  ## File: _data/settings.yml
+  ```yaml
+  established_year: 2026
+  ```
+
+  ## File: .editorconfig
+  ```
+  # top-most EditorConfig file
+  root = true
+
+  #-------------------------------------------------------------------------------
+  # General settings (applies to ALL files)
+  #-------------------------------------------------------------------------------
+  [*]
+  charset = utf-8 # UTF-8 encoding
+  end_of_line = lf # Use LF for cross‐platform consistency
+  indent_style = space # Spaces, not tabs
+  indent_size = 4 # 4-space indent for code clarity
+  tab_width = 4 # Tab width aligns with indent size
+  trim_trailing_whitespace = true # Remove stray spaces
+  insert_final_newline = true # Always end files with newline
+  max_line_length = 120 # Enforce 120-char maximum
+
+  #-------------------------------------------------------------------------------
+  # Markup & Configuration files
+  #-------------------------------------------------------------------------------
+  [*.md]
+  trim_trailing_whitespace = false # Preserve spacing in Markdown
+
+  [*.{yml,yaml}]
+  indent_size = 2 # 2-space YAML indent per Jekyll conventions
+
+  [*.{html,htm,xml,liquid}]
+  indent_size = 2 # 2-space HTML/templating indent
+
+  #-------------------------------------------------------------------------------
+  # Stylesheets & Scripts
+  #-------------------------------------------------------------------------------
+  [*.{css,scss,sass,less}]
+  indent_size = 2 # 2-space CSS/Sass/Less indent
+
+  [*.js]
+  indent_size = 2 # 2-space JavaScript indent
+
+  #-------------------------------------------------------------------------------
+  # Ruby files
+  #-------------------------------------------------------------------------------
+  [*.{rb,Rakefile,Gemfile}]
+  indent_size = 2 # Ruby community standard
+
+  #-------------------------------------------------------------------------------
+  # Makefiles
+  #-------------------------------------------------------------------------------
+  [Makefile]
+  indent_style = tab # Makefiles require tabs
+
+  #-------------------------------------------------------------------------------
+  # WebStorm / IntelliJ IDEA Enhancements
+  #-------------------------------------------------------------------------------
+  ij_continuation_indent_size = 8 # IDE continuation indent
+  ij_formatter_off_tag = @formatter:off # Disable formatter block start
+ij_formatter_on_tag = @formatter:on # Disable formatter block end
+  ij_formatter_tags_enabled = true # Honor off/on tags
+  ij_smart_tabs = false # Avoid mixed tabs/spaces
+  ij_wrap_on_typing = false # Disable auto-wrap while typing
+  ```
+
+  ## File: .gitignore
+  ```
+  # Jekyll build outputs and caches
+  /_site/* # Jekyll’s generated site
+  .sass-cache/ # Sass cache directory
+  .jekyll-cache/ # Jekyll build cache
+  .jekyll-metadata # Jekyll metadata file
+
+  # Ruby & Bundler
+  .bundle/ # Bundler cache directory
+  vendor/ # Vendor gem directory (if used)
+
+  # Dependency directories
+  node_modules/ # Node.js dependencies
+  npm-debug.log* # npm debug logs
+  yarn-error.log* # Yarn error logs
+
+  # Operating system files
+  .DS_Store # macOS file metadata
+  Thumbs.db # Windows image cache
+  desktop.ini # Windows desktop configuration
+
+  # JetBrains WebStorm / IntelliJ IDEA
+  .idea/ # IDE project files
+  *.iml # Module files
+  out/ # Compiler output
+
+  # Editor backups and temp files
+  *~ # Editor backup files
+  *.swp # Vim swap files
+  *.tmp # Temporary files
+
+  # Logs
+  *.log # Log files
+
+  # IDE-independent helpers
+  .vscode/ # VSCode settings
+
+  # Custom Domain file
+  CNAME # keep under source control but ignore deployment outputs
+
+  # Miscellaneous
+  *.pem # SSL certificates
+  /_site/*
+
+  cachedData/
+  files/
+
+  ### IntelliJ IDEA ###
+  .idea/*
+  *.iws
+  *.iml
+  *.ipr
+  out/
+  !**/src/main/**/out/
+  !**/src/test/**/out/
+
+  ### NetBeans ###
+  /nbproject/private/
+  /nbbuild/
+  /dist/
+  /nbdist/
+  /.nb-gradle/
+  build/
+
+  ### VS Code ###
+  .vscode/
+  ```
+
+  ## File: .run/Jekyll Dev (Local + Decap).run.xml
+  ```xml
+  <component name="ProjectRunConfigurationManager">
+    <configuration default="false" name="Jekyll Dev (Local + Decap)" type="ShConfigurationType">
+      <option name="SCRIPT_TEXT" value=""/>
+      <option name="INDEPENDENT_SCRIPT_PATH" value="false"/>
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/scripts/dev.ps1"/>
+      <option name="SCRIPT_OPTIONS" value=""/>
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true"/>
+      <option name="SCRIPT_WORKING_DIRECTORY" value=""/>
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true"/>
+      <option name="INTERPRETER_PATH" value=""/>
+      <option name="INTERPRETER_OPTIONS" value=""/>
+      <option name="EXECUTE_IN_TERMINAL" value="true"/>
+      <option name="EXECUTE_SCRIPT_FILE" value="true"/>
+      <envs/>
+      <method v="2"/>
+    </configuration>
+  </component>
+  ```
+
+  ## File: admin/index.html
+  ```html
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Content Manager</title>
+    </head>
+    <body>
+      <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    </body>
+  </html>
+  ```
+
+  ## File: assets/images/placeholder.svg
+  ```
+  <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" fill="none">
+    <rect width="1200" height="1200" fill="#EAEAEA" rx="3"/>
+    <g opacity=".5">
+      <g opacity=".5">
+        <path fill="#FAFAFA"
+              d="M600.709 736.5c-75.454 0-136.621-61.167-136.621-136.62 0-75.454 61.167-136.621 136.621-136.621 75.453 0 136.62 61.167 136.62 136.621 0 75.453-61.167 136.62-136.62 136.62Z"/>
+        <path stroke="#C9C9C9" stroke-width="2.418"
+              d="M600.709 736.5c-75.454 0-136.621-61.167-136.621-136.62 0-75.454 61.167-136.621 136.621-136.621 75.453 0 136.62 61.167 136.62 136.621 0 75.453-61.167 136.62-136.62 136.62Z"/>
+      </g>
+      <path stroke="url(#a)" stroke-width="2.418" d="M0-1.209h553.581"
+            transform="scale(1 -1) rotate(45 1163.11 91.165)"/>
+      <path stroke="url(#b)" stroke-width="2.418" d="M404.846 598.671h391.726"/>
+      <path stroke="url(#c)" stroke-width="2.418" d="M599.5 795.742V404.017"/>
+      <path stroke="url(#d)" stroke-width="2.418" d="m795.717 796.597-391.441-391.44"/>
+      <path fill="#fff"
+            d="M600.709 656.704c-31.384 0-56.825-25.441-56.825-56.824 0-31.384 25.441-56.825 56.825-56.825 31.383 0 56.824 25.441 56.824 56.825 0 31.383-25.441 56.824-56.824 56.824Z"/>
+      <g clip-path="url(#e)">
+        <path fill="#666" fill-rule="evenodd"
+              d="M616.426 586.58h-31.434v16.176l3.553-3.554.531-.531h9.068l.074-.074 8.463-8.463h2.565l7.18 7.181V586.58Zm-15.715 14.654 3.698 3.699 1.283 1.282-2.565 2.565-1.282-1.283-5.2-5.199h-6.066l-5.514 5.514-.073.073v2.876a2.418 2.418 0 0 0 2.418 2.418h26.598a2.418 2.418 0 0 0 2.418-2.418v-8.317l-8.463-8.463-7.181 7.181-.071.072Zm-19.347 5.442v4.085a6.045 6.045 0 0 0 6.046 6.045h26.598a6.044 6.044 0 0 0 6.045-6.045v-7.108l1.356-1.355-1.282-1.283-.074-.073v-17.989h-38.689v23.43l-.146.146.146.147Z"
+              clip-rule="evenodd"/>
+      </g>
+      <path stroke="#C9C9C9" stroke-width="2.418"
+            d="M600.709 656.704c-31.384 0-56.825-25.441-56.825-56.824 0-31.384 25.441-56.825 56.825-56.825 31.383 0 56.824 25.441 56.824 56.825 0 31.383-25.441 56.824-56.824 56.824Z"/>
+    </g>
+    <defs>
+      <linearGradient id="a" x1="554.061" x2="-.48" y1=".083" y2=".087" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#C9C9C9" stop-opacity="0"/>
+        <stop offset=".208" stop-color="#C9C9C9"/>
+        <stop offset=".792" stop-color="#C9C9C9"/>
+        <stop offset="1" stop-color="#C9C9C9" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="b" x1="796.912" x2="404.507" y1="599.963" y2="599.965" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#C9C9C9" stop-opacity="0"/>
+        <stop offset=".208" stop-color="#C9C9C9"/>
+        <stop offset=".792" stop-color="#C9C9C9"/>
+        <stop offset="1" stop-color="#C9C9C9" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="c" x1="600.792" x2="600.794" y1="403.677" y2="796.082" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#C9C9C9" stop-opacity="0"/>
+        <stop offset=".208" stop-color="#C9C9C9"/>
+        <stop offset=".792" stop-color="#C9C9C9"/>
+        <stop offset="1" stop-color="#C9C9C9" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="d" x1="404.85" x2="796.972" y1="403.903" y2="796.02" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#C9C9C9" stop-opacity="0"/>
+        <stop offset=".208" stop-color="#C9C9C9"/>
+        <stop offset=".792" stop-color="#C9C9C9"/>
+        <stop offset="1" stop-color="#C9C9C9" stop-opacity="0"/>
+      </linearGradient>
+      <clipPath id="e">
+        <path fill="#fff" d="M581.364 580.535h38.689v38.689h-38.689z"/>
+      </clipPath>
+    </defs>
+  </svg>
+  ```
+
+  ## File: Gemfile
+  ```
+  source "https://rubygems.org"
+
+  gem "github-pages", group: :jekyll_plugins
+  gem "fiddle"
+  gem "wdm", "~> 0.2.0" if Gem.win_platform?
+  ```
+
+  ## File: scripts/dev.ps1
+  ```powershell
+  $ErrorActionPreference = "Stop"
+
+  $projectRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
+  Set-Location $projectRoot
+
+  $decap = Start-Process -FilePath "cmd.exe" -ArgumentList "/c", "npx decap-server" -WorkingDirectory $projectRoot
+  -NoNewWindow -PassThru
+
+  try {
+  bundle exec jekyll serve
+  } finally {
+  if ($decap -and -not $decap.HasExited) {
+  $decap.CloseMainWindow() | Out-Null
+  Start-Sleep -Milliseconds 500
+  if (-not $decap.HasExited) {
+  Stop-Process -Id $decap.Id -Force
+  }
+  }
+  }
+  ```
+
+  ## File: _data/artists.yml
+  ```yaml
+  items:
+  - name: Artist One
+  genre: Post-Metal
+  country: USA
+  image: /assets/images/dark-band-photo-moody-.jpg
+  image_alt: Artist One
+  bio: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  url: /artists/
+  - name: Artist Two
+  genre: Post-Punk
+  country: UK
+  image: /assets/images/dark-band-photo-moody-.jpg
+  image_alt: Artist Two
+  bio: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  url: /artists/
+  - name: Artist Three
+  genre: Post-Hardcore
+  country: Germany
+  image: /assets/images/dark-band-photo-moody-.jpg
+  image_alt: Artist Three
+  bio: Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+  url: /artists/
+  - name: Artist Four
+  genre: Indie Rock
+  country: France
+  image: /assets/images/dark-band-photo-moody-.jpg
+  image_alt: Artist Four
+  bio: Duis aute irure dolor in reprehenderit in voluptate velit.
+  url: /artists/
+  - name: Artist Five
+  genre: Shoegaze
+  country: Sweden
+  image: /assets/images/dark-band-photo-moody-.jpg
+  image_alt: Artist Five
+  bio: Excepteur sint occaecat cupidatat non proident sunt in culpa.
+  url: /artists/
+  - name: Artist Six
+  genre: Black Metal
+  country: Canada
+  image: /assets/images/dark-band-photo-moody-.jpg
+  image_alt: Artist Six
+  bio: Praesent vel tortor quis nisi tincidunt eleifend vestibulum.
+  url: /artists/
+  ```
+
+  ## File: _includes/head.html
+  ```html
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    {% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}
+  </title>
+  {% if page.description %}
+  <meta name="description" content="{{ page.description }}">
+  {% elsif site.description %}
+  <meta name="description" content="{{ site.description }}">
+  {% endif %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Geist+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+    ```
+
+    ## File: .run/Jekyll Serve.run.xml
+    ```xml
+    <component name="ProjectRunConfigurationManager">
+      <configuration default="false" name="Jekyll Serve" type="ShConfigurationType">
+        <option name="SCRIPT_TEXT" value="bundle exec jekyll serve"/>
+        <option name="INDEPENDENT_SCRIPT_PATH" value="false"/>
+        <option name="SCRIPT_PATH" value="$PROJECT_DIR$/scripts/jekyll-serve.cmd"/>
+        <option name="SCRIPT_OPTIONS" value=""/>
+        <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true"/>
+        <option name="SCRIPT_WORKING_DIRECTORY" value=""/>
+        <option name="INDEPENDENT_INTERPRETER_PATH" value="true"/>
+        <option name="INTERPRETER_PATH" value=""/>
+        <option name="INTERPRETER_OPTIONS" value=""/>
+        <option name="EXECUTE_IN_TERMINAL" value="true"/>
+        <option name="EXECUTE_SCRIPT_FILE" value="false"/>
+        <envs/>
+        <method v="2"/>
+      </configuration>
+    </component>
+    ```
+
+    ## File: admin/config.yml
+    ```yaml
+    local_backend: true
+
+    backend:
+    name: github
+    repo: zantoichi/blackbox-records
+    branch: main
+    base_url: https://api.netlify.com
+    auth_endpoint: auth
+
+    commit_messages:
+    create: "feat(content): create {{collection}}/{{slug}}"
+    update: "chore(content): update {{collection}}/{{slug}}"
+    delete: "chore(content): delete {{collection}}/{{slug}}"
+    uploadMedia: "chore(media): upload {{path}}"
+    deleteMedia: "chore(media): delete {{path}}"
+    openAuthoring: "chore(content): open {{collection}}/{{slug}}"
+
+    media_folder: "assets/images"
+    public_folder: "/assets/images"
+
+    collections:
+    - name: pages
+    label: Pages
+    files:
+    - name: home
+    label: Home
+    file: index.md
+    fields:
+    - { label: Layout, name: layout, widget: hidden, default: default }
+    - { label: Title, name: title, widget: string }
+    - { label: Description, name: description, widget: string, required: false }
+    - { label: Main Class, name: main_class, widget: hidden, default: site-main--home }
+    - { label: Body Class, name: body_class, widget: hidden, default: home-snap }
+    - name: artists
+    label: Artists
+    file: artists/index.md
+    fields:
+    - { label: Layout, name: layout, widget: hidden, default: default }
+    - { label: Title, name: title, widget: string }
+    - { label: Description, name: description, widget: string, required: false }
+    - { label: Hero Kicker, name: hero_kicker, widget: string, required: false }
+    - name: news
+    label: News
+    file: news/index.md
+    fields:
+    - { label: Layout, name: layout, widget: hidden, default: default }
+    - { label: Title, name: title, widget: string }
+    - { label: Description, name: description, widget: string, required: false }
+    - { label: Hero Kicker, name: hero_kicker, widget: string, required: false }
+    - name: about
+    label: About
+    file: about/index.md
+    fields:
+    - { label: Layout, name: layout, widget: hidden, default: default }
+    - { label: Title, name: title, widget: string }
+    - { label: Description, name: description, widget: string, required: false }
+    - name: shop
+    label: Shop
+    file: shop/index.md
+    fields:
+    - { label: Layout, name: layout, widget: hidden, default: default }
+    - { label: Title, name: title, widget: string }
+    - { label: Description, name: description, widget: string, required: false }
+    - { label: Hero Kicker, name: hero_kicker, widget: string, required: false }
+    - name: home_content
+    label: Home Content
+    files:
+    - name: home
+    label: Home Sections
+    file: _data/home.yml
+    fields:
+    - label: Hero
+    name: hero
+    widget: object
+    fields:
+    - { label: Tagline, name: tagline, widget: text }
+    - { label: Primary Label, name: primary_label, widget: string }
+    - { label: Primary URL, name: primary_url, widget: string }
+    - { label: Secondary Label, name: secondary_label, widget: string }
+    - { label: Secondary URL, name: secondary_url, widget: string }
+    - label: Latest Releases
+    name: latest_releases
+    widget: object
+    fields:
+    - { label: Kicker, name: kicker, widget: string }
+    - { label: Title, name: title, widget: string }
+    - { label: Link Label, name: link_label, widget: string }
+    - { label: Link URL, name: link_url, widget: string }
+    - label: Artists Section
+    name: artists
+    widget: object
+    fields:
+    - { label: Kicker, name: kicker, widget: string }
+    - { label: Title, name: title, widget: string }
+    - { label: CTA Label, name: cta_label, widget: string }
+    - { label: CTA URL, name: cta_url, widget: string }
+    - label: News Section
+    name: news
+    widget: object
+    fields:
+    - { label: Kicker, name: kicker, widget: string }
+    - { label: Title, name: title, widget: string }
+    - { label: Link Label, name: link_label, widget: string }
+    - { label: Link URL, name: link_url, widget: string }
+    - label: Journey Section
+    name: journey
+    widget: object
+    fields:
+    - { label: Kicker, name: kicker, widget: string }
+    - { label: Title, name: title, widget: string }
+    - { label: Image, name: image, widget: image }
+    - { label: Image Alt, name: image_alt, widget: string, required: false }
+    - label: Paragraphs
+    name: paragraphs
+    widget: list
+    field: { label: Paragraph, name: paragraph, widget: text }
+    - label: Stats
+    name: stats
+    widget: list
+    fields:
+    - label: Type
+    name: key
+    widget: select
+    options:
+    - { label: Artists (auto), value: artists }
+    - { label: Releases (auto), value: releases }
+    - { label: Countries (auto), value: countries }
+    - { label: Year (auto), value: year }
+    - { label: Custom (manual), value: custom }
+    - { label: Value, name: value, widget: string, required: false }
+    - { label: Label, name: label, widget: string }
+    - name: releases
+    label: Releases
+    files:
+    - name: releases
+    label: Featured Releases
+    file: _data/releases.yml
+    fields:
+    - label: Items
+    name: items
+    widget: list
+    summary: "{{fields.title}}"
+    fields:
+    - { label: Title, name: title, widget: string }
+    - { label: Year, name: year, widget: number }
+    - { label: Artist, name: artist, widget: string }
+    - { label: Image, name: image, widget: image }
+    - { label: Image Alt, name: image_alt, widget: string, required: false }
+    - { label: URL, name: url, widget: string, required: false }
+    - name: news_items
+    label: News Items
+    files:
+    - name: news
+    label: News
+    file: _data/news.yml
+    fields:
+    - label: Items
+    name: items
+    widget: list
+    summary: "{{fields.title}}"
+    fields:
+    - { label: Title, name: title, widget: string }
+    - { label: Date, name: date, widget: string }
+    - { label: Excerpt, name: excerpt, widget: text }
+    - { label: Image, name: image, widget: image }
+    - { label: Image Alt, name: image_alt, widget: string, required: false }
+    - { label: URL, name: url, widget: string, required: false }
+    - name: about_content
+    label: About Content
+    files:
+    - name: about
+    label: About Page
+    file: _data/about.yml
+    fields:
+    - label: Hero
+    name: hero
+    widget: object
+    fields:
+    - { label: Kicker, name: kicker, widget: string }
+    - { label: Title, name: title, widget: string }
+    - { label: Image, name: image, widget: image }
+    - { label: Image Alt, name: image_alt, widget: string, required: false }
+    - { label: Lead, name: lead, widget: text }
+    - label: Sections
+    name: sections
+    widget: list
+    fields:
+    - { label: Title, name: title, widget: string }
+    - label: Paragraphs
+    name: paragraphs
+    widget: list
+    field: { label: Paragraph, name: paragraph, widget: text }
+    - label: Quote
+    name: quote
+    widget: object
+    fields:
+    - { label: Text, name: text, widget: text }
+    - { label: Cite, name: cite, widget: string }
+    - label: Contact
+    name: contact
+    widget: object
+    fields:
+    - { label: Title, name: title, widget: string }
+    - { label: Intro, name: intro, widget: text }
+    - label: Items
+    name: items
+    widget: list
+    fields:
+    - { label: Label, name: label, widget: string }
+    - { label: Value, name: value, widget: string }
+    - label: Stats
+    name: stats
+    widget: list
+    fields:
+    - label: Type
+    name: key
+    widget: select
+    options:
+    - { label: Artists (auto), value: artists }
+    - { label: Releases (auto), value: releases }
+    - { label: Countries (auto), value: countries }
+    - { label: Year (auto), value: year }
+    - { label: Custom (manual), value: custom }
+    - { label: Value, name: value, widget: string, required: false }
+    - { label: Label, name: label, widget: string }
+    - name: newsletter
+    label: Newsletter
+    files:
+    - name: newsletter
+    label: Newsletter Content
+    file: _data/newsletter.yml
+    fields:
+    - { label: Kicker, name: kicker, widget: string }
+    - { label: Title, name: title, widget: string }
+    - { label: Description, name: description, widget: text }
+    - { label: Placeholder, name: placeholder, widget: string }
+    - { label: Button Label, name: button_label, widget: string }
+    - { label: Note, name: note, widget: text }
+    - name: data
+    label: Site Data
+    files:
+    - name: navigation
+    label: Navigation
+    file: _data/nav.yml
+    fields:
+    - label: Items
+    name: items
+    widget: list
+    fields:
+    - { label: Title, name: title, widget: string }
+    - { label: URL, name: url, widget: string }
+    - name: socials
+    label: Social Links
+    file: _data/socials.yml
+    fields:
+    - label: Items
+    name: items
+    widget: list
+    fields:
+    - { label: Title, name: title, widget: string }
+    - { label: URL, name: url, widget: string }
+    - name: artists_roster
+    label: Artists Roster
+    files:
+    - name: artists
+    label: Artists
+    file: _data/artists.yml
+    fields:
+    - label: Items
+    name: items
+    widget: list
+    summary: "{{fields.name}}"
+    fields:
+    - { label: Name, name: name, widget: string }
+    - { label: Genre, name: genre, widget: string }
+    - { label: Country, name: country, widget: string, required: false }
+    - { label: Image, name: image, widget: image }
+    - { label: Image Alt, name: image_alt, widget: string, required: false }
+    - { label: Bio, name: bio, widget: text }
+    - { label: URL, name: url, widget: string, required: false }
+    - name: settings
+    label: Site Settings
+    files:
+    - name: settings
+    label: Settings
+    file: _data/settings.yml
+    fields:
+    - { label: Established Year, name: established_year, widget: number }
+    ```
+
+    ## File: artists/index.md
+    ```markdown
+    ---
+    layout: default
+    title: Artists
+    description: Artists roster.
+    hero_kicker: Roster
+    ---
+    <section class="page-hero">
+      <div class="site-container">
+        <p class="page-hero__kicker">{{ page.hero_kicker }}</p>
+        <h1 class="page-hero__title">{{ page.title | upcase }}</h1>
+      </div>
+    </section>
+    <section class="section section--compact">
+      <div class="site-container">
+        <div class="artist-grid artist-grid--full">
+          {% for artist in site.data.artists.items %}
+          <a class="artist-card" href="{{ artist.url | default: '/artists/' | relative_url }}">
+            <img src="{{ artist.image | relative_url }}" alt="{{ artist.image_alt | default: artist.name }}">
+            <div class="artist-card__overlay"></div>
+            <div class="artist-card__content">
+              <p>{{ artist.genre }}</p>
+              <h3>{{ artist.name | upcase }}
+                <span aria-hidden="true">&nearr;</span>
+              </h3>
+            </div>
+            <p class="artist-card__bio">{{ artist.bio }}</p>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    ```
+
+    ## File: assets/js/site.js
+    ```javascript
+    initializeHeaderNavigation()
+    initializeHomeArtistShowcase()
+    ⋮----
+    function initializeHeaderNavigation() {
+    const headerElement = findHeaderElement()
+    ⋮----
+    initializeHeaderNavigationElements(headerElement)
+    ⋮----
+    function initializeHeaderNavigationElements(headerElement) {
+    const navToggleButton = findHeaderToggleButton(headerElement)
+    const mobileNavContainer = findMobileNavContainer(headerElement)
+    ⋮----
+    connectHeaderInteractions(headerElement, navToggleButton, mobileNavContainer)
+    ⋮----
+    function connectHeaderInteractions(headerElement, navToggleButton, mobileNavContainer) {
+    connectNavigationToggle(headerElement, navToggleButton)
+    connectNavigationAutoClose(headerElement, navToggleButton, mobileNavContainer)
+    ⋮----
+    function connectNavigationToggle(headerElement, navToggleButton) {
+    navToggleButton.addEventListener('click', () => {
+    const isNavigationOpen = headerElement.classList.contains('is-open')
+    setNavigationState(headerElement, navToggleButton, !isNavigationOpen)
+    ⋮----
+    function connectNavigationAutoClose(headerElement, navToggleButton, mobileNavContainer) {
+    mobileNavContainer.querySelectorAll('a').forEach((linkElement) => {
+    linkElement.addEventListener('click', () => setNavigationState(headerElement, navToggleButton, false))
+    ⋮----
+    function setNavigationState(headerElement, navToggleButton, isOpen) {
+    navToggleButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false')
+    headerElement.classList.toggle('is-open', isOpen)
+    ⋮----
+    function findHeaderElement() {
+    return document.querySelector(HEADER_SELECTOR)
+    ⋮----
+    function findHeaderToggleButton(headerElement) {
+    return headerElement.querySelector(NAV_TOGGLE_SELECTOR)
+    ⋮----
+    function findMobileNavContainer(headerElement) {
+    return headerElement.querySelector(MOBILE_NAV_SELECTOR)
+    ⋮----
+    function findArtistGridElement() {
+    return document.querySelector(ARTIST_GRID_SELECTOR)
+    ⋮----
+    function findArtistsDataElement() {
+    return document.getElementById(ARTISTS_DATA_ELEMENT_ID)
+    ⋮----
+    function initializeHomeArtistShowcase() {
+    const artistGridElement = findArtistGridElement()
+    const artistsDataElement = findArtistsDataElement()
+    ⋮----
+    renderRandomArtistsFromData(artistGridElement, artistsDataElement)
+    ⋮----
+    function renderRandomArtistsFromData(artistGridElement, artistsDataElement) {
+    const artistItems = parseArtistsFromDataElement(artistsDataElement)
+    ⋮----
+    const selectedArtists = selectRandomArtists(artistItems, readArtistSelectionLimit(artistGridElement))
+    renderArtistCards(artistGridElement, selectedArtists, readBaseUrl(artistGridElement))
+    ⋮----
+    function parseArtistsFromDataElement(artistsDataElement) {
+    ⋮----
+    return normalizeArtistsArray(JSON.parse(artistsDataElement.textContent || '[]'))
+    ⋮----
+    function normalizeArtistsArray(parsedArtists) {
+    return Array.isArray(parsedArtists) ? parsedArtists : []
+    ⋮----
+    function readArtistSelectionLimit(artistGridElement) {
+    const rawLimit = Number.parseInt(artistGridElement.dataset.max || '', 10)
+    return Number.isNaN(rawLimit) ? DEFAULT_ARTIST_LIMIT : Math.max(1, rawLimit)
+    ⋮----
+    function readBaseUrl(artistGridElement) {
+    return (artistGridElement.dataset.baseurl || '').replace(/\/$/, '')
+    ⋮----
+    function selectRandomArtists(artistItems, artistLimit) {
+    const shuffledArtists = shuffleArtists(artistItems.slice())
+    return shuffledArtists.slice(0, Math.min(artistLimit, shuffledArtists.length))
+    ⋮----
+    function shuffleArtists(artistsToShuffle) {
+    return artistsToShuffle.sort(() => Math.random() - 0.5)
+    ⋮----
+    function renderArtistCards(artistGridElement, selectedArtists, baseUrl) {
+    clearElementChildren(artistGridElement)
+    selectedArtists.map((artist) => createArtistCard(artist, baseUrl)).forEach((card) =>
+    artistGridElement.appendChild(card))
+    ⋮----
+    function clearElementChildren(elementToClear) {
+    ⋮----
+    function createArtistCard(artist, baseUrl) {
+    const cardElement = createArtistCardAnchor(artist, baseUrl)
+    const cardChildren = buildArtistCardChildren(artist, baseUrl)
+    cardChildren.forEach((child) => cardElement.appendChild(child))
+    ⋮----
+    function buildArtistCardChildren(artist, baseUrl) {
+    const children = [createArtistImage(artist, baseUrl), createArtistOverlay(), createArtistContent(artist),
+    createArtistBio(artist)]
+    return children.filter(Boolean)
+    ⋮----
+    function createArtistCardAnchor(artist, baseUrl) {
+    const cardElement = document.createElement('a')
+    ⋮----
+    cardElement.href = normalizeUrl(artist.url || '/artists/', baseUrl)
+    ⋮----
+    function createArtistImage(artist, baseUrl) {
+    const imageElement = document.createElement('img')
+    imageElement.src = normalizeUrl(artist.image || '', baseUrl)
+    ⋮----
+    function createArtistOverlay() {
+    const overlayElement = document.createElement('div')
+    ⋮----
+    function createArtistContent(artist) {
+    const contentElement = document.createElement('div')
+    ⋮----
+    appendOptionalGenre(contentElement, artist.genre)
+    contentElement.appendChild(createArtistTitle(artist.name))
+    ⋮----
+    function appendOptionalGenre(contentElement, genreLabel) {
+    ⋮----
+    const genreElement = document.createElement('p')
+    ⋮----
+    contentElement.appendChild(genreElement)
+    ⋮----
+    function createArtistTitle(artistName) {
+    const titleElement = document.createElement('h3')
+    titleElement.textContent = (artistName || '').toUpperCase()
+    titleElement.append(' ', createArrowElement())
+    ⋮----
+    function createArrowElement() {
+    const arrowElement = document.createElement('span')
+    arrowElement.setAttribute('aria-hidden', 'true')
+    ⋮----
+    function createArtistBio(artist) {
+    ⋮----
+    const bioElement = document.createElement('p')
+    ⋮----
+    function normalizeUrl(path, baseUrl) {
+    ⋮----
+    if (/^https?:\/\//i.test(path)) return path
+    ⋮----
+    return path.startsWith('/') ? `${baseUrl}${path}` : `${baseUrl}/${path}`
+    ```
+
+    ## File: README.md
+    ```markdown
+    # blackbox-records
+
+    ## Development
+
+    - `bundle install`
+    - `bundle exec jekyll serve`
+    - `bundle exec jekyll build`
+    ```
+
+    ## File: _config.yml
+    ```yaml
+    title: Blackbox Records
+    description: Experimental record label with a focus on boundary-pushing music.
+    url: ""
+    baseurl: ""
+    permalink: pretty
+    ```
+
+    ## File: _layouts/default.html
+    ```html
+    <!doctype html>
+    <html lang="en">
+      <head>
+        {% include head.html %}
+      </head>
+      <body
+      {% if page.body_class %} class="{{ page.body_class }}"{% endif %}>
+      <a class="skip-link" href="#main">Skip to content</a>
+      {% include header.html %}
+      <main id="main" class="site-main{% if page.main_class %} {{ page.main_class }}{% endif %}">
+        {{ content }}
+      </main>
+      {% include footer.html %}
+      <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
+    </body>
+  </html>
+  ```
+
+  ## File: _data/nav.yml
+  ```yaml
+  items:
+  - title: News
+  url: /news/
+  - title: Artists
+  url: /artists/
+  - title: Releases
+  key: releases
+  - title: Shop
+  url: /shop/
+  - title: About
+  url: /about/
+  ```
+
+  ## File: _data/socials.yml
+  ```yaml
+  items:
+  - title: Instagram
+  url: "#"
+  - title: Bandcamp
+  url: "#"
+  - title: Spotify
+  url: "#"
+  - title: YouTube
+  url: "#"
+  ```
+
+  ## File: about/index.md
+  ```markdown
+  ---
+  layout: default
+  title: About
+  description: About the label.
+  ---
+
+  {% assign about = site.data.about %}
+  {% assign newsletter = site.data.newsletter %}
+  {% assign artist_count = site.data.artists.items | size %}
+  {% assign release_count = site.data.releases.items | size %}
+  {% assign artists_with_country = site.data.artists.items | where_exp: "item", "item.country" %}
+  {% assign country_names = artists_with_country | map: "country" | uniq %}
+  {% assign country_count = country_names | size %}
+  {% assign current_year = 'now' | date: '%Y' | plus: 0 %}
+  {% assign established_year = site.data.settings.established_year | default: current_year | plus: 0 %}
+  {% assign years_active = current_year | minus: established_year | plus: 1 %}
+  {% if years_active
+  <
+  1 %}
+  {% assign years_active = 1 %}
+  {% endif %}
+  <section class="page-hero">
+    <div class="site-container">
+      <p class="page-hero__kicker">{{ about.hero.kicker }}</p>
+      <h1 class="page-hero__title">{{ about.hero.title | upcase }}</h1>
+    </div>
+  </section>
+  <section class="page-hero-image">
+    <img src="{{ about.hero.image | relative_url }}" alt="{{ about.hero.image_alt }}">
+    <div class="page-hero-image__overlay"></div>
+  </section>
+  <section class="section">
+    <div class="site-container rich-text">
+      <p class="lead">{{ about.lead }}</p>
+
+      {% for section in about.sections %}
+      <h2>{{ section.title | upcase }}</h2>
+      {% for paragraph in section.paragraphs %}
+      <p>{{ paragraph }}</p>
+      {% endfor %}
+      {% endfor %}
+
+      <blockquote>
+        <p>&quot;{{ about.quote.text }}&quot;</p>
+        <cite>&mdash; {{ about.quote.cite }}</cite>
+      </blockquote>
+
+      <h2>{{ about.contact.title | upcase }}</h2>
+      <p>{{ about.contact.intro }}</p>
+      <ul>
+        {% for item in about.contact.items %}
+        <li>
+          <span>{{ item.label }}:</span>
+          {{ item.value }}
+        </li>
+        {% endfor %}
+      </ul>
+
+    </div>
+  </section>
+
+  <section class="section section--border section--card">
+    <div class="site-container stats-grid">
+      {% for stat in about.stats %}
+      {% case stat.key %}
+      {% when "artists" %}
+      {% assign stat_value = artist_count %}
+      {% when "releases" %}
+      {% assign stat_value = release_count %}
+      {% when "countries" %}
+      {% assign stat_value = country_count %}
+      {% when "year" %}
+      {% assign stat_value = years_active %}
+      {% else %}
+      {% assign stat_value = stat.value %}
+      {% endcase %}
+      <div>
+        <p>{{ stat_value }}</p>
+        <span>{{ stat.label }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="section section--border newsletter">
+    <div class="newsletter__rings" aria-hidden="true">
+      <span></span>
+      <span></span>
+    </div>
+    <div class="site-container newsletter__inner">
+      <p class="section-kicker">{{ newsletter.kicker }}</p>
+      <h2 class="section-title">{{ newsletter.title | upcase }}</h2>
+      <p>{{ newsletter.description }}</p>
+      <form class="newsletter__form">
+        <label class="visually-hidden" for="about-newsletter-email">Email address</label>
+        <input id="about-newsletter-email" type="email" placeholder="{{ newsletter.placeholder }}" required>
+        <button type="submit">{{ newsletter.button_label }}</button>
+      </form>
+      <p class="newsletter__note">{{ newsletter.note }}</p>
+    </div>
+  </section>
+  ```
+
+  ## File: AGENTS.md
+  ```markdown
+  # AGENTS.md
+
+  ## Purpose
+
+  Build a static record-label website with Jekyll and host it on GitHub Pages. Commerce will be provided by Payhip Free,
+  embedded into a “Shop” section, but the store is implemented LAST.
+
+  Codex must treat this file as the primary persistent project guidance at startup (it does not replace reading code
+  files; it sets conventions and intent). Codex reads `AGENTS.md` before doing work.
+
+  ---
+
+  ## Current Phase and Sequencing
+
+  Phase 0 (now): Site structure + layout system + content scaffolding + CSS foundations.
+  Phase 1: Core pages (Home, Artists, Releases, News, Shows, About, Contact) with placeholder content.
+  Phase 2 (last): Payhip “Shop” integration + production product wiring.
+
+  Hard rule:
+
+  - DO NOT implement the store until the last phase unless explicitly instructed.
+
+  ---
+
+  ## Branding and assets policy
+
+  Until final phase:
+
+  - Use placeholders for logos, wordmarks, icons, and any brand imagery.
+  - Do not pull assets from reference sites.
+  - Any typography choices should be temporary unless specified.
+
+  When branding is added at the end:
+
+  - Replace placeholders cleanly without rewriting templates.
+
+  ---
+
+  Workflow:
+
+  ---
+
+  ## Tech stack
+
+  - Jekyll + Liquid templates
+  - GitHub Pages hosting/build
+  - Minimal vanilla JS (only when needed) but ideally typescript
+  - Payhip Free embedded checkout/cart (implemented last)
+
+  ---
+
+  ## Repository conventions
+
+  Keep the structure predictable:
+
+  - `_layouts/` : layouts (default, page, post, etc.)
+  - `_includes/` : reusable components (header, footer, nav, card, etc.)
+  - `_data/` : structured site data (nav, socials, settings, later: payhip products)
+  - `assets/` : CSS/JS/images
+  - Optional collections (only if we benefit from them):
+  - `_artists/`
+  - `_releases/`
+  - `_news/`
+  - `_shows/`
+
+  Rules:
+
+  - Prefer data-driven rendering over duplicated markup.
+  - One obvious place to edit navigation: `_data/nav.yml` (or similar).
+  - No heavyweight JS frameworks. No build tool sprawl.
+
+  ---
+
+  ## Local development (Windows + WebStorm)
+
+  Assume:
+
+  - Editing in WebStorm on Windows.
+  - Running Jekyll via Bundler.
+  - Keep commands in `README.md` and consistent with GitHub Pages build.
+
+  Standard commands:
+
+  - `bundle install`
+  - `bundle exec jekyll serve --livereload`
+  - `bundle exec jekyll build`
+
+  If Ruby on Windows becomes painful, use WSL2 for running the Jekyll commands, but keep the repo editable in WebStorm.
+
+  ---
+
+  ## Codex operating instructions
+
+  Codex should:
+
+  1) Read `_config.yml`, the main layout(s), and key includes before editing.
+  2) Make small, reviewable changes (avoid sweeping refactors) that ideally should become commits using the Conventional
+  Commits specification.
+  3) Follow the sequencing rules (no Payhip until Phase 2).
+  4) Keep CSS consistent with the design tokens (type scale + spacing scale).
+  5) Verify build success locally (`jekyll build`) before claiming completion.
+
+  Codex should NOT:
+
+  - Introduce unsupported GitHub Pages plugins without explicit instruction.
+  - Copy code/assets from reference sites.
+  - Implement store logic early.
+
+  ---
+
+  ## CSS strategy
+
+  - Define tokens as CSS variables (type scale, spacing scale, container width, breakpoints).
+  - Keep component styles near their component naming (or grouped by component section).
+  - Ensure accessible defaults: focus states, readable contrast, sensible line-height.
+
+  ---
+
+  ## Payhip integration plan (Phase 2 only)
+
+  Approach:
+
+  - Create `/shop/` page that lists products and renders Payhip buttons.
+  - Include Payhip script once globally (layout head).
+  - Use Payhip “theme=none” and style buttons locally.
+
+  Data:
+
+  - Add `_data/payhip.yml` (or JSON) listing products: id, name, price_display, link, mode (cart|buy), etc.
+  - No hardcoding product IDs inside templates.
+
+  Implementation detail reminder:
+
+  - Payhip embed requires loading `https://payhip.com/payhip.js` and adding anchor tags with Payhip classes/data
+  attributes.
+
+  ---
+
+  ## Definition of done (each task)
+
+  A task is done when:
+
+  - `bundle exec jekyll build` succeeds.
+  - Fonts are okay to be placeholders.
+  - No non-placeholder branding assets are added before final phase.
+  - No Payhip code is added before Phase 2 (unless explicitly authorized).
+  ```
+
+  ## File: news/index.md
+  ```markdown
+  ---
+  layout: default
+  title: News
+  description: News updates.
+  hero_kicker: Updates
+  ---
+  <section class="page-hero">
+    <div class="site-container">
+      <p class="page-hero__kicker">{{ page.hero_kicker }}</p>
+      <h1 class="page-hero__title">{{ page.title | upcase }}</h1>
+    </div>
+  </section>
+  <section class="section section--compact">
+    <div class="site-container">
+      <div class="news-grid news-grid--full">
+        {% for item in site.data.news.items %}
+        <a class="news-card" href="{{ item.url | default: '/news/' | relative_url }}">
+          <div class="news-card__media">
+            <img src="{{ item.image | relative_url }}" alt="{{ item.image_alt | default: item.title }}">
+          </div>
+          <p class="news-card__date">{{ item.date }}</p>
+          <h2>{{ item.title }}</h2>
+          <p class="news-card__excerpt">{{ item.excerpt }}</p>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  ```
+
+  ## File: shop/index.md
+  ```markdown
+  ---
+  layout: default
+  title: Shop
+  description: Shop catalog.
+  hero_kicker: Store
+  ---
+  <section class="page-hero">
+    <div class="site-container">
+      <p class="page-hero__kicker">{{ page.hero_kicker }}</p>
+      <h1 class="page-hero__title">{{ page.title | upcase }}</h1>
+    </div>
+  </section>
+  <section class="section section--tight section--border">
+    <div class="site-container shop-filters">
+      <button class="filter-button filter-button--active" type="button">All</button>
+      <button class="filter-button" type="button">Vinyl</button>
+      <button class="filter-button" type="button">CD</button>
+      <button class="filter-button" type="button">Merch</button>
+    </div>
+  </section>
+  <section class="section section--compact">
+    <div class="site-container">
+      <div class="shop-placeholder">
+        <p>Shop powered by Payhip</p>
+        <p class="shop-placeholder__note">[Payhip embed will be integrated here]</p>
+        <div class="shop-placeholder__frame">
+          <span>Payhip Store Embed</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  ```
+
+  ## File: _includes/header.html
+  ```html
+  <header class="site-header" data-header>
+    <div class="site-container site-header__inner">
+      <a class="site-header__logo" href="{{ '/' | relative_url }}">
+        <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="BlackBox Records">
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          {% for item in site.data.nav.items %}
+          {% assign nav_url = item.url %}
+          {% if item.key == 'releases' %}
+          {% assign nav_url = site.data.home.latest_releases.link_url %}
+          {% endif %}
+          <li>
+            <a class="site-nav__link" href="{{ nav_url | relative_url }}">{{ item.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </nav>
+      <button class="site-header__toggle" type="button" data-nav-toggle aria-expanded="false"
+              aria-controls="mobile-nav">
+        <span class="visually-hidden">Toggle navigation</span>
+        <svg class="icon icon--menu" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <svg class="icon icon--close" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M6 6l12 12M18 6l-12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    <div class="site-header__mobile" id="mobile-nav" data-mobile-nav>
+      <nav aria-label="Mobile">
+        <ul class="site-nav__list site-nav__list--mobile">
+          {% for item in site.data.nav.items %}
+          {% assign nav_url = item.url %}
+          {% if item.key == 'releases' %}
+          {% assign nav_url = site.data.home.latest_releases.link_url %}
+          {% endif %}
+          <li>
+            <a class="site-nav__link" href="{{ nav_url | relative_url }}">{{ item.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+  ```
+
+  ## File: assets/css/site.css
+  ```css
+  :root {
+  ⋮----
+  *,
+  ⋮----
+  html {
+  ⋮----
+  body {
+  ⋮----
+  body.home-snap {
+  ⋮----
+  a {
+  ⋮----
+  a:hover {
+  ⋮----
+  img {
+  ⋮----
+  .visually-hidden {
+  ⋮----
+  .skip-link {
+  ⋮----
+  .skip-link:focus {
+  ⋮----
+  .site-container {
+  ⋮----
+  .site-main {
+  ⋮----
+  .site-main--home {
+  ⋮----
+  .site-header {
+  ⋮----
+  .site-header__inner {
+  ⋮----
+  .site-header__logo img {
+  ⋮----
+  .site-nav {
+  ⋮----
+  .site-nav__list {
+  ⋮----
+  .site-nav__link {
+  ⋮----
+  .site-nav__link:hover {
+  ⋮----
+  .site-header__toggle {
+  ⋮----
+  .site-header__toggle .icon {
+  ⋮----
+  .site-header__toggle .icon--close {
+  ⋮----
+  .site-header__mobile {
+  ⋮----
+  .site-header__mobile .site-nav__list {
+  ⋮----
+  .site-header.is-open .site-header__mobile {
+  ⋮----
+  .site-header.is-open .icon--menu {
+  ⋮----
+  .site-header.is-open .icon--close {
+  ⋮----
+  .hero {
+  ⋮----
+  .snap-section {
+  ⋮----
+  .site-main--home .release-card {
+  ⋮----
+  .site-main--home .release-card:hover {
+  ⋮----
+  .site-main--home .release-card__media {
+  ⋮----
+  .site-main--home .release-card:hover .release-card__media {
+  ⋮----
+  .site-main--home .artist-card__content {
+  ⋮----
+  .site-main--home .artist-card:hover .artist-card__content {
+  ⋮----
+  .site-main--home .news-card__media img {
+  ⋮----
+  .site-main--home .news-card:hover .news-card__media img {
+  ⋮----
+  .site-main--home .news-card h2,
+  ⋮----
+  .site-main--home .news-card:hover h2,
+  ⋮----
+  .hero__pattern {
+  ⋮----
+  .hero__pattern svg {
+  ⋮----
+  .hero__ring {
+  ⋮----
+  .hero__ring--lg {
+  ⋮----
+  .hero__ring--md {
+  ⋮----
+  .hero__ring--sm {
+  ⋮----
+  .hero__content {
+  ⋮----
+  .hero__logo {
+  ⋮----
+  .hero__logo img {
+  ⋮----
+  .hero__tagline {
+  ⋮----
+  .hero__actions {
+  ⋮----
+  .hero__scroll {
+  ⋮----
+  .hero__scroll-line {
+  ⋮----
+  .hero__scroll-line span {
+  ⋮----
+  .button {
+  ⋮----
+  .button--primary {
+  ⋮----
+  .button--primary:hover {
+  ⋮----
+  .button--outline {
+  ⋮----
+  .button--outline:hover {
+  ⋮----
+  .section {
+  ⋮----
+  .section--compact {
+  ⋮----
+  .section--tight {
+  ⋮----
+  .section--border {
+  ⋮----
+  .section--card {
+  ⋮----
+  .section-header {
+  ⋮----
+  .section-header--center {
+  ⋮----
+  .section-kicker {
+  ⋮----
+  .section-title {
+  ⋮----
+  .section-link {
+  ⋮----
+  .section-link:hover {
+  ⋮----
+  .section-cta {
+  ⋮----
+  .release-grid,
+  ⋮----
+  .release-grid {
+  ⋮----
+  .release-grid--home {
+  ⋮----
+  .release-card {
+  ⋮----
+  .release-card__media {
+  ⋮----
+  .release-card__media img {
+  ⋮----
+  .release-card__overlay {
+  ⋮----
+  .release-card__overlay span {
+  ⋮----
+  .release-card:hover img {
+  ⋮----
+  .release-card:hover .release-card__overlay {
+  ⋮----
+  .release-card__year {
+  ⋮----
+  .release-card__title {
+  ⋮----
+  .release-card__artist {
+  ⋮----
+  .artist-grid {
+  ⋮----
+  .artist-grid--home {
+  ⋮----
+  .artist-card {
+  ⋮----
+  .artist-card img {
+  ⋮----
+  .artist-card__overlay {
+  ⋮----
+  .artist-card__content {
+  ⋮----
+  .artist-card__content p {
+  ⋮----
+  .artist-card__content h3 {
+  ⋮----
+  .artist-card__content span {
+  ⋮----
+  .artist-card:hover img {
+  ⋮----
+  .artist-card:hover .artist-card__overlay {
+  ⋮----
+  .artist-card:hover .artist-card__content span {
+  ⋮----
+  .artist-card__bio {
+  ⋮----
+  .news-grid {
+  ⋮----
+  .news-grid--full {
+  ⋮----
+  .news-card {
+  ⋮----
+  .news-card__media {
+  ⋮----
+  .news-grid--full .news-card__media {
+  ⋮----
+  .news-card__media img {
+  ⋮----
+  .news-card:hover img {
+  ⋮----
+  .news-card__date {
+  ⋮----
+  .news-card h2,
+  ⋮----
+  .news-card__excerpt {
+  ⋮----
+  .about-grid {
+  ⋮----
+  .about-image {
+  ⋮----
+  .about-image__frame {
+  ⋮----
+  .about-image img {
+  ⋮----
+  .about-content .section-title {
+  ⋮----
+  .about-content__body {
+  ⋮----
+  .about-content__body p {
+  ⋮----
+  .about-stats {
+  ⋮----
+  .about-stats p {
+  ⋮----
+  .about-stats span {
+  ⋮----
+  .newsletter {
+  ⋮----
+  .newsletter__rings {
+  ⋮----
+  .newsletter__rings span {
+  ⋮----
+  .newsletter__rings span:first-child {
+  ⋮----
+  .newsletter__rings span:last-child {
+  ⋮----
+  .newsletter__inner {
+  ⋮----
+  .newsletter__inner p {
+  ⋮----
+  .newsletter__form {
+  ⋮----
+  .newsletter__form input {
+  ⋮----
+  .newsletter__form button {
+  ⋮----
+  .newsletter__note {
+  ⋮----
+  .page-hero {
+  ⋮----
+  .page-hero__kicker {
+  ⋮----
+  .page-hero__title {
+  ⋮----
+  .page-hero-image {
+  ⋮----
+  .page-hero-image img {
+  ⋮----
+  .page-hero-image__overlay {
+  ⋮----
+  .rich-text {
+  ⋮----
+  .rich-text .lead {
+  ⋮----
+  .rich-text h2 {
+  ⋮----
+  .rich-text p {
+  ⋮----
+  .rich-text blockquote {
+  ⋮----
+  .rich-text blockquote p {
+  ⋮----
+  .rich-text cite {
+  ⋮----
+  .rich-text ul {
+  ⋮----
+  .rich-text li {
+  ⋮----
+  .rich-text li span {
+  ⋮----
+  .stats-grid {
+  ⋮----
+  .stats-grid p {
+  ⋮----
+  .stats-grid span {
+  ⋮----
+  .shop-filters {
+  ⋮----
+  .filter-button {
+  ⋮----
+  .filter-button--active {
+  ⋮----
+  .filter-button:hover {
+  ⋮----
+  .shop-placeholder {
+  ⋮----
+  .shop-placeholder__note {
+  ⋮----
+  .shop-placeholder__frame {
+  ⋮----
+  .product-grid {
+  ⋮----
+  .product-card {
+  ⋮----
+  .product-card__media {
+  ⋮----
+  .product-card__media img {
+  ⋮----
+  .product-card:hover img {
+  ⋮----
+  .product-card__badge {
+  ⋮----
+  .product-card h3 {
+  ⋮----
+  .product-card__artist {
+  ⋮----
+  .product-card__price {
+  ⋮----
+  .site-footer {
+  ⋮----
+  .site-footer__inner {
+  ⋮----
+  .site-footer__brand {
+  ⋮----
+  .site-footer__brand img {
+  ⋮----
+  .site-footer__brand p {
+  ⋮----
+  .site-footer__column h3 {
+  ⋮----
+  .site-footer__column ul {
+  ⋮----
+  .site-footer__column a {
+  ⋮----
+  .site-footer__column a:hover {
+  ⋮----
+  .site-footer__bottom {
+  ⋮----
+  .site-footer__legal {
+  ```
+
+  ## File: index.md
+  ```markdown
+  ---
+  layout: default
+  title: Home
+  description: BlackBox Records home.
+  main_class: site-main--home
+  body_class: home-snap
+  ---
+
+  {% assign home = site.data.home %}
+  {% assign releases = site.data.releases.items | sort: "year" | reverse | slice: 0, 3 %}
+  {% assign artists = site.data.artists.items | slice: 0, 5 %}
+  {% assign news_items = site.data.news.items | limit: 3 %}
+  {% assign newsletter = site.data.newsletter %}
+  {% assign current_year = 'now' | date: '%Y' | plus: 0 %}
+  {% assign established_year = site.data.settings.established_year | default: current_year | plus: 0 %}
+  {% assign years_active = current_year | minus: established_year | plus: 1 %}
+  {% if years_active
+  <
+  1 %}
+  {% assign years_active = 1 %}
+  {% endif %}
+  {% assign artists_with_country = site.data.artists.items | where_exp: "item", "item.country" %}
+  {% assign country_names = artists_with_country | map: "country" | uniq %}
+  {% assign country_count = country_names | size %}
+  <section class="hero snap-section" id="hero">
+    <div class="hero__pattern" aria-hidden="true">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M50 100 Q45 70 50 50 Q55 30 50 0" stroke="currentColor" stroke-width="0.5" fill="none"/>
+        <path d="M30 100 Q35 60 40 40 Q45 20 50 0" stroke="currentColor" stroke-width="0.3" fill="none"/>
+        <path d="M70 100 Q65 60 60 40 Q55 20 50 0" stroke="currentColor" stroke-width="0.3" fill="none"/>
+      </svg>
+    </div>
+    <div class="hero__ring hero__ring--lg" aria-hidden="true"></div>
+    <div class="hero__ring hero__ring--md" aria-hidden="true"></div>
+    <div class="hero__ring hero__ring--sm" aria-hidden="true"></div>
+    <div class="hero__content site-container">
+      <div class="hero__logo">
+        <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="BlackBox Records">
+      </div>
+      <p class="hero__tagline">
+        {{ home.hero.tagline }}
+      </p>
+      <div class="hero__actions">
+        <a class="button button--primary" href="{{ home.hero.primary_url | relative_url }}">{{ home.hero.primary_label
+          }}
+        </a>
+        <a class="button button--outline" href="{{ home.hero.secondary_url | relative_url }}">{{
+          home.hero.secondary_label }}
+        </a>
+      </div>
+    </div>
+
+    <div class="hero__scroll" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="hero__scroll-line">
+        <span></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--border snap-section" id="featured-releases">
+    <div class="site-container">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">{{ home.latest_releases.kicker }}</p>
+          <h2 class="section-title">{{ home.latest_releases.title | upcase }}</h2>
+        </div>
+        <a class="section-link" href="{{ home.latest_releases.link_url | relative_url }}">{{
+          home.latest_releases.link_label }}
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+      <div class="release-grid release-grid--home">
+        {% for release in releases %}
+        <a class="release-card" href="{{ release.url | default: '/shop/' | relative_url }}">
+          <div class="release-card__media">
+            <img src="{{ release.image | relative_url }}" alt="{{ release.image_alt | default: release.title }}">
+            <div class="release-card__overlay">
+              <span>Listen</span>
+            </div>
+          </div>
+          <p class="release-card__year">{{ release.year }}</p>
+          <h3 class="release-card__title">{{ release.title | upcase }}</h3>
+          <p class="release-card__artist">{{ release.artist }}</p>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--border section--card snap-section" id="artists">
+    <div class="site-container">
+      <div class="section-header section-header--center">
+        <p class="section-kicker">{{ home.artists.kicker }}</p>
+        <h2 class="section-title">{{ home.artists.title | upcase }}</h2>
+      </div>
+      <div class="artist-grid artist-grid--home" data-artist-grid data-max="5" data-baseurl="{{ site.baseurl }}">
+        {% for artist in artists %}
+        <a class="artist-card" href="{{ artist.url | default: '/artists/' | relative_url }}">
+          <img src="{{ artist.image | relative_url }}" alt="{{ artist.image_alt | default: artist.name }}">
+          <div class="artist-card__overlay"></div>
+          <div class="artist-card__content">
+            <p>{{ artist.genre }}</p>
+            <h3>{{ artist.name | upcase }}
+              <span aria-hidden="true">&nearr;</span>
+            </h3>
+          </div>
+          <p class="artist-card__bio">{{ artist.bio }}</p>
+        </a>
+        {% endfor %}
+      </div>
+      <script type="application/json" id="home-artists-data">
+        {{ site.data.artists.items | jsonify }}
+      </script>
+      <div class="section-cta">
+        <a class="button button--outline" href="{{ home.artists.cta_url | relative_url }}">{{ home.artists.cta_label
+          }}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--border snap-section" id="news">
+    <div class="site-container">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">{{ home.news.kicker }}</p>
+          <h2 class="section-title">{{ home.news.title | upcase }}</h2>
+        </div>
+        <a class="section-link" href="{{ home.news.link_url | relative_url }}">{{ home.news.link_label }}
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+      <div class="news-grid">
+        {% for item in news_items %}
+        <a class="news-card" href="{{ item.url | default: '/news/' | relative_url }}">
+          <div class="news-card__media">
+            <img src="{{ item.image | relative_url }}" alt="{{ item.image_alt | default: item.title }}">
+          </div>
+          <p class="news-card__date">{{ item.date }}</p>
+          <h3>{{ item.title }}</h3>
+          <p class="news-card__excerpt">{{ item.excerpt }}</p>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--border section--card snap-section" id="journey">
+    <div class="site-container about-grid">
+      <div class="about-image">
+        <div class="about-image__frame"></div>
+        <img src="{{ home.journey.image | relative_url }}" alt="{{ home.journey.image_alt }}">
+      </div>
+      <div class="about-content">
+        <p class="section-kicker">{{ home.journey.kicker }}</p>
+        <h2 class="section-title">{{ home.journey.title | upcase }}</h2>
+        <div class="about-content__body">
+          {% for paragraph in home.journey.paragraphs %}
+          <p>{{ paragraph }}</p>
+          {% endfor %}
+        </div>
+        <div class="about-stats">
+          {% for stat in home.journey.stats %}
+          {% if stat.key == "artists" %}
+          {% assign stat_value = site.data.artists.items | size %}
+          {% elsif stat.key == "releases" %}
+          {% assign stat_value = site.data.releases.items | size %}
+          {% elsif stat.key == "countries" %}
+          {% assign stat_value = country_count %}
+          {% elsif stat.key == "year" %}
+          {% assign stat_value = years_active %}
+          {% else %}
+          {% assign stat_value = stat.value %}
+          {% endif %}
+          <div>
+            <p>{{ stat_value }}</p>
+            <span>{{ stat.label }}</span>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--border newsletter snap-section" id="newsletter">
+    <div class="newsletter__rings" aria-hidden="true">
+      <span></span>
+      <span></span>
+    </div>
+    <div class="site-container newsletter__inner">
+      <p class="section-kicker">{{ newsletter.kicker }}</p>
+      <h2 class="section-title">{{ newsletter.title | upcase }}</h2>
+      <p>{{ newsletter.description }}</p>
+      <form class="newsletter__form">
+        <label class="visually-hidden" for="newsletter-email">Email address</label>
+        <input id="newsletter-email" type="email" placeholder="{{ newsletter.placeholder }}" required>
+        <button type="submit">{{ newsletter.button_label }}</button>
+      </form>
+      <p class="newsletter__note">{{ newsletter.note }}</p>
+    </div>
+  </section>
+  ```
+
+  ## File: _includes/footer.html
+  ```html
+  <footer class="site-footer">
+    <div class="site-container site-footer__inner">
+      <div class="site-footer__brand">
+        <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="BlackBox Records">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua.
+        </p>
+      </div>
+      <div class="site-footer__column">
+        <h3>Sitemap</h3>
+        <ul>
+          {% for item in site.data.nav.items %}
+          {% assign nav_url = item.url %}
+          {% if item.key == 'releases' %}
+          {% assign nav_url = site.data.home.latest_releases.link_url %}
+          {% endif %}
+          <li>
+            <a href="{{ nav_url | relative_url }}">{{ item.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="site-footer__column">
+        <h3>Connect</h3>
+        <ul>
+          {% for item in site.data.socials.items %}
+          <li>
+            <a href="{{ item.url }}">{{ item.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    {% assign current_year = site.time | date: '%Y' | plus: 0 %}
+    {% assign brand_name = site.title | default: 'BlackBox Records' %}
+    {% assign start_year_raw = site.data.settings.start_year | default: site.data.settings.founded_year | default:
+    site.data.settings.established_year %}
+    {% assign founded_year_raw = site.data.settings.founded_year | default: site.data.settings.established_year %}
+    {% if start_year_raw %}
+    {% assign start_year = start_year_raw | plus: 0 %}
+    {% endif %}
+    {% if founded_year_raw %}
+    {% assign founded_year = founded_year_raw | plus: 0 %}
+    {% endif %}
+    {% if start_year and start_year > current_year %}
+    {% assign start_year = current_year %}
+    {% endif %}
+    {% if start_year and start_year
+    < current_year
+    %}
+    {% assign copyright_years = start_year | append: '&ndash;' | append: current_year %}
+    {% else %}
+    {% assign copyright_years = current_year %}
+    {% endif %}
+    <div class="site-footer__bottom site-container">
+      <p>&copy; {{ copyright_years }} {{ brand_name }}.
+        <span class="site-footer__legal">All rights reserved.</span>
+      </p>
+      {% if founded_year and founded_year<= current_year and (start_year == nil or founded_year == start_year) %}
+      <p>Est. {{ founded_year }}</p>
+      {% endif %}
+    </div>
+  </footer>
+  ```
+</file>
+
+<file path="_data/about.yml">
+  hero:
+  kicker: About
+  title: The Label
+  image: /assets/images/dark-recording-studio-vintage-equipment.jpg
+  image_alt: BlackBox Records Studio
+  lead: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
+  magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+  sections:
+  - title: Manifest
+  paragraphs:
+  - Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+  sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  - Praesent vel tortor quis nisi tincidunt eleifend. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+  posuere cubilia curae. Nullam quis risus eget urna mollis ornare vel eu leo.
+  - title: Philosophy
+  paragraphs:
+  - Curabitur blandit tempus porttitor. Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
+  varius blandit sit amet non magna. Aenean lacinia bibendum nulla sed consectetur.
+  - Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+  Nullam id dolor id nibh ultricies vehicula ut id elit.
+  quote:
+  text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.
+  cite: Founder, BlackBox Records
+  contact:
+  title: Contact
+  intro: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  items:
+  - label: General
+  value: info@blackboxrecords.com
+  - label: Demo Submissions
+  value: demos@blackboxrecords.com
+  - label: Press
+  value: press@blackboxrecords.com
+  stats:
+  - key: artists
+  label: Artists
+  - key: releases
+  label: Releases
+  - key: countries
+  label: Countries
+  - key: year
+  label: Year
+</file>
+
+<file path="_data/home.yml">
+  hero:
+  tagline: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor quis nisi tincidunt eleifend.
+  primary_label: Explore Artists
+  primary_url: /artists/
+  secondary_label: Visit Shop
+  secondary_url: /shop/
+  latest_releases:
+  kicker: Latest
+  title: Latest Releases
+  link_label: View All
+  link_url: /shop/
+  artists:
+  kicker: Roster
+  title: Featured Roster
+  cta_label: View Full Roster
+  cta_url: /artists/
+  news:
+  kicker: Updates
+  title: Latest News
+  link_label: All News
+  link_url: /news/
+  journey:
+  kicker: About
+  title: The Journey
+  image: /assets/images/dark-recording-studio-vintage-equipment.jpg
+  image_alt: About BlackBox Records
+  paragraphs:
+  - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna
+  aliqua.
+  - Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+  - Praesent vel tortor quis nisi tincidunt eleifend. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+  posuere cubilia curae.
+  stats:
+  - key: artists
+  label: Artists
+  - key: releases
+  label: Releases
+</file>
+
+<file path="_data/news.yml">
+  items:
+  - title: Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+  date: Dec 2024
+  excerpt: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+  enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+  image: /assets/images/dark-concert-venue-.jpg
+  image_alt: Lorem ipsum
+  url: /news/
+</file>
+
+<file path="_data/newsletter.yml">
+  kicker: Newsletter
+  title: Join the Journey
+  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor quis nisi tincidunt
+  eleifend.
+  placeholder: your@email.com
+  button_label: Subscribe
+  note: Lorem ipsum dolor sit amet, consectetur adipiscing.
+</file>
+
+<file path="_data/releases.yml">
+  items:
+  - title: Lorem Ipsum Vol. I
+  year: 2024
+  artist: Artist Name
+  image: /assets/images/dark-album-cover-art-.jpg
+  image_alt: Lorem Ipsum Vol. I
+  url: /shop/
+  - title: Dolor Sit Amet
+  year: 2024
+  artist: Another Artist
+  image: /assets/images/dark-album-cover-art-.jpg
+  image_alt: Dolor Sit Amet
+  url: /shop/
+  - title: Consectetur
+  year: 2024
+  artist: Third Artist
+  image: /assets/images/dark-album-cover-art-.jpg
+  image_alt: Consectetur
+  url: /shop/
+</file>
+
+<file path="_data/settings.yml">
+  established_year: 2026
+</file>
+
+<file path=".editorconfig">
+  # top-most EditorConfig file
+  root = true
+
+  #-------------------------------------------------------------------------------
+  # General settings (applies to ALL files)
+  #-------------------------------------------------------------------------------
+  [*]
+  charset = utf-8 # UTF-8 encoding
+  end_of_line = lf # Use LF for cross‐platform consistency
+  indent_style = space # Spaces, not tabs
+  indent_size = 4 # 4-space indent for code clarity
+  tab_width = 4 # Tab width aligns with indent size
+  trim_trailing_whitespace = true # Remove stray spaces
+  insert_final_newline = true # Always end files with newline
+  max_line_length = 120 # Enforce 120-char maximum
+
+  #-------------------------------------------------------------------------------
+  # Markup & Configuration files
+  #-------------------------------------------------------------------------------
+  [*.md]
+  trim_trailing_whitespace = false # Preserve spacing in Markdown
+
+  [*.{yml,yaml}]
+  indent_size = 2 # 2-space YAML indent per Jekyll conventions
+
+  [*.{html,htm,xml,liquid}]
+  indent_size = 2 # 2-space HTML/templating indent
+
+  #-------------------------------------------------------------------------------
+  # Stylesheets & Scripts
+  #-------------------------------------------------------------------------------
+  [*.{css,scss,sass,less}]
+  indent_size = 2 # 2-space CSS/Sass/Less indent
+
+  [*.js]
+  indent_size = 2 # 2-space JavaScript indent
+
+  #-------------------------------------------------------------------------------
+  # Ruby files
+  #-------------------------------------------------------------------------------
+  [*.{rb,Rakefile,Gemfile}]
+  indent_size = 2 # Ruby community standard
+
+  #-------------------------------------------------------------------------------
+  # Makefiles
+  #-------------------------------------------------------------------------------
+  [Makefile]
+  indent_style = tab # Makefiles require tabs
+
+  #-------------------------------------------------------------------------------
+  # WebStorm / IntelliJ IDEA Enhancements
+  #-------------------------------------------------------------------------------
+  ij_continuation_indent_size = 8 # IDE continuation indent
+  ij_formatter_off_tag = @formatter:off # Disable formatter block start
+ij_formatter_on_tag = @formatter:on # Disable formatter block end
+  ij_formatter_tags_enabled = true # Honor off/on tags
+  ij_smart_tabs = false # Avoid mixed tabs/spaces
+  ij_wrap_on_typing = false # Disable auto-wrap while typing
+</file>
+
+<file path=".gitignore">
+  # Jekyll build outputs and caches
+  /_site/* # Jekyll’s generated site
+  .sass-cache/ # Sass cache directory
+  .jekyll-cache/ # Jekyll build cache
+  .jekyll-metadata # Jekyll metadata file
+
+  # Ruby & Bundler
+  .bundle/ # Bundler cache directory
+  vendor/ # Vendor gem directory (if used)
+
+  # Dependency directories
+  node_modules/ # Node.js dependencies
+  npm-debug.log* # npm debug logs
+  yarn-error.log* # Yarn error logs
+
+  # Operating system files
+  .DS_Store # macOS file metadata
+  Thumbs.db # Windows image cache
+  desktop.ini # Windows desktop configuration
+
+  # JetBrains WebStorm / IntelliJ IDEA
+  .idea/ # IDE project files
+  *.iml # Module files
+  out/ # Compiler output
+
+  # Editor backups and temp files
+  *~ # Editor backup files
+  *.swp # Vim swap files
+  *.tmp # Temporary files
+
+  # Logs
+  *.log # Log files
+
+  # IDE-independent helpers
+  .vscode/ # VSCode settings
+
+  # Custom Domain file
+  CNAME # keep under source control but ignore deployment outputs
+
+  # Miscellaneous
+  *.pem # SSL certificates
+  /_site/*
+
+  cachedData/
+  files/
+
+  ### IntelliJ IDEA ###
+  .idea/*
+  *.iws
+  *.iml
+  *.ipr
+  out/
+  !**/src/main/**/out/
+  !**/src/test/**/out/
+
+  ### NetBeans ###
+  /nbproject/private/
+  /nbbuild/
+  /dist/
+  /nbdist/
+  /.nb-gradle/
+  build/
+
+  ### VS Code ###
+  .vscode/
+</file>
+
+<file path=".run/Jekyll Dev (Local + Decap).run.xml">
+  <component name="ProjectRunConfigurationManager">
+    <configuration default="false" name="Jekyll Dev (Local + Decap)" type="ShConfigurationType">
+      <option name="SCRIPT_TEXT" value=""/>
+      <option name="INDEPENDENT_SCRIPT_PATH" value="false"/>
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/scripts/dev.ps1"/>
+      <option name="SCRIPT_OPTIONS" value=""/>
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true"/>
+      <option name="SCRIPT_WORKING_DIRECTORY" value=""/>
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true"/>
+      <option name="INTERPRETER_PATH" value=""/>
+      <option name="INTERPRETER_OPTIONS" value=""/>
+      <option name="EXECUTE_IN_TERMINAL" value="true"/>
+      <option name="EXECUTE_SCRIPT_FILE" value="true"/>
+      <envs/>
+      <method v="2"/>
+    </configuration>
+  </component>
+</file>
+
+<file path="admin/index.html">
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Content Manager</title>
+    </head>
+    <body>
+      <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    </body>
+  </html>
+</file>
+
+<file path="assets/images/placeholder.svg">
+  <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" fill="none">
+    <rect width="1200" height="1200" fill="#EAEAEA" rx="3"/>
+    <g opacity=".5">
+      <g opacity=".5">
+        <path fill="#FAFAFA"
+              d="M600.709 736.5c-75.454 0-136.621-61.167-136.621-136.62 0-75.454 61.167-136.621 136.621-136.621 75.453 0 136.62 61.167 136.62 136.621 0 75.453-61.167 136.62-136.62 136.62Z"/>
+        <path stroke="#C9C9C9" stroke-width="2.418"
+              d="M600.709 736.5c-75.454 0-136.621-61.167-136.621-136.62 0-75.454 61.167-136.621 136.621-136.621 75.453 0 136.62 61.167 136.62 136.621 0 75.453-61.167 136.62-136.62 136.62Z"/>
+      </g>
+      <path stroke="url(#a)" stroke-width="2.418" d="M0-1.209h553.581"
+            transform="scale(1 -1) rotate(45 1163.11 91.165)"/>
+      <path stroke="url(#b)" stroke-width="2.418" d="M404.846 598.671h391.726"/>
+      <path stroke="url(#c)" stroke-width="2.418" d="M599.5 795.742V404.017"/>
+      <path stroke="url(#d)" stroke-width="2.418" d="m795.717 796.597-391.441-391.44"/>
+      <path fill="#fff"
+            d="M600.709 656.704c-31.384 0-56.825-25.441-56.825-56.824 0-31.384 25.441-56.825 56.825-56.825 31.383 0 56.824 25.441 56.824 56.825 0 31.383-25.441 56.824-56.824 56.824Z"/>
+      <g clip-path="url(#e)">
+        <path fill="#666" fill-rule="evenodd"
+              d="M616.426 586.58h-31.434v16.176l3.553-3.554.531-.531h9.068l.074-.074 8.463-8.463h2.565l7.18 7.181V586.58Zm-15.715 14.654 3.698 3.699 1.283 1.282-2.565 2.565-1.282-1.283-5.2-5.199h-6.066l-5.514 5.514-.073.073v2.876a2.418 2.418 0 0 0 2.418 2.418h26.598a2.418 2.418 0 0 0 2.418-2.418v-8.317l-8.463-8.463-7.181 7.181-.071.072Zm-19.347 5.442v4.085a6.045 6.045 0 0 0 6.046 6.045h26.598a6.044 6.044 0 0 0 6.045-6.045v-7.108l1.356-1.355-1.282-1.283-.074-.073v-17.989h-38.689v23.43l-.146.146.146.147Z"
+              clip-rule="evenodd"/>
+      </g>
+      <path stroke="#C9C9C9" stroke-width="2.418"
+            d="M600.709 656.704c-31.384 0-56.825-25.441-56.825-56.824 0-31.384 25.441-56.825 56.825-56.825 31.383 0 56.824 25.441 56.824 56.825 0 31.383-25.441 56.824-56.824 56.824Z"/>
+    </g>
+    <defs>
+      <linearGradient id="a" x1="554.061" x2="-.48" y1=".083" y2=".087" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#C9C9C9" stop-opacity="0"/>
+        <stop offset=".208" stop-color="#C9C9C9"/>
+        <stop offset=".792" stop-color="#C9C9C9"/>
+        <stop offset="1" stop-color="#C9C9C9" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="b" x1="796.912" x2="404.507" y1="599.963" y2="599.965" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#C9C9C9" stop-opacity="0"/>
+        <stop offset=".208" stop-color="#C9C9C9"/>
+        <stop offset=".792" stop-color="#C9C9C9"/>
+        <stop offset="1" stop-color="#C9C9C9" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="c" x1="600.792" x2="600.794" y1="403.677" y2="796.082" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#C9C9C9" stop-opacity="0"/>
+        <stop offset=".208" stop-color="#C9C9C9"/>
+        <stop offset=".792" stop-color="#C9C9C9"/>
+        <stop offset="1" stop-color="#C9C9C9" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="d" x1="404.85" x2="796.972" y1="403.903" y2="796.02" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#C9C9C9" stop-opacity="0"/>
+        <stop offset=".208" stop-color="#C9C9C9"/>
+        <stop offset=".792" stop-color="#C9C9C9"/>
+        <stop offset="1" stop-color="#C9C9C9" stop-opacity="0"/>
+      </linearGradient>
+      <clipPath id="e">
+        <path fill="#fff" d="M581.364 580.535h38.689v38.689h-38.689z"/>
+      </clipPath>
+    </defs>
+  </svg>
+</file>
+
+<file path="Gemfile">
+  source "https://rubygems.org"
+
+  gem "github-pages", group: :jekyll_plugins
+  gem "fiddle"
+  gem "wdm", "~> 0.2.0" if Gem.win_platform?
+</file>
+
+<file path="scripts/dev.ps1">
+  $ErrorActionPreference = "Stop"
+
+  $projectRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
+  Set-Location $projectRoot
+
+  $decap = Start-Process -FilePath "cmd.exe" -ArgumentList "/c", "npx decap-server" -WorkingDirectory $projectRoot
+  -NoNewWindow -PassThru
+
+  try {
+  bundle exec jekyll serve
+  } finally {
+  if ($decap -and -not $decap.HasExited) {
+  $decap.CloseMainWindow() | Out-Null
+  Start-Sleep -Milliseconds 500
+  if (-not $decap.HasExited) {
+  Stop-Process -Id $decap.Id -Force
+  }
+  }
+  }
+</file>
+
+<file path="_data/artists.yml">
+  items:
+  - name: Artist One
+  genre: Post-Metal
+  country: USA
+  image: /assets/images/dark-band-photo-moody-.jpg
+  image_alt: Artist One
+  bio: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  url: /artists/
+  - name: Artist Two
+  genre: Post-Punk
+  country: UK
+  image: /assets/images/dark-band-photo-moody-.jpg
+  image_alt: Artist Two
+  bio: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  url: /artists/
+  - name: Artist Three
+  genre: Post-Hardcore
+  country: Germany
+  image: /assets/images/dark-band-photo-moody-.jpg
+  image_alt: Artist Three
+  bio: Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+  url: /artists/
+  - name: Artist Four
+  genre: Indie Rock
+  country: France
+  image: /assets/images/dark-band-photo-moody-.jpg
+  image_alt: Artist Four
+  bio: Duis aute irure dolor in reprehenderit in voluptate velit.
+  url: /artists/
+  - name: Artist Five
+  genre: Shoegaze
+  country: Sweden
+  image: /assets/images/dark-band-photo-moody-.jpg
+  image_alt: Artist Five
+  bio: Excepteur sint occaecat cupidatat non proident sunt in culpa.
+  url: /artists/
+  - name: Artist Six
+  genre: Black Metal
+  country: Canada
+  image: /assets/images/dark-band-photo-moody-.jpg
+  image_alt: Artist Six
+  bio: Praesent vel tortor quis nisi tincidunt eleifend vestibulum.
+  url: /artists/
+</file>
+
+<file path="_includes/head.html">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    {% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}
+  </title>
+  {% if page.description %}
+  <meta name="description" content="{{ page.description }}">
+  {% elsif site.description %}
+  <meta name="description" content="{{ site.description }}">
+  {% endif %}
+  {% if page.redirect_url %}
+  <meta http-equiv="refresh" content="0; url={{ page.redirect_url }}">
+  <link rel="canonical" href="{{ page.redirect_url }}">
+  {% endif %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Geist+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+</file>
+
+<file path=".run/Jekyll Serve.run.xml">
+  <component name="ProjectRunConfigurationManager">
+    <configuration default="false" name="Jekyll Serve" type="ShConfigurationType">
+      <option name="SCRIPT_TEXT" value="bundle exec jekyll serve"/>
+      <option name="INDEPENDENT_SCRIPT_PATH" value="false"/>
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/scripts/jekyll-serve.cmd"/>
+      <option name="SCRIPT_OPTIONS" value=""/>
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true"/>
+      <option name="SCRIPT_WORKING_DIRECTORY" value=""/>
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true"/>
+      <option name="INTERPRETER_PATH" value=""/>
+      <option name="INTERPRETER_OPTIONS" value=""/>
+      <option name="EXECUTE_IN_TERMINAL" value="true"/>
+      <option name="EXECUTE_SCRIPT_FILE" value="false"/>
+      <envs/>
+      <method v="2"/>
+    </configuration>
+  </component>
+</file>
+
+<file path="admin/config.yml">
+  local_backend: true
+
+  backend:
+  name: github
+  repo: zantoichi/blackbox-records
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+  commit_messages:
+  create: "feat(content): create {{collection}}/{{slug}}"
+  update: "chore(content): update {{collection}}/{{slug}}"
+  delete: "chore(content): delete {{collection}}/{{slug}}"
+  uploadMedia: "chore(media): upload {{path}}"
+  deleteMedia: "chore(media): delete {{path}}"
+  openAuthoring: "chore(content): open {{collection}}/{{slug}}"
+
+  media_folder: "assets/images"
+  public_folder: "/assets/images"
+
+  collections:
+  - name: pages
+  label: Pages
+  files:
+  - name: home
+  label: Home
+  file: index.md
+  fields:
+  - { label: Layout, name: layout, widget: hidden, default: default }
+  - { label: Title, name: title, widget: string }
+  - { label: Description, name: description, widget: string, required: false }
+  - { label: Main Class, name: main_class, widget: hidden, default: site-main--home }
+  - { label: Body Class, name: body_class, widget: hidden, default: home-snap }
+  - name: artists
+  label: Artists
+  file: artists/index.md
+  fields:
+  - { label: Layout, name: layout, widget: hidden, default: default }
+  - { label: Title, name: title, widget: string }
+  - { label: Description, name: description, widget: string, required: false }
+  - { label: Hero Kicker, name: hero_kicker, widget: string, required: false }
+  - { label: Redirect URL, name: redirect_url, widget: hidden, default: "https://blackboxrecords-shop.fourthwall.com" }
+  - name: news
+  label: News
+  file: news/index.md
+  fields:
+  - { label: Layout, name: layout, widget: hidden, default: default }
+  - { label: Title, name: title, widget: string }
+  - { label: Description, name: description, widget: string, required: false }
+  - { label: Hero Kicker, name: hero_kicker, widget: string, required: false }
+  - name: about
+  label: About
+  file: about/index.md
+  fields:
+  - { label: Layout, name: layout, widget: hidden, default: default }
+  - { label: Title, name: title, widget: string }
+  - { label: Description, name: description, widget: string, required: false }
+  - name: shop
+  label: Shop
+  file: shop/index.md
+  fields:
+  - { label: Layout, name: layout, widget: hidden, default: default }
+  - { label: Title, name: title, widget: string }
+  - { label: Description, name: description, widget: string, required: false }
+  - { label: Hero Kicker, name: hero_kicker, widget: string, required: false }
+  - name: home_content
+  label: Home Content
+  files:
+  - name: home
+  label: Home Sections
+  file: _data/home.yml
+  fields:
+  - label: Hero
+  name: hero
+  widget: object
+  fields:
+  - { label: Tagline, name: tagline, widget: text }
+  - { label: Primary Label, name: primary_label, widget: string }
+  - { label: Primary URL, name: primary_url, widget: string }
+  - { label: Secondary Label, name: secondary_label, widget: string }
+  - { label: Secondary URL, name: secondary_url, widget: string }
+  - label: Latest Releases
+  name: latest_releases
+  widget: object
+  fields:
+  - { label: Kicker, name: kicker, widget: string }
+  - { label: Title, name: title, widget: string }
+  - { label: Link Label, name: link_label, widget: string }
+  - { label: Link URL, name: link_url, widget: string }
+  - label: Artists Section
+  name: artists
+  widget: object
+  fields:
+  - { label: Kicker, name: kicker, widget: string }
+  - { label: Title, name: title, widget: string }
+  - { label: CTA Label, name: cta_label, widget: string }
+  - { label: CTA URL, name: cta_url, widget: string }
+  - label: News Section
+  name: news
+  widget: object
+  fields:
+  - { label: Kicker, name: kicker, widget: string }
+  - { label: Title, name: title, widget: string }
+  - { label: Link Label, name: link_label, widget: string }
+  - { label: Link URL, name: link_url, widget: string }
+  - label: Journey Section
+  name: journey
+  widget: object
+  fields:
+  - { label: Kicker, name: kicker, widget: string }
+  - { label: Title, name: title, widget: string }
+  - { label: Image, name: image, widget: image }
+  - { label: Image Alt, name: image_alt, widget: string, required: false }
+  - label: Paragraphs
+  name: paragraphs
+  widget: list
+  field: { label: Paragraph, name: paragraph, widget: text }
+  - label: Stats
+  name: stats
+  widget: list
+  fields:
+  - label: Type
+  name: key
+  widget: select
+  options:
+  - { label: Artists (auto), value: artists }
+  - { label: Releases (auto), value: releases }
+  - { label: Countries (auto), value: countries }
+  - { label: Year (auto), value: year }
+  - { label: Custom (manual), value: custom }
+  - { label: Value, name: value, widget: string, required: false }
+  - { label: Label, name: label, widget: string }
+  - name: releases
+  label: Releases
+  files:
+  - name: releases
+  label: Featured Releases
+  file: _data/releases.yml
+  fields:
+  - label: Items
+  name: items
+  widget: list
+  summary: "{{fields.title}}"
+  fields:
+  - { label: Title, name: title, widget: string }
+  - { label: Year, name: year, widget: number }
+  - { label: Artist, name: artist, widget: string }
+  - { label: Image, name: image, widget: image }
+  - { label: Image Alt, name: image_alt, widget: string, required: false }
+  - { label: URL, name: url, widget: string, required: false }
+  - name: news_items
+  label: News Items
+  files:
+  - name: news
+  label: News
+  file: _data/news.yml
+  fields:
+  - label: Items
+  name: items
+  widget: list
+  summary: "{{fields.title}}"
+  fields:
+  - { label: Title, name: title, widget: string }
+  - { label: Date, name: date, widget: string }
+  - { label: Excerpt, name: excerpt, widget: text }
+  - { label: Image, name: image, widget: image }
+  - { label: Image Alt, name: image_alt, widget: string, required: false }
+  - { label: URL, name: url, widget: string, required: false }
+  - name: about_content
+  label: About Content
+  files:
+  - name: about
+  label: About Page
+  file: _data/about.yml
+  fields:
+  - label: Hero
+  name: hero
+  widget: object
+  fields:
+  - { label: Kicker, name: kicker, widget: string }
+  - { label: Title, name: title, widget: string }
+  - { label: Image, name: image, widget: image }
+  - { label: Image Alt, name: image_alt, widget: string, required: false }
+  - { label: Lead, name: lead, widget: text }
+  - label: Sections
+  name: sections
+  widget: list
+  fields:
+  - { label: Title, name: title, widget: string }
+  - label: Paragraphs
+  name: paragraphs
+  widget: list
+  field: { label: Paragraph, name: paragraph, widget: text }
+  - label: Quote
+  name: quote
+  widget: object
+  fields:
+  - { label: Text, name: text, widget: text }
+  - { label: Cite, name: cite, widget: string }
+  - label: Contact
+  name: contact
+  widget: object
+  fields:
+  - { label: Title, name: title, widget: string }
+  - { label: Intro, name: intro, widget: text }
+  - label: Items
+  name: items
+  widget: list
+  fields:
+  - { label: Label, name: label, widget: string }
+  - { label: Value, name: value, widget: string }
+  - label: Stats
+  name: stats
+  widget: list
+  fields:
+  - label: Type
+  name: key
+  widget: select
+  options:
+  - { label: Artists (auto), value: artists }
+  - { label: Releases (auto), value: releases }
+  - { label: Countries (auto), value: countries }
+  - { label: Year (auto), value: year }
+  - { label: Custom (manual), value: custom }
+  - { label: Value, name: value, widget: string, required: false }
+  - { label: Label, name: label, widget: string }
+  - name: newsletter
+  label: Newsletter
+  files:
+  - name: newsletter
+  label: Newsletter Content
+  file: _data/newsletter.yml
+  fields:
+  - { label: Kicker, name: kicker, widget: string }
+  - { label: Title, name: title, widget: string }
+  - { label: Description, name: description, widget: text }
+  - { label: Placeholder, name: placeholder, widget: string }
+  - { label: Button Label, name: button_label, widget: string }
+  - { label: Note, name: note, widget: text }
+  - name: data
+  label: Site Data
+  files:
+  - name: navigation
+  label: Navigation
+  file: _data/nav.yml
+  fields:
+  - label: Items
+  name: items
+  widget: list
+  fields:
+  - { label: Title, name: title, widget: string }
+  - { label: URL, name: url, widget: string }
+  - name: socials
+  label: Social Links
+  file: _data/socials.yml
+  fields:
+  - label: Items
+  name: items
+  widget: list
+  fields:
+  - { label: Title, name: title, widget: string }
+  - { label: URL, name: url, widget: string }
+  - name: artists_roster
+  label: Artists Roster
+  files:
+  - name: artists
+  label: Artists
+  file: _data/artists.yml
+  fields:
+  - label: Items
+  name: items
+  widget: list
+  summary: "{{fields.name}}"
+  fields:
+  - { label: Name, name: name, widget: string }
+  - { label: Genre, name: genre, widget: string }
+  - { label: Country, name: country, widget: string, required: false }
+  - { label: Image, name: image, widget: image }
+  - { label: Image Alt, name: image_alt, widget: string, required: false }
+  - { label: Bio, name: bio, widget: text }
+  - { label: URL, name: url, widget: string, required: false }
+  - name: settings
+  label: Site Settings
+  files:
+  - name: settings
+  label: Settings
+  file: _data/settings.yml
+  fields:
+  - { label: Established Year, name: established_year, widget: number }
+</file>
+
+<file path="artists/index.md">
+  ---
+  layout: default
+  title: Artists
+  description: Artists roster.
+  hero_kicker: Roster
+  ---
+  <section class="page-hero">
+    <div class="site-container">
+      <p class="page-hero__kicker">{{ page.hero_kicker }}</p>
+      <h1 class="page-hero__title">{{ page.title | upcase }}</h1>
+    </div>
+  </section>
+  <section class="section section--compact">
+    <div class="site-container">
+      <div class="artist-grid artist-grid--full">
+        {% for artist in site.data.artists.items %}
+        <a class="artist-card" href="{{ artist.url | default: '/artists/' | relative_url }}">
+          <img src="{{ artist.image | relative_url }}" alt="{{ artist.image_alt | default: artist.name }}">
+          <div class="artist-card__overlay"></div>
+          <div class="artist-card__content">
+            <p>{{ artist.genre }}</p>
+            <h3>{{ artist.name | upcase }}
+              <span aria-hidden="true">&nearr;</span>
+            </h3>
+          </div>
+          <p class="artist-card__bio">{{ artist.bio }}</p>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</file>
+
+<file path="assets/js/site.js">
+  const HEADER_SELECTOR = '[data-header]'
+  const NAV_TOGGLE_SELECTOR = '[data-nav-toggle]'
+  const MOBILE_NAV_SELECTOR = '[data-mobile-nav]'
+  const ARTIST_GRID_SELECTOR = '[data-artist-grid]'
+  const ARTISTS_DATA_ELEMENT_ID = 'home-artists-data'
+  const DEFAULT_ARTIST_LIMIT = 5
+
+  initializeHeaderNavigation()
+  initializeHomeArtistShowcase()
+
+  function initializeHeaderNavigation() {
+  const headerElement = findHeaderElement()
+  if (!headerElement) return
+  initializeHeaderNavigationElements(headerElement)
+  }
+
+  function initializeHeaderNavigationElements(headerElement) {
+  const navToggleButton = findHeaderToggleButton(headerElement)
+  const mobileNavContainer = findMobileNavContainer(headerElement)
+  if (!navToggleButton || !mobileNavContainer) return
+  connectHeaderInteractions(headerElement, navToggleButton, mobileNavContainer)
+  }
+
+  function connectHeaderInteractions(headerElement, navToggleButton, mobileNavContainer) {
+  connectNavigationToggle(headerElement, navToggleButton)
+  connectNavigationAutoClose(headerElement, navToggleButton, mobileNavContainer)
+  }
+
+  function connectNavigationToggle(headerElement, navToggleButton) {
+  navToggleButton.addEventListener('click', () => {
+  const isNavigationOpen = headerElement.classList.contains('is-open')
+  setNavigationState(headerElement, navToggleButton, !isNavigationOpen)
+  })
+  }
+
+  function connectNavigationAutoClose(headerElement, navToggleButton, mobileNavContainer) {
+  mobileNavContainer.querySelectorAll('a').forEach((linkElement) => {
+  linkElement.addEventListener('click', () => setNavigationState(headerElement, navToggleButton, false))
+  })
+  }
+
+  function setNavigationState(headerElement, navToggleButton, isOpen) {
+  navToggleButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false')
+  headerElement.classList.toggle('is-open', isOpen)
+  }
+
+  function findHeaderElement() {
+  return document.querySelector(HEADER_SELECTOR)
+  }
+
+  function findHeaderToggleButton(headerElement) {
+  return headerElement.querySelector(NAV_TOGGLE_SELECTOR)
+  }
+
+  function findMobileNavContainer(headerElement) {
+  return headerElement.querySelector(MOBILE_NAV_SELECTOR)
+  }
+
+  function findArtistGridElement() {
+  return document.querySelector(ARTIST_GRID_SELECTOR)
+  }
+
+  function findArtistsDataElement() {
+  return document.getElementById(ARTISTS_DATA_ELEMENT_ID)
+  }
+
+  function initializeHomeArtistShowcase() {
+  const artistGridElement = findArtistGridElement()
+  const artistsDataElement = findArtistsDataElement()
+  if (!artistGridElement || !artistsDataElement) return
+  renderRandomArtistsFromData(artistGridElement, artistsDataElement)
+  }
+
+  function renderRandomArtistsFromData(artistGridElement, artistsDataElement) {
+  const artistItems = parseArtistsFromDataElement(artistsDataElement)
+  if (artistItems.length === 0) return
+  const selectedArtists = selectRandomArtists(artistItems, readArtistSelectionLimit(artistGridElement))
+  renderArtistCards(artistGridElement, selectedArtists, readBaseUrl(artistGridElement))
+  }
+
+  function parseArtistsFromDataElement(artistsDataElement) {
+  try {
+  return normalizeArtistsArray(JSON.parse(artistsDataElement.textContent || '[]'))
+  } catch (error) {
+  return []
+  }
+  }
+
+  function normalizeArtistsArray(parsedArtists) {
+  return Array.isArray(parsedArtists) ? parsedArtists : []
+  }
+
+  function readArtistSelectionLimit(artistGridElement) {
+  const rawLimit = Number.parseInt(artistGridElement.dataset.max || '', 10)
+  return Number.isNaN(rawLimit) ? DEFAULT_ARTIST_LIMIT : Math.max(1, rawLimit)
+  }
+
+  function readBaseUrl(artistGridElement) {
+  return (artistGridElement.dataset.baseurl || '').replace(/\/$/, '')
+  }
+
+  function selectRandomArtists(artistItems, artistLimit) {
+  const shuffledArtists = shuffleArtists(artistItems.slice())
+  return shuffledArtists.slice(0, Math.min(artistLimit, shuffledArtists.length))
+  }
+
+  function shuffleArtists(artistsToShuffle) {
+  return artistsToShuffle.sort(() => Math.random() - 0.5)
+  }
+
+  function renderArtistCards(artistGridElement, selectedArtists, baseUrl) {
+  clearElementChildren(artistGridElement)
+  selectedArtists.map((artist) => createArtistCard(artist, baseUrl)).forEach((card) =>
+  artistGridElement.appendChild(card))
+  }
+
+  function clearElementChildren(elementToClear) {
+  elementToClear.innerHTML = ''
+  }
+
+  function createArtistCard(artist, baseUrl) {
+  const cardElement = createArtistCardAnchor(artist, baseUrl)
+  const cardChildren = buildArtistCardChildren(artist, baseUrl)
+  cardChildren.forEach((child) => cardElement.appendChild(child))
+  return cardElement
+  }
+
+  function buildArtistCardChildren(artist, baseUrl) {
+  const children = [createArtistImage(artist, baseUrl), createArtistOverlay(), createArtistContent(artist),
+  createArtistBio(artist)]
+  return children.filter(Boolean)
+  }
+
+  function createArtistCardAnchor(artist, baseUrl) {
+  const cardElement = document.createElement('a')
+  cardElement.className = 'artist-card'
+  cardElement.href = normalizeUrl(artist.url || '/artists/', baseUrl)
+  return cardElement
+  }
+
+  function createArtistImage(artist, baseUrl) {
+  const imageElement = document.createElement('img')
+  imageElement.src = normalizeUrl(artist.image || '', baseUrl)
+  imageElement.alt = artist.image_alt || artist.name || ''
+  return imageElement
+  }
+
+  function createArtistOverlay() {
+  const overlayElement = document.createElement('div')
+  overlayElement.className = 'artist-card__overlay'
+  return overlayElement
+  }
+
+  function createArtistContent(artist) {
+  const contentElement = document.createElement('div')
+  contentElement.className = 'artist-card__content'
+  appendOptionalGenre(contentElement, artist.genre)
+  contentElement.appendChild(createArtistTitle(artist.name))
+  return contentElement
+  }
+
+  function appendOptionalGenre(contentElement, genreLabel) {
+  if (!genreLabel) return
+  const genreElement = document.createElement('p')
+  genreElement.textContent = genreLabel
+  contentElement.appendChild(genreElement)
+  }
+
+  function createArtistTitle(artistName) {
+  const titleElement = document.createElement('h3')
+  titleElement.textContent = (artistName || '').toUpperCase()
+  titleElement.append(' ', createArrowElement())
+  return titleElement
+  }
+
+  function createArrowElement() {
+  const arrowElement = document.createElement('span')
+  arrowElement.setAttribute('aria-hidden', 'true')
+  arrowElement.textContent = '\u2197'
+  return arrowElement
+  }
+
+  function createArtistBio(artist) {
+  if (!artist.bio) return null
+  const bioElement = document.createElement('p')
+  bioElement.className = 'artist-card__bio'
+  bioElement.textContent = artist.bio
+  return bioElement
+  }
+
+  function normalizeUrl(path, baseUrl) {
+  if (!path) return baseUrl || '/'
+  if (/^https?:\/\//i.test(path)) return path
+  if (!baseUrl) return path
+  return path.startsWith('/') ? `${baseUrl}${path}` : `${baseUrl}/${path}`
+  }
+</file>
+
+<file path="README.md">
+  # blackbox-records
+
+  ## Development
+
+  - `bundle install`
+  - `bundle exec jekyll serve`
+  - `bundle exec jekyll build`
+</file>
+
+<file path="_config.yml">
+  title: Blackbox Records
+  description: Experimental record label with a focus on boundary-pushing music.
+  url: ""
+  baseurl: ""
+  permalink: pretty
+  exclude:
+  - compressed-repo.md
+</file>
+
+<file path="_layouts/default.html">
+  <!doctype html>
+  <html lang="en">
+    <head>
+      {% include head.html %}
+    </head>
+    <body
+    {% if page.body_class %} class="{{ page.body_class }}"{% endif %}>
+    <a class="skip-link" href="#main">Skip to content</a>
+    {% include header.html %}
+    <main id="main" class="site-main{% if page.main_class %} {{ page.main_class }}{% endif %}">
+      {{ content }}
+    </main>
+    {% include footer.html %}
+    <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
+  </body>
+</html>
+</file>
+
+<file path="_data/nav.yml">
+items:
+- title: News
+url: /news/
+- title: Artists
+url: /artists/
+- title: Releases
+key: releases
+- title: Shop
+url: /shop/
+- title: About
+url: /about/
+</file>
+
+<file path="_data/socials.yml">
+items:
+- title: Instagram
+url: "#"
+- title: Bandcamp
+url: "#"
+- title: Spotify
+url: "#"
+- title: YouTube
+url: "#"
+</file>
+
+<file path="about/index.md">
+---
+layout: default
+title: About
+description: About the label.
+---
+
+{% assign about = site.data.about %}
+{% assign newsletter = site.data.newsletter %}
+{% assign artist_count = site.data.artists.items | size %}
+{% assign release_count = site.data.releases.items | size %}
+{% assign artists_with_country = site.data.artists.items | where_exp: "item", "item.country" %}
+{% assign country_names = artists_with_country | map: "country" | uniq %}
+{% assign country_count = country_names | size %}
+{% assign current_year = 'now' | date: '%Y' | plus: 0 %}
+{% assign established_year = site.data.settings.established_year | default: current_year | plus: 0 %}
+{% assign years_active = current_year | minus: established_year | plus: 1 %}
+{% if years_active
+<
+1 %}
+{% assign years_active = 1 %}
+{% endif %}
+<section class="page-hero">
+  <div class="site-container">
+    <p class="page-hero__kicker">{{ about.hero.kicker }}</p>
+    <h1 class="page-hero__title">{{ about.hero.title | upcase }}</h1>
+  </div>
+</section>
+<section class="page-hero-image">
+  <img src="{{ about.hero.image | relative_url }}" alt="{{ about.hero.image_alt }}">
+  <div class="page-hero-image__overlay"></div>
+</section>
+<section class="section">
+  <div class="site-container rich-text">
+    <p class="lead">{{ about.lead }}</p>
+
+    {% for section in about.sections %}
+    <h2>{{ section.title | upcase }}</h2>
+    {% for paragraph in section.paragraphs %}
+    <p>{{ paragraph }}</p>
+    {% endfor %}
+    {% endfor %}
+
+    <blockquote>
+      <p>&quot;{{ about.quote.text }}&quot;</p>
+      <cite>&mdash; {{ about.quote.cite }}</cite>
+    </blockquote>
+
+    <h2>{{ about.contact.title | upcase }}</h2>
+    <p>{{ about.contact.intro }}</p>
+    <ul>
+      {% for item in about.contact.items %}
+      <li>
+        <span>{{ item.label }}:</span>
+        {{ item.value }}
+      </li>
+      {% endfor %}
+    </ul>
+
+  </div>
+</section>
+
+<section class="section section--border section--card">
+  <div class="site-container stats-grid">
+    {% for stat in about.stats %}
+    {% case stat.key %}
+    {% when "artists" %}
+    {% assign stat_value = artist_count %}
+    {% when "releases" %}
+    {% assign stat_value = release_count %}
+    {% when "countries" %}
+    {% assign stat_value = country_count %}
+    {% when "year" %}
+    {% assign stat_value = years_active %}
+    {% else %}
+    {% assign stat_value = stat.value %}
+    {% endcase %}
+    <div>
+      <p>{{ stat_value }}</p>
+      <span>{{ stat.label }}</span>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section section--border newsletter">
+  <div class="newsletter__rings" aria-hidden="true">
+    <span></span>
+    <span></span>
+  </div>
+  <div class="site-container newsletter__inner">
+    <p class="section-kicker">{{ newsletter.kicker }}</p>
+    <h2 class="section-title">{{ newsletter.title | upcase }}</h2>
+    <p>{{ newsletter.description }}</p>
+    <form class="newsletter__form">
+      <label class="visually-hidden" for="about-newsletter-email">Email address</label>
+      <input id="about-newsletter-email" type="email" placeholder="{{ newsletter.placeholder }}" required>
+      <button type="submit">{{ newsletter.button_label }}</button>
+    </form>
+    <p class="newsletter__note">{{ newsletter.note }}</p>
+  </div>
+</section>
+</file>
+
+<file path="AGENTS.md">
+# AGENTS.md
+
+## Purpose
+
+Build a static record-label website with Jekyll and host it on GitHub Pages. Commerce will be provided by Fourthwall as
+an external site for now.
+
+Codex must treat this file as the primary persistent project guidance at startup (it does not replace reading code
+files; it sets conventions and intent). Codex reads `AGENTS.md` before doing work.
+
+---
+
+## Branding and assets policy
+
+- Use placeholders for logos, wordmarks, icons, and any brand imagery.
+- Any typography choices should be temporary unless specified.
+
+When branding is added at the end:
+
+- Replace placeholders cleanly without rewriting templates.
+
+---
+
+## Tech stack
+
+- Jekyll + Liquid templates
+- GitHub Pages hosting/build
+- Minimal vanilla JS (only when needed)
+
+---
+
+## Repository conventions
+
+Keep the structure predictable:
+
+- `_layouts/` : layouts (default, page, post, etc.)
+- `_includes/` : reusable components (header, footer, nav, card, etc.)
+- `_data/` : structured site data (nav, socials, settings, later: payhip products)
+- `assets/` : CSS/JS/images
+- Optional collections (only if we benefit from them):
+- `_news/`
+- `_artists/`
+- `_releases/`
+
+Rules:
+
+- Prefer data-driven rendering over duplicated markup.
+- One obvious place to edit navigation: `_data/nav.yml` (or similar).
+- No heavyweight JS frameworks. No build tool sprawl.
+
+---
+
+## Local development (Windows + WebStorm)
+
+Assume:
+
+- Editing in WebStorm on Windows.
+- Running Jekyll via Bundler.
+- Keep commands in `README.md` and consistent with GitHub Pages build. Enrich `README.md` after you finish a task to be
+a great `README.md` for our usecase.
+
+Standard commands:
+
+- `bundle install`
+- `bundle exec jekyll build`
+
+---
+
+## Codex operating instructions
+
+Codex should:
+
+1) Read `_config.yml`, the main layout(s), and key includes before editing.
+2) Make small, reviewable changes (avoid sweeping refactors) that ideally should become commits using the Conventional
+Commits specification.
+3) Verify build success locally (`jekyll build`) before claiming completion.
+
+Codex should NOT:
+
+- Introduce unsupported GitHub Pages plugins without explicit instruction.
+
+---
+
+## CSS strategy
+
+- Define tokens as CSS variables (type scale, spacing scale, container width, breakpoints).
+- Keep component styles near their component naming (or grouped by component section).
+- Ensure accessible defaults: focus states, readable contrast, sensible line-height.
+
+---
+
+## Definition of done (each task)
+
+A task is done when:
+
+- `bundle exec jekyll build` succeeds.
+- Fonts are okay to be placeholders.
+- No non-placeholder branding assets are added before final phase.
+- No Payhip code is added before Phase 2 (unless explicitly authorized).
+</file>
+
+<file path="news/index.md">
+---
+layout: default
+title: News
+description: News updates.
+hero_kicker: Updates
+---
+<section class="page-hero">
+  <div class="site-container">
+    <p class="page-hero__kicker">{{ page.hero_kicker }}</p>
+    <h1 class="page-hero__title">{{ page.title | upcase }}</h1>
+  </div>
+</section>
+<section class="section section--compact">
+  <div class="site-container">
+    <div class="news-grid news-grid--full">
+      {% for item in site.data.news.items %}
+      <a class="news-card" href="{{ item.url | default: '/news/' | relative_url }}">
+        <div class="news-card__media">
+          <img src="{{ item.image | relative_url }}" alt="{{ item.image_alt | default: item.title }}">
+        </div>
+        <p class="news-card__date">{{ item.date }}</p>
+        <h2>{{ item.title }}</h2>
+        <p class="news-card__excerpt">{{ item.excerpt }}</p>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+</file>
+
+<file path="shop/index.md">
+---
+layout: redirect
+title: Shop
+description: Visit the BlackBox Records shop.
+hero_kicker: Store
+redirect_url: https://blackboxrecords-shop.fourthwall.com
+---
+<section class="page-hero">
+  <div class="site-container">
+    <p class="page-hero__kicker">{{ page.hero_kicker }}</p>
+    <h1 class="page-hero__title">{{ page.title | upcase }}</h1>
+  </div>
+</section>
+<section class="section section--border section--compact">
+  <div class="site-container">
+    <p>Our merch store lives on Fourthwall.</p>
+    <a class="button button--outline" href="{{ page.redirect_url }}">Visit the shop</a>
+  </div>
+</section>
+</file>
+
+<file path="_includes/header.html">
+<header class="site-header" data-header>
+  <div class="site-container site-header__inner">
+    <a class="site-header__logo" href="{{ '/' | relative_url }}">
+      <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="BlackBox Records">
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <ul class="site-nav__list">
+        {% for item in site.data.nav.items %}
+        {% assign nav_url = item.url %}
+        {% if item.key == 'releases' %}
+        {% assign nav_url = site.data.home.latest_releases.link_url %}
+        {% endif %}
+        <li>
+          <a class="site-nav__link" href="{{ nav_url | relative_url }}">{{ item.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    <button class="site-header__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav">
+      <span class="visually-hidden">Toggle navigation</span>
+      <svg class="icon icon--menu" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <svg class="icon icon--close" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M6 6l12 12M18 6l-12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+  <div class="site-header__mobile" id="mobile-nav" data-mobile-nav>
+    <nav aria-label="Mobile">
+      <ul class="site-nav__list site-nav__list--mobile">
+        {% for item in site.data.nav.items %}
+        {% assign nav_url = item.url %}
+        {% if item.key == 'releases' %}
+        {% assign nav_url = site.data.home.latest_releases.link_url %}
+        {% endif %}
+        <li>
+          <a class="site-nav__link" href="{{ nav_url | relative_url }}">{{ item.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>
+</file>
+
+<file path="assets/css/site.css">
+:root {
+--font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+--font-display: "Bebas Neue", "Impact", sans-serif;
+--font-mono: "Geist Mono", "Courier New", monospace;
+--color-bg: #0d0d0d;
+--color-foreground: #f5f5f5;
+--color-card: #141414;
+--color-muted: #b3b3b3;
+--color-muted-strong: #8a8a8a;
+--color-border: #2b2b2b;
+--color-outline: #f5f5f5;
+--header-height: 5rem;
+--container-width: 80rem;
+--gutter: clamp(1rem, 4vw, 2rem);
+}
+
+*,
+*::before,
+*::after {
+box-sizing: border-box;
+}
+
+html {
+scroll-behavior: smooth;
+height: 100%;
+}
+
+body {
+margin: 0;
+min-height: 100vh;
+font-family: var(--font-sans);
+background: var(--color-bg);
+color: var(--color-foreground);
+height: 100%;
+}
+
+body.home-snap {
+scroll-snap-type: y mandatory;
+scroll-padding-top: var(--header-height);
+overflow-y: auto;
+}
+
+a {
+color: inherit;
+text-decoration: none;
+}
+
+a:hover {
+color: var(--color-foreground);
+}
+
+img {
+display: block;
+max-width: 100%;
+}
+
+.visually-hidden {
+position: absolute;
+width: 1px;
+height: 1px;
+padding: 0;
+margin: -1px;
+overflow: hidden;
+clip: rect(0, 0, 0, 0);
+white-space: nowrap;
+border: 0;
+}
+
+.skip-link {
+position: absolute;
+top: 1rem;
+left: 1rem;
+padding: 0.5rem 1rem;
+background: var(--color-foreground);
+color: var(--color-bg);
+border-radius: 999px;
+font-size: 0.85rem;
+transform: translateY(-200%);
+transition: transform 0.2s ease;
+z-index: 1100;
+}
+
+.skip-link:focus {
+transform: translateY(0);
+}
+
+.site-container {
+max-width: var(--container-width);
+margin: 0 auto;
+padding: 0 var(--gutter);
+}
+
+.site-main {
+padding-top: var(--header-height);
+}
+
+.site-main--home {
+padding-top: 0;
+}
+
+.site-header {
+position: fixed;
+inset: 0 0 auto 0;
+height: var(--header-height);
+background: rgba(13, 13, 13, 0.9);
+border-bottom: 1px solid var(--color-border);
+backdrop-filter: blur(12px);
+z-index: 1000;
+}
+
+.site-header__inner {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 1.5rem;
+height: 100%;
+}
+
+.site-header__logo img {
+width: 3.5rem;
+height: 3.5rem;
+object-fit: contain;
+}
+
+.site-nav {
+display: none;
+}
+
+.site-nav__list {
+list-style: none;
+display: flex;
+gap: 2.5rem;
+padding: 0;
+margin: 0;
+}
+
+.site-nav__link {
+font-size: 0.75rem;
+text-transform: uppercase;
+letter-spacing: 0.2em;
+color: var(--color-muted);
+transition: color 0.2s ease;
+}
+
+.site-nav__link:hover {
+color: var(--color-foreground);
+}
+
+.site-header__toggle {
+border: none;
+background: transparent;
+color: var(--color-foreground);
+padding: 0.5rem;
+cursor: pointer;
+}
+
+.site-header__toggle .icon {
+width: 1.5rem;
+height: 1.5rem;
+}
+
+.site-header__toggle .icon--close {
+display: none;
+}
+
+.site-header__mobile {
+display: none;
+border-top: 1px solid var(--color-border);
+background: rgba(13, 13, 13, 0.95);
+}
+
+.site-header__mobile .site-nav__list {
+flex-direction: column;
+gap: 1rem;
+padding: 1.5rem var(--gutter);
+}
+
+.site-header.is-open .site-header__mobile {
+display: block;
+}
+
+.site-header.is-open .icon--menu {
+display: none;
+}
+
+.site-header.is-open .icon--close {
+display: block;
+}
+
+.hero {
+position: relative;
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding: calc(var(--header-height) + 2rem) 0 4rem;
+overflow: hidden;
+}
+
+.snap-section {
+scroll-snap-align: start;
+scroll-snap-stop: always;
+scroll-margin-top: var(--header-height);
+}
+
+.site-main--home .release-card {
+transition: transform 0.3s ease;
+}
+
+.site-main--home .release-card:hover {
+transform: translateY(-0.35rem);
+}
+
+.site-main--home .release-card__media {
+transition: border-color 0.3s ease;
+}
+
+.site-main--home .release-card:hover .release-card__media {
+border-color: rgba(245, 245, 245, 0.5);
+}
+
+.site-main--home .artist-card__content {
+transition: transform 0.4s ease;
+}
+
+.site-main--home .artist-card:hover .artist-card__content {
+transform: translateY(-0.4rem);
+}
+
+.site-main--home .news-card__media img {
+transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.site-main--home .news-card:hover .news-card__media img {
+filter: grayscale(0.2);
+transform: scale(1.06);
+}
+
+.site-main--home .news-card h2,
+.site-main--home .news-card h3 {
+transition: color 0.3s ease, letter-spacing 0.3s ease;
+}
+
+.site-main--home .news-card:hover h2,
+.site-main--home .news-card:hover h3 {
+color: var(--color-foreground);
+letter-spacing: 0.02em;
+}
+
+.hero__pattern {
+position: absolute;
+inset: 0;
+opacity: 0.03;
+color: var(--color-foreground);
+}
+
+.hero__pattern svg {
+width: 100%;
+height: 100%;
+}
+
+.hero__ring {
+position: absolute;
+border-radius: 999px;
+border: 1px solid rgba(245, 245, 245, 0.15);
+inset: 50%;
+transform: translate(-50%, -50%);
+}
+
+.hero__ring--lg {
+width: 44rem;
+height: 44rem;
+}
+
+.hero__ring--md {
+width: 32rem;
+height: 32rem;
+border-color: rgba(245, 245, 245, 0.1);
+}
+
+.hero__ring--sm {
+width: 20rem;
+height: 20rem;
+border-color: rgba(245, 245, 245, 0.07);
+}
+
+.hero__content {
+position: relative;
+z-index: 1;
+}
+
+.hero__logo {
+width: clamp(8rem, 16vw, 14rem);
+height: clamp(8rem, 16vw, 14rem);
+margin: 0 auto 2rem;
+}
+
+.hero__logo img {
+width: 100%;
+height: 100%;
+object-fit: contain;
+mix-blend-mode: screen;
+}
+
+.hero__tagline {
+font-size: clamp(1rem, 2vw, 1.5rem);
+color: var(--color-muted);
+max-width: 36rem;
+margin: 0 auto 3rem;
+line-height: 1.7;
+}
+
+.hero__actions {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 1rem;
+}
+
+.hero__scroll {
+position: absolute;
+bottom: 2rem;
+left: 50%;
+transform: translateX(-50%);
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 0.5rem;
+text-transform: uppercase;
+letter-spacing: 0.3em;
+font-size: 0.7rem;
+color: var(--color-muted);
+}
+
+.hero__scroll-line {
+width: 1px;
+height: 3rem;
+background: var(--color-border);
+position: relative;
+overflow: hidden;
+}
+
+.hero__scroll-line span {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 0.85rem;
+background: var(--color-foreground);
+animation: scrollPulse 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes scrollPulse {
+0% {
+transform: translateY(-100%);
+opacity: 0;
+}
+20% {
+opacity: 1;
+}
+60% {
+opacity: 1;
+}
+100% {
+transform: translateY(220%);
+opacity: 0;
+}
+}
+
+.button {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+padding: 1rem 2.5rem;
+text-transform: uppercase;
+letter-spacing: 0.2em;
+font-size: 0.75rem;
+border: 1px solid transparent;
+transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.button--primary {
+background: var(--color-foreground);
+color: var(--color-bg);
+}
+
+.button--primary:hover {
+background: rgba(245, 245, 245, 0.9);
+}
+
+.button--outline {
+border-color: var(--color-foreground);
+color: var(--color-foreground);
+background: transparent;
+}
+
+.button--outline:hover {
+background: var(--color-foreground);
+color: var(--color-bg);
+}
+
+.section {
+padding: 6rem 0;
+}
+
+.section--compact {
+padding: 4rem 0;
+}
+
+.section--tight {
+padding: 1.5rem 0;
+}
+
+.section--border {
+border-top: 1px solid var(--color-border);
+}
+
+.section--card {
+background: var(--color-card);
+}
+
+.section-header {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: flex-end;
+gap: 1rem;
+margin-bottom: 3rem;
+}
+
+.section-header--center {
+text-align: center;
+flex-direction: column;
+align-items: center;
+}
+
+.section-kicker {
+font-family: var(--font-mono);
+font-size: 0.7rem;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: var(--color-muted);
+margin: 0 0 0.5rem;
+}
+
+.section-title {
+font-family: var(--font-display);
+font-size: clamp(2.5rem, 5vw, 4rem);
+letter-spacing: 0.08em;
+margin: 0;
+}
+
+.section-link {
+font-size: 0.75rem;
+text-transform: uppercase;
+letter-spacing: 0.15em;
+color: var(--color-muted);
+transition: color 0.2s ease;
+}
+
+.section-link:hover {
+color: var(--color-foreground);
+}
+
+.section-cta {
+text-align: center;
+margin-top: 3rem;
+}
+
+.release-grid,
+.news-grid,
+.artist-grid,
+.product-grid {
+display: grid;
+gap: 2rem;
+}
+
+.release-grid {
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.release-grid--home {
+grid-template-columns: repeat(auto-fit, minmax(220px, 260px));
+justify-content: center;
+}
+
+.release-card {
+display: block;
+color: inherit;
+}
+
+.release-card__media {
+position: relative;
+border: 1px solid var(--color-border);
+background: var(--color-card);
+overflow: hidden;
+aspect-ratio: 1 / 1;
+margin-bottom: 1rem;
+}
+
+.release-card__media img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+filter: grayscale(1);
+transition: transform 0.5s ease;
+}
+
+.release-card__overlay {
+position: absolute;
+inset: 0;
+background: rgba(13, 13, 13, 0.6);
+display: flex;
+align-items: center;
+justify-content: center;
+opacity: 0;
+transition: opacity 0.3s ease;
+}
+
+.release-card__overlay span {
+border: 1px solid var(--color-foreground);
+padding: 0.5rem 1.25rem;
+font-size: 0.7rem;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+}
+
+.release-card:hover img {
+transform: scale(1.05);
+}
+
+.release-card:hover .release-card__overlay {
+opacity: 1;
+}
+
+.release-card__year {
+font-family: var(--font-mono);
+font-size: 0.7rem;
+color: var(--color-muted);
+margin: 0 0 0.25rem;
+}
+
+.release-card__title {
+font-family: var(--font-display);
+font-size: 1.6rem;
+letter-spacing: 0.08em;
+margin: 0 0 0.25rem;
+}
+
+.release-card__artist {
+font-size: 0.85rem;
+color: var(--color-muted);
+margin: 0;
+}
+
+.artist-grid {
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1.25rem;
+}
+
+.artist-grid--home {
+grid-template-columns: repeat(auto-fit, minmax(12rem, 15rem));
+justify-content: center;
+}
+
+.artist-card {
+position: relative;
+aspect-ratio: 3 / 4;
+overflow: hidden;
+border: 1px solid var(--color-border);
+background: var(--color-card);
+color: inherit;
+display: block;
+}
+
+.artist-card img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+filter: grayscale(1);
+transition: transform 0.7s ease;
+}
+
+.artist-card__overlay {
+position: absolute;
+inset: 0;
+background: linear-gradient(to top, rgba(13, 13, 13, 0.9), rgba(13, 13, 13, 0.4), transparent);
+opacity: 0.7;
+transition: opacity 0.3s ease;
+}
+
+.artist-card__content {
+position: absolute;
+inset: auto 0 0 0;
+padding: 1rem;
+}
+
+.artist-card__content p {
+font-family: var(--font-mono);
+font-size: 0.7rem;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: var(--color-muted);
+margin: 0 0 0.4rem;
+}
+
+.artist-card__content h3 {
+font-family: var(--font-display);
+font-size: 1.4rem;
+letter-spacing: 0.08em;
+margin: 0;
+display: flex;
+align-items: center;
+gap: 0.5rem;
+}
+
+.artist-card__content span {
+font-size: 0.9rem;
+opacity: 0;
+transform: translateX(-0.5rem);
+transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.artist-card:hover img {
+transform: scale(1.1);
+}
+
+.artist-card:hover .artist-card__overlay {
+opacity: 0.9;
+}
+
+.artist-card:hover .artist-card__content span {
+opacity: 1;
+transform: translateX(0);
+}
+
+.artist-card__bio {
+margin: 1rem 0 0;
+font-size: 0.85rem;
+color: var(--color-muted);
+}
+
+.news-grid {
+grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.news-grid--full {
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.news-card {
+display: block;
+color: inherit;
+}
+
+.news-card__media {
+aspect-ratio: 5 / 3;
+border: 1px solid var(--color-border);
+background: var(--color-card);
+overflow: hidden;
+margin-bottom: 1rem;
+}
+
+.news-grid--full .news-card__media {
+aspect-ratio: 3 / 2;
+}
+
+.news-card__media img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+filter: grayscale(1);
+transition: transform 0.5s ease;
+}
+
+.news-card:hover img {
+transform: scale(1.05);
+}
+
+.news-card__date {
+font-family: var(--font-mono);
+font-size: 0.7rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--color-muted);
+margin: 0 0 0.5rem;
+}
+
+.news-card h2,
+.news-card h3 {
+margin: 0 0 0.5rem;
+font-size: 1.1rem;
+line-height: 1.4;
+}
+
+.news-card__excerpt {
+color: var(--color-muted);
+font-size: 0.9rem;
+line-height: 1.6;
+display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+overflow: hidden;
+}
+
+.about-grid {
+display: grid;
+gap: 4rem;
+align-items: center;
+}
+
+.about-image {
+position: relative;
+aspect-ratio: 4 / 5;
+}
+
+.about-image__frame {
+position: absolute;
+inset: 0;
+border: 1px solid rgba(245, 245, 245, 0.2);
+transform: translate(0.75rem, 0.75rem);
+}
+
+.about-image img {
+position: relative;
+z-index: 1;
+width: 100%;
+height: 100%;
+object-fit: cover;
+filter: grayscale(1);
+}
+
+.about-content .section-title {
+margin-bottom: 2rem;
+}
+
+.about-content__body {
+color: var(--color-muted);
+line-height: 1.8;
+}
+
+.about-content__body p {
+margin: 0 0 1.5rem;
+}
+
+.about-stats {
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 2rem;
+border-top: 1px solid var(--color-border);
+border-bottom: 1px solid var(--color-border);
+padding: 2rem 0;
+margin-top: 2.5rem;
+}
+
+.about-stats p {
+font-family: var(--font-display);
+font-size: 2.5rem;
+letter-spacing: 0.08em;
+margin: 0 0 0.25rem;
+}
+
+.about-stats span {
+font-size: 0.7rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--color-muted);
+}
+
+.newsletter {
+position: relative;
+overflow: hidden;
+}
+
+.newsletter__rings {
+position: absolute;
+inset: 0;
+display: grid;
+place-items: center;
+pointer-events: none;
+}
+
+.newsletter__rings span {
+position: absolute;
+border-radius: 999px;
+border: 1px solid rgba(245, 245, 245, 0.08);
+}
+
+.newsletter__rings span:first-child {
+width: 38rem;
+height: 38rem;
+}
+
+.newsletter__rings span:last-child {
+width: 26rem;
+height: 26rem;
+}
+
+.newsletter__inner {
+position: relative;
+z-index: 1;
+text-align: center;
+max-width: 42rem;
+}
+
+.newsletter__inner p {
+color: var(--color-muted);
+}
+
+.newsletter__form {
+display: flex;
+flex-wrap: wrap;
+gap: 1rem;
+justify-content: center;
+margin: 2rem auto 1rem;
+}
+
+.newsletter__form input {
+flex: 1 1 15rem;
+padding: 0.75rem 1rem;
+background: transparent;
+border: 1px solid var(--color-border);
+color: var(--color-foreground);
+font-size: 0.9rem;
+}
+
+.newsletter__form button {
+padding: 0.75rem 1.5rem;
+border: none;
+background: var(--color-foreground);
+color: var(--color-bg);
+text-transform: uppercase;
+letter-spacing: 0.2em;
+font-size: 0.75rem;
+cursor: pointer;
+}
+
+.newsletter__note {
+font-size: 0.75rem;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: var(--color-muted-strong);
+}
+
+.page-hero {
+padding: 4rem 0;
+border-bottom: 1px solid var(--color-border);
+}
+
+.page-hero__kicker {
+font-family: var(--font-mono);
+font-size: 0.7rem;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: var(--color-muted);
+margin: 0 0 0.75rem;
+}
+
+.page-hero__title {
+font-family: var(--font-display);
+font-size: clamp(2.5rem, 5vw, 4rem);
+letter-spacing: 0.1em;
+margin: 0;
+}
+
+.page-hero-image {
+position: relative;
+height: 50vh;
+overflow: hidden;
+}
+
+.page-hero-image img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+filter: grayscale(1);
+}
+
+.page-hero-image__overlay {
+position: absolute;
+inset: 0;
+background: linear-gradient(to top, rgba(13, 13, 13, 1), rgba(13, 13, 13, 0.5), transparent);
+}
+
+.rich-text {
+max-width: 64rem;
+}
+
+.rich-text .lead {
+font-size: 1.2rem;
+color: var(--color-muted);
+line-height: 1.8;
+margin-bottom: 2rem;
+}
+
+.rich-text h2 {
+font-family: var(--font-display);
+font-size: 2.4rem;
+letter-spacing: 0.08em;
+margin: 3rem 0 1rem;
+}
+
+.rich-text p {
+color: var(--color-muted);
+line-height: 1.8;
+margin: 0 0 1.5rem;
+}
+
+.rich-text blockquote {
+border-left: 2px solid var(--color-foreground);
+padding-left: 1.5rem;
+margin: 2.5rem 0;
+}
+
+.rich-text blockquote p {
+font-family: var(--font-display);
+font-size: 1.6rem;
+letter-spacing: 0.08em;
+color: var(--color-foreground);
+margin: 0 0 1rem;
+}
+
+.rich-text cite {
+font-size: 0.7rem;
+text-transform: uppercase;
+letter-spacing: 0.2em;
+color: var(--color-muted);
+font-style: normal;
+}
+
+.rich-text ul {
+list-style: none;
+padding: 0;
+margin: 0;
+color: var(--color-muted);
+}
+
+.rich-text li {
+margin-bottom: 0.5rem;
+}
+
+.rich-text li span {
+color: var(--color-foreground);
+}
+
+.stats-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+gap: 2rem;
+text-align: center;
+}
+
+.stats-grid p {
+font-family: var(--font-display);
+font-size: 3rem;
+letter-spacing: 0.08em;
+margin: 0 0 0.5rem;
+}
+
+.stats-grid span {
+font-size: 0.75rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--color-muted);
+}
+
+.shop-filters {
+display: flex;
+flex-wrap: wrap;
+gap: 1rem;
+}
+
+.filter-button {
+padding: 0.5rem 1rem;
+border: 1px solid var(--color-border);
+background: transparent;
+color: var(--color-muted);
+text-transform: uppercase;
+letter-spacing: 0.15em;
+font-size: 0.7rem;
+cursor: pointer;
+transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.filter-button--active {
+background: var(--color-foreground);
+color: var(--color-bg);
+border-color: var(--color-foreground);
+}
+
+.filter-button:hover {
+border-color: var(--color-foreground);
+color: var(--color-foreground);
+}
+
+.shop-placeholder {
+background: var(--color-card);
+border: 1px solid var(--color-border);
+padding: 3rem;
+text-align: center;
+}
+
+.shop-placeholder__note {
+font-family: var(--font-mono);
+font-size: 0.75rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--color-muted);
+}
+
+.shop-placeholder__frame {
+margin-top: 2rem;
+aspect-ratio: 16 / 9;
+border: 1px solid var(--color-border);
+display: grid;
+place-items: center;
+color: var(--color-muted);
+}
+
+.product-grid {
+grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.product-card {
+display: block;
+color: inherit;
+}
+
+.product-card__media {
+position: relative;
+aspect-ratio: 1 / 1;
+border: 1px solid var(--color-border);
+background: var(--color-card);
+overflow: hidden;
+margin-bottom: 1rem;
+}
+
+.product-card__media img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform 0.5s ease;
+}
+
+.product-card:hover img {
+transform: scale(1.05);
+}
+
+.product-card__badge {
+position: absolute;
+top: 0.75rem;
+left: 0.75rem;
+background: rgba(13, 13, 13, 0.8);
+color: var(--color-muted);
+font-family: var(--font-mono);
+font-size: 0.7rem;
+padding: 0.25rem 0.5rem;
+}
+
+.product-card h3 {
+font-size: 0.95rem;
+margin: 0 0 0.25rem;
+}
+
+.product-card__artist {
+font-size: 0.75rem;
+color: var(--color-muted);
+margin: 0 0 0.5rem;
+}
+
+.product-card__price {
+font-family: var(--font-mono);
+font-size: 0.85rem;
+color: var(--color-foreground);
+margin: 0;
+}
+
+.site-footer {
+border-top: 1px solid var(--color-border);
+background: var(--color-card);
+}
+
+.site-footer__inner {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+gap: 3rem;
+padding: 4rem 0 2rem;
+}
+
+.site-footer__brand {
+max-width: 28rem;
+}
+
+.site-footer__brand img {
+width: 6rem;
+height: 6rem;
+object-fit: contain;
+margin-bottom: 1.5rem;
+}
+
+.site-footer__brand p {
+color: var(--color-muted);
+font-size: 0.9rem;
+line-height: 1.7;
+}
+
+.site-footer__column h3 {
+font-size: 0.75rem;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+margin: 0 0 1.5rem;
+}
+
+.site-footer__column ul {
+list-style: none;
+padding: 0;
+margin: 0;
+display: grid;
+gap: 0.75rem;
+}
+
+.site-footer__column a {
+color: var(--color-muted);
+font-size: 0.85rem;
+}
+
+.site-footer__column a:hover {
+color: var(--color-foreground);
+}
+
+.site-footer__bottom {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: center;
+gap: 1rem;
+border-top: 1px solid var(--color-border);
+padding: 1.5rem 0 3rem;
+font-size: 0.7rem;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(--color-muted);
+}
+
+.site-footer__legal {
+text-transform: none;
+letter-spacing: 0.05em;
+font-size: 0.65rem;
+opacity: 0.7;
+}
+
+.redirect-page {
+background: var(--color-bg);
+color: var(--color-foreground);
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.redirect-page__content {
+text-align: center;
+font-family: var(--font-body);
+letter-spacing: 0.08em;
+text-transform: uppercase;
+font-size: 0.75rem;
+color: var(--color-muted);
+}
+
+.redirect-page__content a {
+color: inherit;
+text-decoration: underline;
+}
+
+@media (min-width: 48rem) {
+.site-nav {
+display: block;
+}
+
+.site-header__toggle {
+display: none;
+}
+
+.artist-grid {
+grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.artist-grid--home {
+grid-template-columns: none;
+grid-auto-flow: column;
+grid-auto-columns: minmax(0, 1fr);
+justify-content: center;
+}
+
+.about-grid {
+grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.news-grid--full {
+grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.site-footer__brand {
+grid-column: span 2;
+}
+}
+
+@media (min-width: 64rem) {
+.news-grid {
+grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.product-grid {
+grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+}
+
+@media (max-width: 40rem) {
+.section-header {
+align-items: flex-start;
+}
+
+.hero__actions {
+flex-direction: column;
+}
+
+.shop-placeholder {
+padding: 2rem;
+}
+}
+</file>
+
+<file path="index.md">
+---
+layout: default
+title: Home
+description: BlackBox Records home.
+main_class: site-main--home
+body_class: home-snap
+---
+
+{% assign home = site.data.home %}
+{% assign releases = site.data.releases.items | sort: "year" | reverse | slice: 0, 3 %}
+{% assign artists = site.data.artists.items | slice: 0, 5 %}
+{% assign news_items = site.data.news.items | limit: 3 %}
+{% assign newsletter = site.data.newsletter %}
+{% assign current_year = 'now' | date: '%Y' | plus: 0 %}
+{% assign established_year = site.data.settings.established_year | default: current_year | plus: 0 %}
+{% assign years_active = current_year | minus: established_year | plus: 1 %}
+{% if years_active
+<
+1 %}
+{% assign years_active = 1 %}
+{% endif %}
+{% assign artists_with_country = site.data.artists.items | where_exp: "item", "item.country" %}
+{% assign country_names = artists_with_country | map: "country" | uniq %}
+{% assign country_count = country_names | size %}
+<section class="hero snap-section" id="hero">
+  <div class="hero__pattern" aria-hidden="true">
+    <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M50 100 Q45 70 50 50 Q55 30 50 0" stroke="currentColor" stroke-width="0.5" fill="none"/>
+      <path d="M30 100 Q35 60 40 40 Q45 20 50 0" stroke="currentColor" stroke-width="0.3" fill="none"/>
+      <path d="M70 100 Q65 60 60 40 Q55 20 50 0" stroke="currentColor" stroke-width="0.3" fill="none"/>
+    </svg>
+  </div>
+  <div class="hero__ring hero__ring--lg" aria-hidden="true"></div>
+  <div class="hero__ring hero__ring--md" aria-hidden="true"></div>
+  <div class="hero__ring hero__ring--sm" aria-hidden="true"></div>
+  <div class="hero__content site-container">
+    <div class="hero__logo">
+      <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="BlackBox Records">
+    </div>
+    <p class="hero__tagline">
+      {{ home.hero.tagline }}
+    </p>
+    <div class="hero__actions">
+      <a class="button button--primary" href="{{ home.hero.primary_url | relative_url }}">{{ home.hero.primary_label
+        }}
+      </a>
+      <a class="button button--outline" href="{{ home.hero.secondary_url | relative_url }}">{{ home.hero.secondary_label
+        }}
+      </a>
+    </div>
+  </div>
+
+  <div class="hero__scroll" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="hero__scroll-line">
+      <span></span>
+    </div>
+  </div>
+</section>
+
+<section class="section section--border snap-section" id="featured-releases">
+  <div class="site-container">
+    <div class="section-header">
+      <div>
+        <p class="section-kicker">{{ home.latest_releases.kicker }}</p>
+        <h2 class="section-title">{{ home.latest_releases.title | upcase }}</h2>
+      </div>
+      <a class="section-link" href="{{ home.latest_releases.link_url | relative_url }}">{{
+        home.latest_releases.link_label }}
+        <span aria-hidden="true">&rarr;</span>
+      </a>
+    </div>
+    <div class="release-grid release-grid--home">
+      {% for release in releases %}
+      <a class="release-card" href="{{ release.url | default: '/shop/' | relative_url }}">
+        <div class="release-card__media">
+          <img src="{{ release.image | relative_url }}" alt="{{ release.image_alt | default: release.title }}">
+          <div class="release-card__overlay">
+            <span>Listen</span>
+          </div>
+        </div>
+        <p class="release-card__year">{{ release.year }}</p>
+        <h3 class="release-card__title">{{ release.title | upcase }}</h3>
+        <p class="release-card__artist">{{ release.artist }}</p>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--border section--card snap-section" id="artists">
+  <div class="site-container">
+    <div class="section-header section-header--center">
+      <p class="section-kicker">{{ home.artists.kicker }}</p>
+      <h2 class="section-title">{{ home.artists.title | upcase }}</h2>
+    </div>
+    <div class="artist-grid artist-grid--home" data-artist-grid data-max="5" data-baseurl="{{ site.baseurl }}">
+      {% for artist in artists %}
+      <a class="artist-card" href="{{ artist.url | default: '/artists/' | relative_url }}">
+        <img src="{{ artist.image | relative_url }}" alt="{{ artist.image_alt | default: artist.name }}">
+        <div class="artist-card__overlay"></div>
+        <div class="artist-card__content">
+          <p>{{ artist.genre }}</p>
+          <h3>{{ artist.name | upcase }}
+            <span aria-hidden="true">&nearr;</span>
+          </h3>
+        </div>
+        <p class="artist-card__bio">{{ artist.bio }}</p>
+      </a>
+      {% endfor %}
+    </div>
+    <script type="application/json" id="home-artists-data">
+      {{ site.data.artists.items | jsonify }}
+    </script>
+    <div class="section-cta">
+      <a class="button button--outline" href="{{ home.artists.cta_url | relative_url }}">{{ home.artists.cta_label }}
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--border snap-section" id="news">
+  <div class="site-container">
+    <div class="section-header">
+      <div>
+        <p class="section-kicker">{{ home.news.kicker }}</p>
+        <h2 class="section-title">{{ home.news.title | upcase }}</h2>
+      </div>
+      <a class="section-link" href="{{ home.news.link_url | relative_url }}">{{ home.news.link_label }}
+        <span aria-hidden="true">&rarr;</span>
+      </a>
+    </div>
+    <div class="news-grid">
+      {% for item in news_items %}
+      <a class="news-card" href="{{ item.url | default: '/news/' | relative_url }}">
+        <div class="news-card__media">
+          <img src="{{ item.image | relative_url }}" alt="{{ item.image_alt | default: item.title }}">
+        </div>
+        <p class="news-card__date">{{ item.date }}</p>
+        <h3>{{ item.title }}</h3>
+        <p class="news-card__excerpt">{{ item.excerpt }}</p>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--border section--card snap-section" id="journey">
+  <div class="site-container about-grid">
+    <div class="about-image">
+      <div class="about-image__frame"></div>
+      <img src="{{ home.journey.image | relative_url }}" alt="{{ home.journey.image_alt }}">
+    </div>
+    <div class="about-content">
+      <p class="section-kicker">{{ home.journey.kicker }}</p>
+      <h2 class="section-title">{{ home.journey.title | upcase }}</h2>
+      <div class="about-content__body">
+        {% for paragraph in home.journey.paragraphs %}
+        <p>{{ paragraph }}</p>
+        {% endfor %}
+      </div>
+      <div class="about-stats">
+        {% for stat in home.journey.stats %}
+        {% if stat.key == "artists" %}
+        {% assign stat_value = site.data.artists.items | size %}
+        {% elsif stat.key == "releases" %}
+        {% assign stat_value = site.data.releases.items | size %}
+        {% elsif stat.key == "countries" %}
+        {% assign stat_value = country_count %}
+        {% elsif stat.key == "year" %}
+        {% assign stat_value = years_active %}
+        {% else %}
+        {% assign stat_value = stat.value %}
+        {% endif %}
+        <div>
+          <p>{{ stat_value }}</p>
+          <span>{{ stat.label }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--border newsletter snap-section" id="newsletter">
+  <div class="newsletter__rings" aria-hidden="true">
+    <span></span>
+    <span></span>
+  </div>
+  <div class="site-container newsletter__inner">
+    <p class="section-kicker">{{ newsletter.kicker }}</p>
+    <h2 class="section-title">{{ newsletter.title | upcase }}</h2>
+    <p>{{ newsletter.description }}</p>
+    <form class="newsletter__form">
+      <label class="visually-hidden" for="newsletter-email">Email address</label>
+      <input id="newsletter-email" type="email" placeholder="{{ newsletter.placeholder }}" required>
+      <button type="submit">{{ newsletter.button_label }}</button>
+    </form>
+    <p class="newsletter__note">{{ newsletter.note }}</p>
+  </div>
+</section>
+</file>
+
+<file path="_includes/footer.html">
+<footer class="site-footer">
+  <div class="site-container site-footer__inner">
+    <div class="site-footer__brand">
+      <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="BlackBox Records">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua.
+      </p>
+    </div>
+    <div class="site-footer__column">
+      <h3>Sitemap</h3>
+      <ul>
+        {% for item in site.data.nav.items %}
+        {% assign nav_url = item.url %}
+        {% if item.key == 'releases' %}
+        {% assign nav_url = site.data.home.latest_releases.link_url %}
+        {% endif %}
+        <li>
+          <a href="{{ nav_url | relative_url }}">{{ item.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="site-footer__column">
+      <h3>Connect</h3>
+      <ul>
+        {% for item in site.data.socials.items %}
+        <li>
+          <a href="{{ item.url }}">{{ item.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {% assign current_year = site.time | date: '%Y' | plus: 0 %}
+  {% assign brand_name = site.title | default: 'BlackBox Records' %}
+  {% assign start_year_raw = site.data.settings.start_year | default: site.data.settings.founded_year | default:
+  site.data.settings.established_year %}
+  {% assign founded_year_raw = site.data.settings.founded_year | default: site.data.settings.established_year %}
+  {% if start_year_raw %}
+  {% assign start_year = start_year_raw | plus: 0 %}
+  {% endif %}
+  {% if founded_year_raw %}
+  {% assign founded_year = founded_year_raw | plus: 0 %}
+  {% endif %}
+  {% if start_year and start_year > current_year %}
+  {% assign start_year = current_year %}
+  {% endif %}
+  {% if start_year and start_year
+  < current_year
+  %}
+  {% assign copyright_years = start_year | append: '&ndash;' | append: current_year %}
+  {% else %}
+  {% assign copyright_years = current_year %}
+  {% endif %}
+  <div class="site-footer__bottom site-container">
+    <p>&copy; {{ copyright_years }} {{ brand_name }}.
+      <span class="site-footer__legal">All rights reserved.</span>
+    </p>
+    {% if founded_year and founded_year<= current_year and (start_year == nil or founded_year == start_year) %}
+    <p>Est. {{ founded_year }}</p>
+    {% endif %}
+  </div>
+</footer>
+</file>
+
+  </files>

@@ -29,16 +29,20 @@ collections:
           - { label: Layout, name: layout, widget: hidden, default: default }
           - { label: Title, name: title, widget: string }
           - { label: Description, name: description, widget: string, required: false }
-          - { label: Main Class, name: main_class, widget: hidden, default: site-main--home }
-          - { label: Body Class, name: body_class, widget: hidden, default: home-snap }
+          - { label: Main Class, name: main_class, widget: hidden, default: page-main-content-region--home }
+          - { label: Body Class, name: body_class, widget: hidden, default: home-scroll-snap-container }
       - name: artists
         label: Artists
         file: artists/index.md
-        fields:
-          - { label: Layout, name: layout, widget: hidden, default: default }
-          - { label: Title, name: title, widget: string }
-          - { label: Description, name: description, widget: string, required: false }
-          - { label: Hero Kicker, name: hero_kicker, widget: string, required: false }
+          fields:
+              - { label:
+                Layout, name:
+                  layout, widget:
+                    hidden, default: default }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Description, name: description, widget: string, required: false }
+                  - { label: Hero Kicker, name: hero_kicker, widget: string, required: false }
+                  - { label: Redirect URL, name: redirect_url, widget: hidden, default: "https://blackboxrecords-shop.fourthwall.com" }
       - name: news
         label: News
         file: news/index.md

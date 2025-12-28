@@ -3,3 +3,5 @@ description: Experimental record label with a focus on boundary-pushing music.
 url: ""
 baseurl: ""
 permalink: pretty
+exclude:
+  - compressed-repo.md
