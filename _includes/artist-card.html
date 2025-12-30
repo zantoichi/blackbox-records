@@ -1,0 +1,22 @@
+{% assign artist = include.artist %}
+{% assign artist_slug = artist.slug | default: '' %}
+{% if artist.url %}
+  {% assign artist_url = artist.url %}
+{% elsif artist_slug != '' %}
+  {% assign artist_url = '/artists/' | append: artist_slug | append: '/' %}
+{% else %}
+  {% assign artist_url = '/artists/' %}
+{% endif %}
+<a class="artist-roster-card-link" href="{{ artist_url | relative_url }}">
+  <img src="{{ artist.image | relative_url }}" alt="{{ artist.image_alt | default: artist.name }}">
+  <div class="artist-roster-card-overlay-layer"></div>
+  <div class="artist-roster-card-text">
+    {% if artist.genre %}
+    <p>{{ artist.genre }}</p>
+    {% endif %}
+    <h3>{{ artist.name | upcase }} <span aria-hidden="true">&nearr;</span></h3>
+  </div>
+  {% if artist.bio %}
+  <p class="artist-roster-card-bio-text">{{ artist.bio }}</p>
+  {% endif %}
+</a>

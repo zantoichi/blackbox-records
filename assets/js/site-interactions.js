@@ -409,7 +409,7 @@ function buildArtistCardChildren(artist, baseUrl) {
 function createArtistCardAnchor(artist, baseUrl) {
   const cardElement = document.createElement('a')
   cardElement.className = 'artist-roster-card-link'
-  cardElement.href = normalizeUrl(artist.url || '/artists/', baseUrl)
+  cardElement.href = normalizeUrl(resolveArtistProfilePath(artist), baseUrl)
   return cardElement
 }
 
@@ -468,4 +468,10 @@ function normalizeUrl(path, baseUrl) {
   if (/^https?:\/\//i.test(path)) return path
   if (!baseUrl) return path
   return path.startsWith('/') ? `${baseUrl}${path}` : `${baseUrl}/${path}`
+}
+
+function resolveArtistProfilePath(artist) {
+  if (artist.url) return artist.url
+  if (artist.slug) return `/artists/${artist.slug}/`
+  return '/artists/'
 }

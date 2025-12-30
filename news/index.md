@@ -2,15 +2,10 @@
 layout: default
 title: News
 description: News updates.
-hero_kicker: Updates
+section_label: Updates
 ---
 
-<section class="internal-page-hero-section">
-  <div class="page-content-width-constrained-container">
-    <p class="internal-page-hero-kicker-text">{{ page.hero_kicker }}</p>
-    <h1 class="internal-page-hero-title-text">{{ page.title | upcase }}</h1>
-  </div>
-</section>
+{% include internal-page-hero.html section_label=page.section_label title=page.title %}
 <section class="page-section-compact-spacing">
   <div class="page-content-width-constrained-container">
     <div class="news-summary-card-grid news-summary-card-grid--full">

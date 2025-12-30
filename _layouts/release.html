@@ -4,7 +4,14 @@ layout: default
 {% assign release_artist = site.data.artists.items | where: "slug", page.artist_slug | first %}
 {% assign artist_fallback_name = page.artist_name | default: page.artist_slug | default: "Artist" %}
 {% assign artist_name = release_artist.name | default: artist_fallback_name | replace: "-", " " %}
-{% assign artist_url = release_artist.url | default: "/artists/" %}
+{% assign artist_slug = release_artist.slug | default: page.artist_slug | default: "" %}
+{% if release_artist.url %}
+{% assign artist_url = release_artist.url %}
+{% elsif artist_slug != "" %}
+{% assign artist_url = "/artists/" | append: artist_slug | append: "/" %}
+{% else %}
+{% assign artist_url = "/artists/" %}
+{% endif %}
 {% assign release_year = page.release_date | date: "%Y" %}
 {% capture tidal_embed_url %}
 {% include release-tidal-embed-url.html release=page %}

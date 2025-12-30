@@ -1,0 +1,29 @@
+<ul class="global-site-navigation__list">
+  {% for item in include.items %}
+    {% assign nav_url = item.url %}
+    {% assign nav_is_active = false %}
+    {% if item.key == 'releases' %}
+      {% assign nav_url = site.data.home.latest_releases.link_url %}
+      {% if page.url contains '/releases/' %}
+        {% assign nav_is_active = true %}
+      {% endif %}
+    {% elsif nav_url == '/' %}
+      {% if page.url == '/' or page.url == '/index.html' %}
+        {% assign nav_is_active = true %}
+      {% endif %}
+    {% elsif page.url == nav_url %}
+      {% assign nav_is_active = true %}
+    {% endif %}
+    {% assign nav_is_home = false %}
+    {% if nav_url == '/' %}
+      {% assign nav_is_home = true %}
+    {% endif %}
+    <li>
+      <a class="global-site-navigation__link{% if nav_is_home %} global-site-navigation__link--home{% endif %}{% if nav_is_active %} is-current-page{% endif %}"
+         href="{{ nav_url | relative_url }}"
+         {% if nav_is_active %}aria-current="page"{% endif %}>
+        {{ item.title }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>

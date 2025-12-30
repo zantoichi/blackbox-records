@@ -1,5 +1,5 @@
 hero:
-  kicker: About
+  section_label: About
   title: The Label
   image: /assets/images/backgrounds/dark-recording-studio-vintage-equipment.jpg
   image_alt: BlackBox Records Studio

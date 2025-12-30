@@ -1,0 +1,8 @@
+<section class="internal-page-hero-section">
+  <div class="page-content-width-constrained-container">
+    {% if include.section_label %}
+    <p class="internal-page-hero-kicker-text">{{ include.section_label }}</p>
+    {% endif %}
+    <h1 class="internal-page-hero-title-text">{{ include.title | upcase }}</h1>
+  </div>
+</section>

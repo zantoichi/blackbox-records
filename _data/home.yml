@@ -5,22 +5,22 @@ hero:
   secondary_label: Visit Shop
   secondary_url: /shop/
 latest_releases:
-  kicker: Latest
+  section_label: Latest
   title: Latest Releases
   link_label: View All
   link_url: /releases/
 artists:
-  kicker: Roster
+  section_label: Roster
   title: Featured Roster
   cta_label: View Full Roster
   cta_url: /artists/
 news:
-  kicker: Updates
+  section_label: Updates
   title: Latest News
   link_label: All News
   link_url: /news/
 journey:
-  kicker: About
+  section_label: About
   title: The Journey
   image: /assets/images/backgrounds/dark-recording-studio-vintage-equipment.jpg
   image_alt: About BlackBox Records

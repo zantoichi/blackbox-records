@@ -8,11 +8,11 @@ layout: default
 {% assign artist_image = artist.image | default: page.image %}
 {% assign artist_image_alt = artist.image_alt | default: artist_name %}
 {% assign upcoming_release = artist.upcoming_release | default: page.upcoming_release %}
-{% assign hero_kicker = page.hero_kicker | default: "Artist" %}
+{% assign section_label = page.section_label | default: "Artist" %}
 
 <section class="internal-page-hero-section">
   <div class="page-content-width-constrained-container">
-    <p class="internal-page-hero-kicker-text">{{ hero_kicker }}</p>
+    <p class="internal-page-hero-kicker-text">{{ section_label }}</p>
     <h1 class="internal-page-hero-title-text">{{ artist_name | upcase }}</h1>
   </div>
 </section>

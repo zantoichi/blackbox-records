@@ -9,7 +9,6 @@ items:
       Mass Culture, formed in 2011 and after a few changes in the line-up, is now a 5 member band.
       Each member has had its own musical path and identity, but having common components and a wide appreciation for
       the music of various groups they decided to start up a band combining post hardcore and metal elements.
-    url: /artists/mass-culture/
   - name: Ouranopithecus
     slug: ouranopithecus
     genre: Hardcore
@@ -20,7 +19,6 @@ items:
       Ouranopithecus channels a raw, heavy sound that blends stark tension with driving rhythm.
       Their material is focused on momentum, atmosphere, and a relentless live energy.
     upcoming_release: Upcoming LP (title TBA).
-    url: /artists/ouranopithecus/
   - name: Chronoboros
     slug: chronoboros
     genre: Hardcore
@@ -31,4 +29,3 @@ items:
       Chronoboros is a Greek hardcore project leaning into slow-burn intensity, cavernous tone,
       and a stark sense of space.
     upcoming_release: Upcoming LP (title TBA).
-    url: /artists/chronoboros/

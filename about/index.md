@@ -16,12 +16,7 @@ description: About the label.
 {% if years_active < 1 %}
 {% assign years_active = 1 %}
 {% endif %}
-<section class="internal-page-hero-section">
-  <div class="page-content-width-constrained-container">
-    <p class="internal-page-hero-kicker-text">{{ about.hero.kicker }}</p>
-    <h1 class="internal-page-hero-title-text">{{ about.hero.title | upcase }}</h1>
-  </div>
-</section>
+{% include internal-page-hero.html section_label=about.hero.section_label title=about.hero.title %}
 <section class="internal-page-hero-image-frame">
   <img src="{{ about.hero.image | relative_url }}" alt="{{ about.hero.image_alt }}">
   <div class="internal-page-hero-image-overlay-layer"></div>
@@ -79,7 +74,7 @@ description: About the label.
     <span></span>
   </div>
   <div class="page-content-width-constrained-container newsletter-content-block">
-    <p class="page-section-kicker-text">{{ newsletter.kicker }}</p>
+    <p class="page-section-kicker-text">{{ newsletter.section_label }}</p>
     <h2 class="page-section-title-text">{{ newsletter.title | upcase }}</h2>
     <p>{{ newsletter.description }}</p>
     <form class="newsletter-signup-form">

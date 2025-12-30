@@ -53,7 +53,7 @@ body_class: home-scroll-snap-container
   <div class="page-content-width-constrained-container">
     <div class="page-section-header-layout-spaced">
       <div>
-        <p class="page-section-kicker-text">{{ home.latest_releases.kicker }}</p>
+        <p class="page-section-kicker-text">{{ home.latest_releases.section_label }}</p>
         <h2 class="page-section-title-text">{{ home.latest_releases.title | upcase }}</h2>
       </div>
       <a class="page-section-header-link" href="{{ home.latest_releases.link_url | relative_url }}">{{ home.latest_releases.link_label }} <span aria-hidden="true">&rarr;</span></a>
@@ -69,20 +69,12 @@ body_class: home-scroll-snap-container
 <section class="page-section-standard-spacing-with-divider-and-surface-background" id="artists">
   <div class="page-content-width-constrained-container">
     <div class="page-section-header-layout-centered-and-stacked">
-      <p class="page-section-kicker-text">{{ home.artists.kicker }}</p>
+      <p class="page-section-kicker-text">{{ home.artists.section_label }}</p>
       <h2 class="page-section-title-text">{{ home.artists.title | upcase }}</h2>
     </div>
     <div class="artist-roster-card-grid artist-roster-card-grid--featured" data-featured-artist-grid data-max-items="5" data-site-base-url="{{ site.baseurl }}">
       {% for artist in artists %}
-        <a class="artist-roster-card-link" href="{{ artist.url | default: '/artists/' | relative_url }}">
-          <img src="{{ artist.image | relative_url }}" alt="{{ artist.image_alt | default: artist.name }}">
-          <div class="artist-roster-card-overlay-layer"></div>
-          <div class="artist-roster-card-text">
-            <p>{{ artist.genre }}</p>
-            <h3>{{ artist.name | upcase }} <span aria-hidden="true">&nearr;</span></h3>
-          </div>
-          <p class="artist-roster-card-bio-text">{{ artist.bio }}</p>
-        </a>
+        {% include artist-card.html artist=artist %}
       {% endfor %}
     </div>
     <script type="application/json" id="homepage-featured-artists-data">
@@ -97,7 +89,7 @@ body_class: home-scroll-snap-container
   <div class="page-content-width-constrained-container">
     <div class="page-section-header-layout-spaced">
       <div>
-        <p class="page-section-kicker-text">{{ home.news.kicker }}</p>
+        <p class="page-section-kicker-text">{{ home.news.section_label }}</p>
         <h2 class="page-section-title-text">{{ home.news.title | upcase }}</h2>
       </div>
       <a class="page-section-header-link" href="{{ home.news.link_url | relative_url }}">{{ home.news.link_label }} <span aria-hidden="true">&rarr;</span></a>
@@ -123,7 +115,7 @@ body_class: home-scroll-snap-container
       <img src="{{ home.journey.image | relative_url }}" alt="{{ home.journey.image_alt }}">
     </div>
     <div class="about-section-content-block">
-      <p class="page-section-kicker-text">{{ home.journey.kicker }}</p>
+      <p class="page-section-kicker-text">{{ home.journey.section_label }}</p>
       <h2 class="page-section-title-text">{{ home.journey.title | upcase }}</h2>
       <div class="about-section-body-text">
         {% for paragraph in home.journey.paragraphs %}
@@ -158,7 +150,7 @@ body_class: home-scroll-snap-container
     <span></span>
   </div>
   <div class="page-content-width-constrained-container newsletter-content-block">
-    <p class="page-section-kicker-text">{{ newsletter.kicker }}</p>
+    <p class="page-section-kicker-text">{{ newsletter.section_label }}</p>
     <h2 class="page-section-title-text">{{ newsletter.title | upcase }}</h2>
     <p>{{ newsletter.description }}</p>
     <form class="newsletter-signup-form">
