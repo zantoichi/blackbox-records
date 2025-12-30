@@ -4,24 +4,22 @@
 {% assign artist_name = artist_item.name | default: artist_fallback_name | replace: "-", " " %}
 {% assign release_year = release_item.release_date | date: '%Y' %}
 {% capture release_tidal_embed_url %}
-{% include release-tidal-embed-url.html release=release_item %}
+{% include tidal-embed-url.html release=release_item %}
 {% endcapture %}
 {% assign release_tidal_embed_url = release_tidal_embed_url | strip %}
 {% assign release_embed_url = release_item.bandcamp_embed_url | default: release_tidal_embed_url %}
 <a class="release-summary-card-link"
    href="{{ release_item.url | relative_url }}"
-   data-release-player-title="{{ release_item.title | escape }} — {{ artist_name | escape }}"
-   {% if release_embed_url %}data-release-player-card{% endif %}
-   {% if release_item.bandcamp_embed_url %}data-release-player-bandcamp-embed-url="{{ release_item.bandcamp_embed_url }}"{% endif %}
-   {% if release_item.bandcamp_url %}data-release-player-bandcamp-url="{{ release_item.bandcamp_url }}"{% endif %}
-   {% if release_tidal_embed_url %}data-release-player-tidal-embed-url="{{ release_tidal_embed_url }}"{% endif %}
-   {% if release_item.tidal_url %}data-release-player-tidal-url="{{ release_item.tidal_url }}"{% endif %}
+   data-listen-title="{{ release_item.title | escape }} — {{ artist_name | escape }}"
+   {% if release_embed_url %}data-listen-card{% endif %}
+   {% if release_item.bandcamp_embed_url %}data-listen-bandcamp-embed-url="{{ release_item.bandcamp_embed_url }}"{% endif %}
+   {% if release_tidal_embed_url %}data-listen-tidal-embed-url="{{ release_tidal_embed_url }}"{% endif %}
    >
   <div class="release-summary-card-media-frame">
     <img src="{{ release_item.cover_image | relative_url }}" alt="{{ release_item.cover_image_alt | default: release_item.title }}">
     {% if release_embed_url %}
     <div class="release-summary-card-overlay-layer">
-      <div class="release-summary-card-listen-button" data-release-player-trigger>
+      <div class="release-summary-card-listen-button" data-listen-trigger>
         <span class="release-summary-card-listen-dot" aria-hidden="true"></span>
         <span class="release-summary-card-listen-text">Listen</span>
       </div>

@@ -14,7 +14,7 @@ layout: default
 {% endif %}
 {% assign release_year = page.release_date | date: "%Y" %}
 {% capture tidal_embed_url %}
-{% include release-tidal-embed-url.html release=page %}
+{% include tidal-embed-url.html release=page %}
 {% endcapture %}
 {% assign tidal_embed_url = tidal_embed_url | strip %}
 {% assign embed_url = page.bandcamp_embed_url | default: tidal_embed_url %}
@@ -56,13 +56,12 @@ layout: default
         {% if embed_url %}
         <button class="call-to-action-button call-to-action-button--outline"
                 type="button"
-                data-release-player-card
-                data-release-player-trigger
-                data-release-player-title="{{ page.title | escape }} — {{ artist_name | escape }}"
-                {% if page.bandcamp_embed_url %}data-release-player-bandcamp-embed-url="{{ page.bandcamp_embed_url }}"{% endif %}
-                {% if page.bandcamp_url %}data-release-player-bandcamp-url="{{ page.bandcamp_url }}"{% endif %}
-                {% if tidal_embed_url %}data-release-player-tidal-embed-url="{{ tidal_embed_url }}"{% endif %}
-                {% if page.tidal_url %}data-release-player-tidal-url="{{ page.tidal_url }}"{% endif %}>
+                data-listen-card
+                data-listen-trigger
+                data-listen-title="{{ page.title | escape }} — {{ artist_name | escape }}"
+                {% if page.bandcamp_embed_url %}data-listen-bandcamp-embed-url="{{ page.bandcamp_embed_url }}"{% endif %}
+                {% if tidal_embed_url %}data-listen-tidal-embed-url="{{ tidal_embed_url }}"{% endif %}
+                >
           Listen
         </button>
         {% endif %}

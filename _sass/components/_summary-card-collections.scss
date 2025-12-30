@@ -76,11 +76,11 @@
 }
 
 
-.release-summary-card-link[data-release-player-card] .release-summary-card-overlay-layer {
+.release-summary-card-link[data-listen-card] .release-summary-card-overlay-layer {
   opacity: 0.35;
 }
 
-.release-summary-card-link[data-release-player-card] .release-summary-card-listen-button {
+.release-summary-card-link[data-listen-card] .release-summary-card-listen-button {
   transform: translateY(1px);
 }
 
@@ -278,7 +278,7 @@
   line-height: 1.4;
 }
 
-.news-summary-card-excerpt-text {
+.news-summary-card-summary-text {
   color: var(--color-text-muted-secondary);
   font-size: 0.9rem;
   line-height: 1.6;

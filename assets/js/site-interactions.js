@@ -5,23 +5,22 @@ const FEATURED_ARTIST_GRID_SELECTOR = '[data-featured-artist-grid]'
 const FEATURED_ARTISTS_DATA_ELEMENT_ID = 'homepage-featured-artists-data'
 const DEFAULT_FEATURED_ARTIST_LIMIT = 5
 const NAVIGATION_OPEN_STATE_CLASS_NAME = 'is-site-navigation-open'
-const RELEASE_PLAYER_MODAL_SELECTOR = '[data-release-player-modal]'
-const RELEASE_PLAYER_CLOSE_SELECTOR = '[data-release-player-close]'
-const RELEASE_PLAYER_IFRAME_SELECTOR = '[data-release-player-iframe]'
-const RELEASE_PLAYER_CONTAINER_SELECTOR = '[data-release-player-container]'
-const RELEASE_PLAYER_SWITCHER_SELECTOR = '[data-release-player-switcher]'
-const RELEASE_PLAYER_PROVIDER_BUTTON_SELECTOR = '[data-release-player-provider]'
-const RELEASE_PLAYER_EXTERNAL_LINK_SELECTOR = '[data-release-player-external-link]'
-const RELEASE_PLAYER_CARD_SELECTOR = '[data-release-player-card]'
-const RELEASE_PLAYER_TRIGGER_SELECTOR = '[data-release-player-trigger]'
-const RELEASE_PLAYER_MODAL_OPEN_STATE_CLASS_NAME = 'is-release-player-modal-open'
-const RELEASE_PLAYER_PROVIDER_PRIORITY = ['bandcamp', 'tidal']
-const releasePlayerSelectionByTitle = new Map()
+const LISTEN_MODAL_SELECTOR = '[data-listen-modal]'
+const LISTEN_MODAL_CLOSE_SELECTOR = '[data-listen-close]'
+const LISTEN_MODAL_IFRAME_SELECTOR = '[data-listen-iframe]'
+const LISTEN_MODAL_PANEL_SELECTOR = '[data-listen-panel]'
+const LISTEN_SWITCHER_SELECTOR = '[data-listen-switcher]'
+const LISTEN_PROVIDER_BUTTON_SELECTOR = '[data-listen-provider]'
+const LISTEN_CARD_SELECTOR = '[data-listen-card]'
+const LISTEN_TRIGGER_SELECTOR = '[data-listen-trigger]'
+const LISTEN_MODAL_OPEN_STATE_CLASS_NAME = 'is-listen-modal-open'
+const LISTEN_PROVIDER_PRIORITY = ['bandcamp', 'tidal']
+const listenProviderSelectionByTitle = new Map()
 
 initializeHeaderNavigation()
 initializeHomepageFeaturedArtistShowcase()
-initializeReleasePlayerSwitchers()
-initializeReleasePlayerModal()
+initializeListenSwitchers()
+initializeListenModal()
 
 function initializeHeaderNavigation() {
   const headerElement = findHeaderElement()
@@ -79,74 +78,69 @@ function findFeaturedArtistsDataElement() {
   return document.getElementById(FEATURED_ARTISTS_DATA_ELEMENT_ID)
 }
 
-function findReleasePlayerModalElement() {
-  return document.querySelector(RELEASE_PLAYER_MODAL_SELECTOR)
+function findListenModalElement() {
+  return document.querySelector(LISTEN_MODAL_SELECTOR)
 }
 
-function findReleasePlayerCardElements() {
-  return Array.from(document.querySelectorAll(RELEASE_PLAYER_CARD_SELECTOR))
+function findListenCardElements() {
+  return Array.from(document.querySelectorAll(LISTEN_CARD_SELECTOR))
 }
 
-function findReleasePlayerContainers() {
-  return Array.from(document.querySelectorAll(RELEASE_PLAYER_CONTAINER_SELECTOR))
+function findListenPanels() {
+  return Array.from(document.querySelectorAll(LISTEN_MODAL_PANEL_SELECTOR))
 }
 
-function findReleasePlayerIframe(containerElement) {
-  return containerElement.querySelector(RELEASE_PLAYER_IFRAME_SELECTOR)
+function findListenIframe(containerElement) {
+  return containerElement.querySelector(LISTEN_MODAL_IFRAME_SELECTOR)
 }
 
-function findReleasePlayerCloseButton(modalElement) {
-  return modalElement.querySelector(RELEASE_PLAYER_CLOSE_SELECTOR)
+function findListenCloseButton(modalElement) {
+  return modalElement.querySelector(LISTEN_MODAL_CLOSE_SELECTOR)
 }
 
-function findReleasePlayerTitleElement(modalElement) {
-  return modalElement.querySelector('#release-player-modal-title')
+function findListenTitleElement(modalElement) {
+  return modalElement.querySelector('#listen-modal-title')
 }
 
-function findReleasePlayerSwitcher(containerElement) {
-  return containerElement.querySelector(RELEASE_PLAYER_SWITCHER_SELECTOR)
+function findListenSwitcher(containerElement) {
+  return containerElement.querySelector(LISTEN_SWITCHER_SELECTOR)
 }
 
-function findReleasePlayerProviderButtons(containerElement) {
-  return Array.from(containerElement.querySelectorAll(RELEASE_PLAYER_PROVIDER_BUTTON_SELECTOR))
+function findListenProviderButtons(containerElement) {
+  return Array.from(containerElement.querySelectorAll(LISTEN_PROVIDER_BUTTON_SELECTOR))
 }
 
-function findReleasePlayerExternalLink(containerElement) {
-  return containerElement.querySelector(RELEASE_PLAYER_EXTERNAL_LINK_SELECTOR)
+
+function readListenTitleFromElement(element) {
+  return element.dataset.listenTitle || ''
 }
 
-function readReleasePlayerTitleFromElement(element) {
-  return element.dataset.releasePlayerTitle || ''
-}
-
-function readReleasePlayerProvidersFromElement(element) {
+function readListenProvidersFromElement(element) {
   const providers = [
     {
       id: 'bandcamp',
       label: 'Bandcamp',
-      embedUrl: element.dataset.releasePlayerBandcampEmbedUrl,
-      externalUrl: element.dataset.releasePlayerBandcampUrl,
+      embedUrl: element.dataset.listenBandcampEmbedUrl,
     },
     {
       id: 'tidal',
       label: 'Tidal',
-      embedUrl: element.dataset.releasePlayerTidalEmbedUrl,
-      externalUrl: element.dataset.releasePlayerTidalUrl,
+      embedUrl: element.dataset.listenTidalEmbedUrl,
     },
   ]
   return providers.filter((provider) => Boolean(provider.embedUrl))
 }
 
-function selectDefaultReleasePlayerProvider(providers) {
+function selectDefaultListenProvider(providers) {
   const providerById = new Map(providers.map((provider) => [provider.id, provider]))
-  const preferredProviderId = RELEASE_PLAYER_PROVIDER_PRIORITY.find((id) => providerById.has(id))
+  const preferredProviderId = LISTEN_PROVIDER_PRIORITY.find((id) => providerById.has(id))
   return preferredProviderId ? providerById.get(preferredProviderId) : providers[0]
 }
 
-function initializeReleasePlayerSwitchers() {
-  findReleasePlayerContainers().forEach((containerElement) => {
-    connectReleasePlayerProviderButtons(containerElement)
-    refreshReleasePlayerContainer(containerElement)
+function initializeListenSwitchers() {
+  findListenPanels().forEach((containerElement) => {
+    connectListenProviderButtons(containerElement)
+    refreshListenPanel(containerElement)
   })
 }
 
@@ -157,22 +151,22 @@ function initializeHomepageFeaturedArtistShowcase() {
   renderRandomArtistsFromData(artistGridElement, artistsDataElement)
 }
 
-function initializeReleasePlayerModal() {
-  const modalElement = findReleasePlayerModalElement()
+function initializeListenModal() {
+  const modalElement = findListenModalElement()
   if (!modalElement) return
-  const releaseElements = findReleasePlayerCardElements()
-  if (releaseElements.length === 0) return
-  const modalState = buildReleasePlayerModalState(modalElement)
+  const listenCardElements = findListenCardElements()
+  if (listenCardElements.length === 0) return
+  const modalState = buildListenModalState(modalElement)
   if (!modalState) return
-  connectReleasePlayerTriggers(releaseElements, modalState)
-  connectReleasePlayerCloseInteractions(modalState)
+  connectListenTriggers(listenCardElements, modalState)
+  connectListenModalCloseInteractions(modalState)
 }
 
-function buildReleasePlayerModalState(modalElement) {
-  const containerElement = modalElement.querySelector(RELEASE_PLAYER_CONTAINER_SELECTOR)
-  const iframeElement = findReleasePlayerIframe(modalElement)
-  const closeButton = findReleasePlayerCloseButton(modalElement)
-  const titleElement = findReleasePlayerTitleElement(modalElement)
+function buildListenModalState(modalElement) {
+  const containerElement = modalElement.querySelector(LISTEN_MODAL_PANEL_SELECTOR)
+  const iframeElement = findListenIframe(modalElement)
+  const closeButton = findListenCloseButton(modalElement)
+  const titleElement = findListenTitleElement(modalElement)
   if (!iframeElement || !closeButton || !containerElement) return null
   return {
     modalElement,
@@ -183,164 +177,146 @@ function buildReleasePlayerModalState(modalElement) {
   }
 }
 
-function connectReleasePlayerTriggers(releaseElements, modalState) {
-  releaseElements.forEach((releaseElement) => {
-    releaseElement.addEventListener('click', (event) => {
-      if (!event.target.closest(RELEASE_PLAYER_TRIGGER_SELECTOR)) return
-      const providers = readReleasePlayerProvidersFromElement(releaseElement)
+function connectListenTriggers(listenCardElements, modalState) {
+  listenCardElements.forEach((listenCardElement) => {
+    listenCardElement.addEventListener('click', (event) => {
+      if (!event.target.closest(LISTEN_TRIGGER_SELECTOR)) return
+      const providers = readListenProvidersFromElement(listenCardElement)
       if (providers.length === 0) return
       event.preventDefault()
-      openReleasePlayerModal(modalState, providers, readReleasePlayerTitleFromElement(releaseElement))
+      openListenModal(modalState, providers, readListenTitleFromElement(listenCardElement))
     })
   })
 }
 
-function connectReleasePlayerCloseInteractions(modalState) {
-  modalState.closeButton.addEventListener('click', () => closeReleasePlayerModal(modalState))
+function connectListenModalCloseInteractions(modalState) {
+  modalState.closeButton.addEventListener('click', () => closeListenModal(modalState))
   modalState.modalElement.addEventListener('click', (event) => {
     if (event.target === modalState.modalElement) {
-      closeReleasePlayerModal(modalState)
+      closeListenModal(modalState)
     }
   })
   document.addEventListener('keydown', (event) => {
     if (event.key !== 'Escape') return
     if (modalState.modalElement.hidden) return
-    closeReleasePlayerModal(modalState)
+    closeListenModal(modalState)
   })
 }
 
-function openReleasePlayerModal(modalState, providers, releaseTitle) {
-  const currentReleaseTitle = modalState.containerElement.dataset.releasePlayerCurrentReleaseTitle || ''
-  const isSameRelease = releaseTitle && currentReleaseTitle === releaseTitle
-  setReleasePlayerContainerProviderData(modalState.containerElement, providers, releaseTitle)
-  refreshReleasePlayerContainer(modalState.containerElement, releaseTitle, !isSameRelease)
+function openListenModal(modalState, providers, releaseTitle) {
+  const currentTitle = modalState.containerElement.dataset.listenCurrentTitle || ''
+  const isSameRelease = releaseTitle && currentTitle === releaseTitle
+  setListenPanelProviderData(modalState.containerElement, providers, releaseTitle)
+  refreshListenPanel(modalState.containerElement, releaseTitle, !isSameRelease)
   if (releaseTitle) {
-    modalState.containerElement.dataset.releasePlayerCurrentReleaseTitle = releaseTitle
+    modalState.containerElement.dataset.listenCurrentTitle = releaseTitle
   }
   if (modalState.titleElement) {
     modalState.titleElement.textContent = releaseTitle || ''
   }
   modalState.modalElement.hidden = false
-  document.body.classList.add(RELEASE_PLAYER_MODAL_OPEN_STATE_CLASS_NAME)
+  document.body.classList.add(LISTEN_MODAL_OPEN_STATE_CLASS_NAME)
 }
 
-function closeReleasePlayerModal(modalState) {
+function closeListenModal(modalState) {
   modalState.modalElement.hidden = true
   if (modalState.titleElement) {
     modalState.titleElement.textContent = ''
   }
-  document.body.classList.remove(RELEASE_PLAYER_MODAL_OPEN_STATE_CLASS_NAME)
+  document.body.classList.remove(LISTEN_MODAL_OPEN_STATE_CLASS_NAME)
 }
 
-function setReleasePlayerContainerProviderData(containerElement, providers, releaseTitle) {
-  delete containerElement.dataset.releasePlayerBandcampEmbedUrl
-  delete containerElement.dataset.releasePlayerBandcampUrl
-  delete containerElement.dataset.releasePlayerTidalEmbedUrl
-  delete containerElement.dataset.releasePlayerTidalUrl
+function setListenPanelProviderData(containerElement, providers, releaseTitle) {
+  delete containerElement.dataset.listenBandcampEmbedUrl
+  delete containerElement.dataset.listenTidalEmbedUrl
   providers.forEach((provider) => {
     if (provider.id === 'bandcamp') {
-      containerElement.dataset.releasePlayerBandcampEmbedUrl = provider.embedUrl
-      if (provider.externalUrl) {
-        containerElement.dataset.releasePlayerBandcampUrl = provider.externalUrl
-      }
+      containerElement.dataset.listenBandcampEmbedUrl = provider.embedUrl
     }
     if (provider.id === 'tidal') {
-      containerElement.dataset.releasePlayerTidalEmbedUrl = provider.embedUrl
-      if (provider.externalUrl) {
-        containerElement.dataset.releasePlayerTidalUrl = provider.externalUrl
-      }
+      containerElement.dataset.listenTidalEmbedUrl = provider.embedUrl
     }
   })
   if (releaseTitle) {
-    containerElement.dataset.releasePlayerTitle = releaseTitle
+    containerElement.dataset.listenTitle = releaseTitle
   }
 }
 
-function refreshReleasePlayerContainer(containerElement, releaseTitle, forceInitialize = false) {
-  const providers = readReleasePlayerProvidersFromElement(containerElement)
-  updateReleasePlayerSwitcher(containerElement, providers)
+function refreshListenPanel(containerElement, releaseTitle, forceInitialize = false) {
+  const providers = readListenProvidersFromElement(containerElement)
+  updateListenSwitcher(containerElement, providers)
   if (providers.length === 0) return
   if (releaseTitle) {
-    updateReleasePlayerTitle(containerElement, releaseTitle)
+    updateListenTitle(containerElement, releaseTitle)
   }
-  if (forceInitialize || !containerElement.dataset.releasePlayerInitialized) {
-    const cachedProviderId = readCachedReleasePlayerProviderId(containerElement)
+  if (forceInitialize || !containerElement.dataset.listenInitialized) {
+    const cachedProviderId = readCachedListenProviderId(containerElement)
     const cachedProvider = providers.find((provider) => provider.id === cachedProviderId)
-    applyReleasePlayerProvider(containerElement, cachedProvider || selectDefaultReleasePlayerProvider(providers))
-    containerElement.dataset.releasePlayerInitialized = 'true'
+    applyListenProvider(containerElement, cachedProvider || selectDefaultListenProvider(providers))
+    containerElement.dataset.listenInitialized = 'true'
   }
 }
 
-function updateReleasePlayerSwitcher(containerElement, providers) {
-  const switcher = findReleasePlayerSwitcher(containerElement)
-  const buttons = findReleasePlayerProviderButtons(containerElement)
+function updateListenSwitcher(containerElement, providers) {
+  const switcher = findListenSwitcher(containerElement)
+  const buttons = findListenProviderButtons(containerElement)
   if (!switcher) return
   const providerIds = providers.map((provider) => provider.id)
   switcher.hidden = providers.length === 0
   buttons.forEach((button) => {
-    const providerId = button.dataset.releasePlayerProvider
+    const providerId = button.dataset.listenProvider
     button.hidden = !providerIds.includes(providerId)
   })
 }
 
-function connectReleasePlayerProviderButtons(containerElement) {
-  const buttons = findReleasePlayerProviderButtons(containerElement)
+function connectListenProviderButtons(containerElement) {
+  const buttons = findListenProviderButtons(containerElement)
   if (buttons.length === 0) return
   buttons.forEach((button) => {
     button.addEventListener('click', () => {
-      const providers = readReleasePlayerProvidersFromElement(containerElement)
-      const provider = providers.find((item) => item.id === button.dataset.releasePlayerProvider)
+      const providers = readListenProvidersFromElement(containerElement)
+      const provider = providers.find((item) => item.id === button.dataset.listenProvider)
       if (!provider) return
-      applyReleasePlayerProvider(containerElement, provider)
+      applyListenProvider(containerElement, provider)
     })
   })
 }
 
-function applyReleasePlayerProvider(containerElement, provider) {
-  const iframeElement = findReleasePlayerIframe(containerElement)
-  const buttons = findReleasePlayerProviderButtons(containerElement)
-  const externalLink = findReleasePlayerExternalLink(containerElement)
-  containerElement.dataset.releasePlayerActiveProvider = provider.id
-  storeCachedReleasePlayerProvider(containerElement, provider.id)
+function applyListenProvider(containerElement, provider) {
+  const iframeElement = findListenIframe(containerElement)
+  const buttons = findListenProviderButtons(containerElement)
+  containerElement.dataset.listenActiveProvider = provider.id
+  storeCachedListenProvider(containerElement, provider.id)
   if (iframeElement) {
     if (iframeElement.src !== provider.embedUrl) {
       iframeElement.src = provider.embedUrl
     }
-    const releaseTitle = readReleasePlayerTitleFromElement(containerElement)
-    iframeElement.title = releaseTitle ? `${releaseTitle} player` : 'Release player'
+    const releaseTitle = readListenTitleFromElement(containerElement)
+    iframeElement.title = releaseTitle ? `${releaseTitle} player` : 'Listen player'
   }
   buttons.forEach((button) => {
-    const isActive = button.dataset.releasePlayerProvider === provider.id
-    button.classList.toggle('is-release-player-provider-active', isActive)
+    const isActive = button.dataset.listenProvider === provider.id
+    button.classList.toggle('is-listen-provider-active', isActive)
   })
-  if (externalLink) {
-    if (provider.externalUrl) {
-      externalLink.href = provider.externalUrl
-      externalLink.textContent = `Open on ${provider.label}`
-      externalLink.hidden = false
-    } else {
-      externalLink.hidden = true
-    }
-  }
 }
 
-function updateReleasePlayerTitle(containerElement, releaseTitle) {
-  const titleElement = containerElement.querySelector('.release-player-modal-title-text')
+function updateListenTitle(containerElement, releaseTitle) {
+  const titleElement = containerElement.querySelector('.listen-modal-title-text')
   if (titleElement) {
     titleElement.textContent = releaseTitle || ''
   }
 }
 
-function readCachedReleasePlayerProviderId(containerElement) {
-  const releaseTitle = readReleasePlayerTitleFromElement(containerElement)
+function readCachedListenProviderId(containerElement) {
+  const releaseTitle = readListenTitleFromElement(containerElement)
   if (!releaseTitle) return ''
-  return releasePlayerSelectionByTitle.get(releaseTitle) || ''
+  return listenProviderSelectionByTitle.get(releaseTitle) || ''
 }
 
-function storeCachedReleasePlayerProvider(containerElement, providerId) {
-  const releaseTitle = readReleasePlayerTitleFromElement(containerElement)
+function storeCachedListenProvider(containerElement, providerId) {
+  const releaseTitle = readListenTitleFromElement(containerElement)
   if (!releaseTitle) return
-  releasePlayerSelectionByTitle.set(releaseTitle, providerId)
+  listenProviderSelectionByTitle.set(releaseTitle, providerId)
 }
 
 function renderRandomArtistsFromData(artistGridElement, artistsDataElement) {
@@ -475,3 +451,4 @@ function resolveArtistProfilePath(artist) {
   if (artist.slug) return `/artists/${artist.slug}/`
   return '/artists/'
 }
+

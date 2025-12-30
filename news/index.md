@@ -16,7 +16,7 @@ section_label: Updates
           </div>
           <p class="news-summary-card-date-text">{{ item.date }}</p>
           <h2>{{ item.title }}</h2>
-          <p class="news-summary-card-excerpt-text">{{ item.summary }}</p>
+          <p class="news-summary-card-summary-text">{{ item.summary }}</p>
         </a>
       {% endfor %}
     </div>

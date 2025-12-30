@@ -154,18 +154,12 @@ collections:
       - { label: Cover Image, name: cover_image, widget: image }
       - { label: Cover Description, name: cover_image_alt, widget: string, required: false }
       - { label: Merch Link, name: merch_url, widget: string, required: false }
-      - { label: Bandcamp Link, name: bandcamp_url, widget: string, required: false }
-      - { label: Bandcamp Embed Link, name: bandcamp_embed_url, widget: string, required: false }
-      - label: Tidal Link
+      - { label: Bandcamp Player Link, name: bandcamp_embed_url, widget: string, required: false }
+      - label: Tidal Link (auto player)
         name: tidal_url
         widget: string
         required: false
-        hint: "Paste a Tidal album/track URL. The embed can be generated automatically."
-      - label: Tidal Embed Link
-        name: tidal_embed_url
-        widget: string
-        required: false
-        hint: "Optional: paste the embed src from Tidal Share > Copy embed code."
+        hint: "Paste a Tidal album or track URL. The player link is generated automatically."
       - { label: Summary, name: summary, widget: text, required: false }
       - label: Formats (optional)
         name: formats

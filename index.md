@@ -102,7 +102,7 @@ body_class: home-scroll-snap-container
           </div>
           <p class="news-summary-card-date-text">{{ item.date }}</p>
           <h3>{{ item.title }}</h3>
-          <p class="news-summary-card-excerpt-text">{{ item.summary }}</p>
+          <p class="news-summary-card-summary-text">{{ item.summary }}</p>
         </a>
       {% endfor %}
     </div>

@@ -1,8 +1,6 @@
 {% assign release_item = include.release %}
 {% assign tidal_embed_url = "" %}
-{% if release_item.tidal_embed_url %}
-{% assign tidal_embed_url = release_item.tidal_embed_url %}
-{% elsif release_item.tidal_url %}
+{% if release_item.tidal_url %}
 {% assign tidal_url_clean = release_item.tidal_url | split: "?" | first %}
 {% assign tidal_url_parts = tidal_url_clean | split: "/" %}
 {% assign tidal_id = "" %}
@@ -22,7 +20,7 @@
 {% assign tidal_embed_path = "videos" %}
 {% endif %}
 {% if tidal_embed_path != "" and tidal_id != "" %}
-{% assign tidal_embed_url = "https://embed.tidal.com/" | append: tidal_embed_path | append: "/" | append: tidal_id %}
+{% assign tidal_embed_url = "https://embed.tidal.com/" | append: tidal_embed_path | append: "/" | append: tidal_id | append: "?coverInitially=true&disableAnalytics=true" %}
 {% endif %}
 {% endif %}
 {{ tidal_embed_url }}
