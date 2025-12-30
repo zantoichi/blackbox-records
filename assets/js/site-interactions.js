@@ -5,9 +5,16 @@ const FEATURED_ARTIST_GRID_SELECTOR = '[data-featured-artist-grid]'
 const FEATURED_ARTISTS_DATA_ELEMENT_ID = 'homepage-featured-artists-data'
 const DEFAULT_FEATURED_ARTIST_LIMIT = 5
 const NAVIGATION_OPEN_STATE_CLASS_NAME = 'is-site-navigation-open'
+const RELEASE_PLAYER_MODAL_SELECTOR = '[data-release-player-modal]'
+const RELEASE_PLAYER_CLOSE_SELECTOR = '[data-release-player-close]'
+const RELEASE_PLAYER_IFRAME_SELECTOR = '[data-release-player-iframe]'
+const RELEASE_PLAYER_CARD_SELECTOR = '[data-release-player-embed-url]'
+const RELEASE_PLAYER_TRIGGER_SELECTOR = '[data-release-player-trigger]'
+const RELEASE_PLAYER_MODAL_OPEN_STATE_CLASS_NAME = 'is-release-player-modal-open'
 
 initializeHeaderNavigation()
 initializeHomepageFeaturedArtistShowcase()
+initializeReleasePlayerModal()
 
 function initializeHeaderNavigation() {
   const headerElement = findHeaderElement()
@@ -65,11 +72,108 @@ function findFeaturedArtistsDataElement() {
   return document.getElementById(FEATURED_ARTISTS_DATA_ELEMENT_ID)
 }
 
+function findReleasePlayerModalElement() {
+  return document.querySelector(RELEASE_PLAYER_MODAL_SELECTOR)
+}
+
+function findReleasePlayerCardElements() {
+  return Array.from(document.querySelectorAll(RELEASE_PLAYER_CARD_SELECTOR))
+}
+
+function findReleasePlayerIframe(modalElement) {
+  return modalElement.querySelector(RELEASE_PLAYER_IFRAME_SELECTOR)
+}
+
+function findReleasePlayerCloseButton(modalElement) {
+  return modalElement.querySelector(RELEASE_PLAYER_CLOSE_SELECTOR)
+}
+
+function findReleasePlayerTitleElement(modalElement) {
+  return modalElement.querySelector('#release-player-modal-title')
+}
+
+function readReleasePlayerEmbedUrl(releaseElement) {
+  return releaseElement.dataset.releasePlayerEmbedUrl || ''
+}
+
+function readReleasePlayerTitle(releaseElement) {
+  return releaseElement.dataset.releasePlayerTitle || ''
+}
+
 function initializeHomepageFeaturedArtistShowcase() {
   const artistGridElement = findFeaturedArtistGridElement()
   const artistsDataElement = findFeaturedArtistsDataElement()
   if (!artistGridElement || !artistsDataElement) return
   renderRandomArtistsFromData(artistGridElement, artistsDataElement)
+}
+
+function initializeReleasePlayerModal() {
+  const modalElement = findReleasePlayerModalElement()
+  if (!modalElement) return
+  const releaseElements = findReleasePlayerCardElements()
+  if (releaseElements.length === 0) return
+  const modalState = buildReleasePlayerModalState(modalElement)
+  if (!modalState) return
+  connectReleasePlayerTriggers(releaseElements, modalState)
+  connectReleasePlayerCloseInteractions(modalState)
+}
+
+function buildReleasePlayerModalState(modalElement) {
+  const iframeElement = findReleasePlayerIframe(modalElement)
+  const closeButton = findReleasePlayerCloseButton(modalElement)
+  const titleElement = findReleasePlayerTitleElement(modalElement)
+  if (!iframeElement || !closeButton) return null
+  return {
+    modalElement,
+    iframeElement,
+    closeButton,
+    titleElement,
+  }
+}
+
+function connectReleasePlayerTriggers(releaseElements, modalState) {
+  releaseElements.forEach((releaseElement) => {
+    releaseElement.addEventListener('click', (event) => {
+      if (!event.target.closest(RELEASE_PLAYER_TRIGGER_SELECTOR)) return
+      const embedUrl = readReleasePlayerEmbedUrl(releaseElement)
+      if (!embedUrl) return
+      event.preventDefault()
+      openReleasePlayerModal(modalState, embedUrl, readReleasePlayerTitle(releaseElement))
+    })
+  })
+}
+
+function connectReleasePlayerCloseInteractions(modalState) {
+  modalState.closeButton.addEventListener('click', () => closeReleasePlayerModal(modalState))
+  modalState.modalElement.addEventListener('click', (event) => {
+    if (event.target === modalState.modalElement) {
+      closeReleasePlayerModal(modalState)
+    }
+  })
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return
+    if (modalState.modalElement.hidden) return
+    closeReleasePlayerModal(modalState)
+  })
+}
+
+function openReleasePlayerModal(modalState, embedUrl, releaseTitle) {
+  modalState.iframeElement.src = embedUrl
+  if (modalState.titleElement) {
+    modalState.titleElement.textContent = releaseTitle || ''
+  }
+  modalState.iframeElement.title = releaseTitle || 'Release player'
+  modalState.modalElement.hidden = false
+  document.body.classList.add(RELEASE_PLAYER_MODAL_OPEN_STATE_CLASS_NAME)
+}
+
+function closeReleasePlayerModal(modalState) {
+  modalState.modalElement.hidden = true
+  modalState.iframeElement.src = ''
+  if (modalState.titleElement) {
+    modalState.titleElement.textContent = ''
+  }
+  document.body.classList.remove(RELEASE_PLAYER_MODAL_OPEN_STATE_CLASS_NAME)
 }
 
 function renderRandomArtistsFromData(artistGridElement, artistsDataElement) {

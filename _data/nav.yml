@@ -1,4 +1,6 @@
 items:
+  - title: Home
+    url: /
   - title: News
     url: /news/
   - title: Artists

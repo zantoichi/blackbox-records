@@ -39,9 +39,40 @@
   @include uppercase-with-letter-spacing(0.2em);
   color: var(--color-text-muted-secondary);
   transition: color 0.2s ease;
+  position: relative;
+  padding-bottom: 0.4rem;
 }
 
 .global-site-navigation__link:hover {
+  color: var(--color-text-primary-foreground);
+}
+
+.global-site-navigation__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+  opacity: 0.9;
+}
+
+.global-site-navigation__link:hover::after,
+.global-site-navigation__link.is-current-page::after,
+.global-site-navigation__link[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+.global-site-header__logo-link:hover ~ .global-site-navigation .global-site-navigation__link--home::after {
+  transform: scaleX(1);
+}
+
+.global-site-navigation__link.is-current-page,
+.global-site-navigation__link[aria-current="page"] {
   color: var(--color-text-primary-foreground);
 }
 

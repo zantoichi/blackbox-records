@@ -5,3 +5,7 @@ baseurl: ""
 permalink: pretty
 exclude:
   - compressed-repo.md
+collections:
+  releases:
+    output: true
+    permalink: /releases/:name/

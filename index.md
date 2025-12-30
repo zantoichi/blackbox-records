@@ -6,7 +6,7 @@ main_class: page-main-content-region--home
 body_class: home-scroll-snap-container
 ---
 {% assign home = site.data.home %}
-{% assign releases = site.data.releases.items | sort: "year" | reverse | slice: 0, 3 %}
+{% assign releases = site.releases | sort: "release_date" | reverse | slice: 0, 3 %}
 {% assign artists = site.data.artists.items | slice: 0, 5 %}
 {% assign news_items = site.data.news.items | limit: 3 %}
 {% assign newsletter = site.data.newsletter %}
@@ -60,17 +60,8 @@ body_class: home-scroll-snap-container
     </div>
     <div class="release-summary-card-grid">
       {% for release in releases %}
-        <a class="release-summary-card-link" href="{{ release.url | default: '/shop/' | relative_url }}">
-          <div class="release-summary-card-media-frame">
-            <img src="{{ release.image | relative_url }}" alt="{{ release.image_alt | default: release.title }}">
-            <div class="release-summary-card-overlay-layer">
-              <span>Listen</span>
-            </div>
-          </div>
-          <p class="release-summary-card-year-text">{{ release.year }}</p>
-          <h3 class="release-summary-card-title-text">{{ release.title | upcase }}</h3>
-          <p class="release-summary-card-artist-text">{{ release.artist }}</p>
-        </a>
+        {% assign release_artist = site.data.artists.items | where: "slug", release.artist_slug | first %}
+        {% include release-card.html release=release artist=release_artist %}
       {% endfor %}
     </div>
   </div>
@@ -144,7 +135,7 @@ body_class: home-scroll-snap-container
           {% if stat.key == "artists" %}
             {% assign stat_value = site.data.artists.items | size %}
           {% elsif stat.key == "releases" %}
-            {% assign stat_value = site.data.releases.items | size %}
+            {% assign stat_value = site.releases | size %}
           {% elsif stat.key == "countries" %}
             {% assign stat_value = country_count %}
           {% elsif stat.key == "year" %}

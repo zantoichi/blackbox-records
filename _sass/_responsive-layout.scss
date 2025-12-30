@@ -18,6 +18,15 @@
     justify-content: center;
   }
 
+  .release-detail-hero-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+  }
+
+  .release-detail-player-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
   .about-section-layout-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

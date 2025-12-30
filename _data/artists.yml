@@ -1,5 +1,14 @@
 items:
+  - name: Mass Culture
+    slug: mass-culture
+    genre: Hardcore
+    country: Greece
+    image: /assets/images/mass-culture-photo.jpg
+    image_alt: Mass Culture
+    bio: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    url: /artists/
   - name: Artist One
+    slug: artist-one
     genre: Post-Metal
     country: USA
     image: /assets/images/dark-band-photo-moody-.jpg
@@ -7,6 +16,7 @@ items:
     bio: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     url: /artists/
   - name: Artist Two
+    slug: artist-two
     genre: Post-Punk
     country: UK
     image: /assets/images/dark-band-photo-moody-.jpg
@@ -14,6 +24,7 @@ items:
     bio: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     url: /artists/
   - name: Artist Three
+    slug: artist-three
     genre: Post-Hardcore
     country: Germany
     image: /assets/images/dark-band-photo-moody-.jpg
@@ -21,6 +32,7 @@ items:
     bio: Ut enim ad minim veniam, quis nostrud exercitation ullamco.
     url: /artists/
   - name: Artist Four
+    slug: artist-four
     genre: Indie Rock
     country: France
     image: /assets/images/dark-band-photo-moody-.jpg
@@ -28,6 +40,7 @@ items:
     bio: Duis aute irure dolor in reprehenderit in voluptate velit.
     url: /artists/
   - name: Artist Five
+    slug: artist-five
     genre: Shoegaze
     country: Sweden
     image: /assets/images/dark-band-photo-moody-.jpg
@@ -35,6 +48,7 @@ items:
     bio: Excepteur sint occaecat cupidatat non proident sunt in culpa.
     url: /artists/
   - name: Artist Six
+    slug: artist-six
     genre: Black Metal
     country: Canada
     image: /assets/images/dark-band-photo-moody-.jpg

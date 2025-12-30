@@ -33,7 +33,7 @@ Commits.
 
 - Home sections: `_data/home.yml`
 - Artists roster: `_data/artists.yml`
-- Releases: `_data/releases.yml`
+- Releases: `_releases/`
 - News: `_data/news.yml`
 - About content: `_data/about.yml`
 - Newsletter: `_data/newsletter.yml`
@@ -41,7 +41,7 @@ Commits.
 - Social links: `_data/socials.yml`
 - Site settings: `_data/settings.yml`
 - Page front matter: `index.md`, `about/index.md`, `artists/index.md`,
-  `news/index.md`, `shop/index.md`
+  `news/index.md`, `releases/index.md`, `shop/index.md`
 
 ## Shop
 

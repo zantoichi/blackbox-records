@@ -1,0 +1,124 @@
+---
+layout: default
+---
+{% assign release_artist = site.data.artists.items | where: "slug", page.artist_slug | first %}
+{% assign artist_fallback_name = page.artist_name | default: page.artist_slug | default: "Artist" %}
+{% assign artist_name = release_artist.name | default: artist_fallback_name | replace: "-", " " %}
+{% assign artist_url = release_artist.url | default: "/artists/" %}
+{% assign release_year = page.release_date | date: "%Y" %}
+{% assign embed_url = page.bandcamp_embed_url | default: page.spotify_embed_url %}
+{% assign embed_provider = "" %}
+{% assign embed_external_url = "" %}
+{% if page.bandcamp_embed_url %}
+{% assign embed_provider = "Bandcamp" %}
+{% assign embed_external_url = page.bandcamp_url %}
+{% elsif page.spotify_embed_url %}
+{% assign embed_provider = "Spotify" %}
+{% assign embed_external_url = page.spotify_url %}
+{% endif %}
+{% assign merch_href = "" %}
+{% if page.merch_url %}
+{% if page.merch_url contains "://" %}
+{% assign merch_href = page.merch_url %}
+{% else %}
+{% assign merch_href = page.merch_url | relative_url %}
+{% endif %}
+{% endif %}
+
+<section class="release-detail-hero-section">
+  <div class="page-content-width-constrained-container release-detail-hero-grid">
+    <div class="release-detail-cover-frame">
+      <img alt="{{ page.cover_image_alt | default: page.title }}" src="{{ page.cover_image | relative_url }}">
+    </div>
+    <div class="release-detail-hero-content">
+      <p class="release-detail-kicker-text">Release</p>
+      <h1 class="release-detail-title-text">{{ page.title | upcase }}</h1>
+      <p class="release-detail-artist-text">
+        <a href="{{ artist_url | relative_url }}">{{ artist_name }}</a>
+      </p>
+      <p class="release-detail-year-text">{{ release_year }}</p>
+      {% if page.summary %}
+      <p class="release-detail-summary-text">{{ page.summary }}</p>
+      {% endif %}
+      {% if page.formats %}
+      <ul class="release-detail-format-list">
+        {% for format in page.formats %}
+        <li>{{ format }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      <div class="release-detail-cta-group">
+        {% if merch_href != "" %}
+        <a class="call-to-action-button call-to-action-button--primary" href="{{ merch_href }}">Buy merch</a>
+        {% endif %}
+        {% if embed_url %}
+        <a class="call-to-action-button call-to-action-button--outline" href="#release-player">Listen</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% if embed_url or page.tracklist %}
+<section class="release-detail-player-section" id="release-player">
+  <div class="page-content-width-constrained-container">
+    {% if embed_url %}
+    <div class="release-detail-player-grid">
+      <div class="release-detail-player-frame">
+        <iframe allow="autoplay; encrypted-media" loading="lazy" src="{{ embed_url }}"
+                title="{{ page.title | escape }} player"></iframe>
+        {% if embed_external_url %}
+        <a class="release-detail-player-link" href="{{ embed_external_url }}" rel="noopener" target="_blank">Open on {{
+          embed_provider }}</a>
+        {% endif %}
+      </div>
+      <div class="release-detail-tracklist">
+        {% if page.tracklist %}
+        <h2 class="release-detail-section-title">Tracklist</h2>
+        <ol class="release-detail-tracklist-list">
+          {% for track in page.tracklist %}
+          <li>
+            <span>{{ track.title }}</span>
+            {% if track.duration %}
+            <span>{{ track.duration }}</span>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ol>
+        {% endif %}
+      </div>
+    </div>
+    {% elsif page.tracklist %}
+    <div class="release-detail-tracklist release-detail-tracklist--full">
+      <h2 class="release-detail-section-title">Tracklist</h2>
+      <ol class="release-detail-tracklist-list">
+        {% for track in page.tracklist %}
+        <li>
+          <span>{{ track.title }}</span>
+          {% if track.duration %}
+          <span>{{ track.duration }}</span>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ol>
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endif %}
+
+{% if page.credits %}
+<section class="release-detail-credits-section">
+  <div class="page-content-width-constrained-container">
+    <h2 class="release-detail-section-title">Credits</h2>
+    <ul class="release-detail-credits-list">
+      {% for credit in page.credits %}
+      <li>
+        <span class="release-detail-credit-role">{{ credit.role }}</span>
+        <span class="release-detail-credit-name">{{ credit.name }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}

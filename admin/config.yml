@@ -47,6 +47,14 @@ collections:
           - { label: Title, name: title, widget: string }
           - { label: Description, name: description, widget: string, required: false }
           - { label: Hero Kicker, name: hero_kicker, widget: string, required: false }
+      - name: releases
+        label: Releases
+        file: releases/index.md
+        fields:
+          - { label: Layout, name: layout, widget: hidden, default: default }
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: string, required: false }
+          - { label: Hero Kicker, name: hero_kicker, widget: string, required: false }
       - name: about
         label: About
         file: about/index.md
@@ -132,22 +140,40 @@ collections:
                   - { label: Label, name: label, widget: string }
   - name: releases
     label: Releases
-    files:
-      - name: releases
-        label: Featured Releases
-        file: _data/releases.yml
+    folder: _releases
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Layout, name: layout, widget: hidden, default: release }
+      - { label: Title, name: title, widget: string }
+      - { label: Artist Slug, name: artist_slug, widget: string }
+      - { label: Release Date, name: release_date, widget: datetime, format: "YYYY-MM-DD", time_format: false }
+      - { label: Cover Image, name: cover_image, widget: image }
+      - { label: Cover Image Alt, name: cover_image_alt, widget: string, required: false }
+      - { label: Merch URL, name: merch_url, widget: string, required: false }
+      - { label: Bandcamp URL, name: bandcamp_url, widget: string, required: false }
+      - { label: Bandcamp Embed URL, name: bandcamp_embed_url, widget: string, required: false }
+      - { label: Spotify URL, name: spotify_url, widget: string, required: false }
+      - { label: Spotify Embed URL, name: spotify_embed_url, widget: string, required: false }
+      - { label: Summary, name: summary, widget: text, required: false }
+      - label: Formats
+        name: formats
+        widget: list
+        required: false
+      - label: Tracklist
+        name: tracklist
+        widget: list
+        required: false
         fields:
-          - label: Items
-            name: items
-            widget: list
-            summary: "{{fields.title}}"
-            fields:
-              - { label: Title, name: title, widget: string }
-              - { label: Year, name: year, widget: number }
-              - { label: Artist, name: artist, widget: string }
-              - { label: Image, name: image, widget: image }
-              - { label: Image Alt, name: image_alt, widget: string, required: false }
-              - { label: URL, name: url, widget: string, required: false }
+          - { label: Title, name: title, widget: string }
+          - { label: Duration, name: duration, widget: string, required: false }
+      - label: Credits
+        name: credits
+        widget: list
+        required: false
+        fields:
+          - { label: Role, name: role, widget: string }
+          - { label: Name, name: name, widget: string }
   - name: news_items
     label: News Items
     files:
@@ -273,6 +299,7 @@ collections:
             summary: "{{fields.name}}"
             fields:
               - { label: Name, name: name, widget: string }
+              - { label: Slug, name: slug, widget: string }
               - { label: Genre, name: genre, widget: string }
               - { label: Country, name: country, widget: string, required: false }
               - { label: Image, name: image, widget: image }

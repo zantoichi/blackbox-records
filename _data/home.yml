@@ -8,7 +8,7 @@ latest_releases:
   kicker: Latest
   title: Latest Releases
   link_label: View All
-  link_url: /shop/
+  link_url: /releases/
 artists:
   kicker: Roster
   title: Featured Roster

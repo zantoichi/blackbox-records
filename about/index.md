@@ -6,7 +6,7 @@ description: About the label.
 {% assign about = site.data.about %}
 {% assign newsletter = site.data.newsletter %}
 {% assign artist_count = site.data.artists.items | size %}
-{% assign release_count = site.data.releases.items | size %}
+{% assign release_count = site.releases | size %}
 {% assign artists_with_country = site.data.artists.items | where_exp: "item", "item.country" %}
 {% assign country_names = artists_with_country | map: "country" | uniq %}
 {% assign country_count = country_names | size %}
