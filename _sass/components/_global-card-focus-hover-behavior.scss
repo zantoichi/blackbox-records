@@ -1,42 +1,42 @@
-.page-main-content-region--home .release-summary-card-link {
+.release-summary-card-link {
   transition: transform 0.3s ease;
 }
 
-.page-main-content-region--home .release-summary-card-link:hover {
+.release-summary-card-link:hover {
   transform: translateY(-0.35rem);
 }
 
-.page-main-content-region--home .release-summary-card-media-frame {
+.release-summary-card-media-frame {
   transition: border-color 0.3s ease;
 }
 
-.page-main-content-region--home .release-summary-card-link:hover .release-summary-card-media-frame {
+.release-summary-card-link:hover .release-summary-card-media-frame {
   border-color: rgba(245, 245, 245, 0.5);
 }
 
-.page-main-content-region--home .artist-roster-card-text {
+.artist-roster-card-text {
   transition: transform 0.4s ease;
 }
 
-.page-main-content-region--home .artist-roster-card-link:hover .artist-roster-card-text {
+.artist-roster-card-link:hover .artist-roster-card-text {
   transform: translateY(-0.4rem);
 }
 
-.page-main-content-region--home .news-summary-card-media-frame img {
+.news-summary-card-media-frame img {
   transition: transform 0.5s ease;
 }
 
-.page-main-content-region--home .news-summary-card-link:hover .news-summary-card-media-frame img {
+.news-summary-card-link:hover .news-summary-card-media-frame img {
   transform: scale(1.06);
 }
 
-.page-main-content-region--home .news-summary-card-link h2,
-.page-main-content-region--home .news-summary-card-link h3 {
+.news-summary-card-link h2,
+.news-summary-card-link h3 {
   transition: color 0.3s ease, letter-spacing 0.3s ease;
 }
 
-.page-main-content-region--home .news-summary-card-link:hover h2,
-.page-main-content-region--home .news-summary-card-link:hover h3 {
+.news-summary-card-link:hover h2,
+.news-summary-card-link:hover h3 {
   color: var(--color-text-primary-foreground);
   letter-spacing: 0.02em;
 }

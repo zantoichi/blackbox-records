@@ -451,8 +451,3 @@ function resolveArtistProfilePath(artist) {
   if (artist.slug) return `/artists/${artist.slug}/`
   return '/artists/'
 }
-
-
-
-
-

@@ -13,11 +13,11 @@ layout: default
 {% assign artist_url = "/artists/" %}
 {% endif %}
 {% assign release_year = page.release_date | date: "%Y" %}
-{% capture tidal_embed_url %}
-{% include tidal-embed-url.html release=page %}
+{% assign embedded_player_title = page.title | append: " — " | append: artist_name %}
+{% capture embedded_player_attributes %}
+{% include music-streaming-service-embedded-player-attributes.html release=page title=embedded_player_title %}
 {% endcapture %}
-{% assign tidal_embed_url = tidal_embed_url | strip %}
-{% assign embed_url = page.bandcamp_embed_url | default: tidal_embed_url %}
+{% assign embedded_player_attributes = embedded_player_attributes | strip %}
 {% assign merch_href = "" %}
 {% if page.merch_url %}
 {% if page.merch_url contains "://" %}
@@ -53,14 +53,11 @@ layout: default
         {% if merch_href != "" %}
         <a class="call-to-action-button call-to-action-button--primary" href="{{ merch_href }}">Buy merch</a>
         {% endif %}
-        {% if embed_url %}
+        {% if embedded_player_attributes != "" %}
         <button class="call-to-action-button call-to-action-button--outline"
                 type="button"
-                data-music-streaming-service-embedded-player-card
                 data-music-streaming-service-embedded-player-trigger
-                data-music-streaming-service-embedded-player-title="{{ page.title | escape }} — {{ artist_name | escape }}"
-                {% if page.bandcamp_embed_url %}data-music-streaming-service-embedded-player-bandcamp-embed-url="{{ page.bandcamp_embed_url }}"{% endif %}
-                {% if tidal_embed_url %}data-music-streaming-service-embedded-player-tidal-embed-url="{{ tidal_embed_url }}"{% endif %}
+                {{ embedded_player_attributes }}
                 >
           Listen
         </button>
