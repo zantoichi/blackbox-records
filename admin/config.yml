@@ -38,7 +38,7 @@ collections:
           - { label: Layout, name: layout, widget: hidden, default: default }
           - { label: Title, name: title, widget: string }
           - { label: Description, name: description, widget: string, required: false }
-          - { label: Hero Kicker, name: hero_kicker, widget: string, required: false }
+          - { label: Section Label, name: section_label, widget: string, required: false }
       - name: news
         label: News
         file: news/index.md
@@ -46,7 +46,7 @@ collections:
           - { label: Layout, name: layout, widget: hidden, default: default }
           - { label: Title, name: title, widget: string }
           - { label: Description, name: description, widget: string, required: false }
-          - { label: Hero Kicker, name: hero_kicker, widget: string, required: false }
+          - { label: Section Label, name: section_label, widget: string, required: false }
       - name: releases
         label: Releases
         file: releases/index.md
@@ -54,7 +54,7 @@ collections:
           - { label: Layout, name: layout, widget: hidden, default: default }
           - { label: Title, name: title, widget: string }
           - { label: Description, name: description, widget: string, required: false }
-          - { label: Hero Kicker, name: hero_kicker, widget: string, required: false }
+          - { label: Section Label, name: section_label, widget: string, required: false }
       - name: about
         label: About
         file: about/index.md
@@ -69,7 +69,7 @@ collections:
           - { label: Layout, name: layout, widget: hidden, default: redirect }
           - { label: Title, name: title, widget: string }
           - { label: Description, name: description, widget: string, required: false }
-          - { label: Hero Kicker, name: hero_kicker, widget: string, required: false }
+          - { label: Section Label, name: section_label, widget: string, required: false }
           - { label: Redirect URL, name: redirect_url, widget: string, required: false }
   - name: home_content
     label: Home Content
@@ -83,42 +83,42 @@ collections:
             widget: object
             fields:
               - { label: Tagline, name: tagline, widget: text }
-              - { label: Primary Label, name: primary_label, widget: string }
-              - { label: Primary URL, name: primary_url, widget: string }
-              - { label: Secondary Label, name: secondary_label, widget: string }
-              - { label: Secondary URL, name: secondary_url, widget: string }
+              - { label: Primary Button Text, name: primary_label, widget: string }
+              - { label: Primary Button Link, name: primary_url, widget: string }
+              - { label: Secondary Button Text, name: secondary_label, widget: string }
+              - { label: Secondary Button Link, name: secondary_url, widget: string }
           - label: Latest Releases
             name: latest_releases
             widget: object
             fields:
-              - { label: Kicker, name: kicker, widget: string }
+              - { label: Section Label, name: section_label, widget: string }
               - { label: Title, name: title, widget: string }
-              - { label: Link Label, name: link_label, widget: string }
+              - { label: Link Text, name: link_label, widget: string }
               - { label: Link URL, name: link_url, widget: string }
           - label: Artists Section
             name: artists
             widget: object
             fields:
-              - { label: Kicker, name: kicker, widget: string }
+              - { label: Section Label, name: section_label, widget: string }
               - { label: Title, name: title, widget: string }
-              - { label: CTA Label, name: cta_label, widget: string }
-              - { label: CTA URL, name: cta_url, widget: string }
+              - { label: Button Text, name: cta_label, widget: string }
+              - { label: Button Link, name: cta_url, widget: string }
           - label: News Section
             name: news
             widget: object
             fields:
-              - { label: Kicker, name: kicker, widget: string }
+              - { label: Section Label, name: section_label, widget: string }
               - { label: Title, name: title, widget: string }
-              - { label: Link Label, name: link_label, widget: string }
+              - { label: Link Text, name: link_label, widget: string }
               - { label: Link URL, name: link_url, widget: string }
           - label: Journey Section
             name: journey
             widget: object
             fields:
-              - { label: Kicker, name: kicker, widget: string }
+              - { label: Section Label, name: section_label, widget: string }
               - { label: Title, name: title, widget: string }
               - { label: Image, name: image, widget: image }
-              - { label: Image Alt, name: image_alt, widget: string, required: false }
+              - { label: Image Description, name: image_alt, widget: string, required: false }
               - label: Paragraphs
                 name: paragraphs
                 widget: list
@@ -146,29 +146,32 @@ collections:
     fields:
       - { label: Layout, name: layout, widget: hidden, default: release }
       - { label: Title, name: title, widget: string }
-      - { label: Artist Slug, name: artist_slug, widget: string }
+      - label: Artist Slug (from roster)
+        name: artist_slug
+        widget: string
+        hint: "Use the artist slug from Artists Roster (e.g. mass-culture)."
       - { label: Release Date, name: release_date, widget: datetime, format: "YYYY-MM-DD", time_format: false }
       - { label: Cover Image, name: cover_image, widget: image }
-      - { label: Cover Image Alt, name: cover_image_alt, widget: string, required: false }
-      - { label: Merch URL, name: merch_url, widget: string, required: false }
-      - { label: Bandcamp URL, name: bandcamp_url, widget: string, required: false }
-      - { label: Bandcamp Embed URL, name: bandcamp_embed_url, widget: string, required: false }
-      - label: Tidal URL
+      - { label: Cover Description, name: cover_image_alt, widget: string, required: false }
+      - { label: Merch Link, name: merch_url, widget: string, required: false }
+      - { label: Bandcamp Link, name: bandcamp_url, widget: string, required: false }
+      - { label: Bandcamp Embed Link, name: bandcamp_embed_url, widget: string, required: false }
+      - label: Tidal Link
         name: tidal_url
         widget: string
         required: false
         hint: "Paste a Tidal album/track URL. The embed can be generated automatically."
-      - label: Tidal Embed URL
+      - label: Tidal Embed Link
         name: tidal_embed_url
         widget: string
         required: false
         hint: "Optional: paste the embed src from Tidal Share > Copy embed code."
       - { label: Summary, name: summary, widget: text, required: false }
-      - label: Formats
+      - label: Formats (optional)
         name: formats
         widget: list
         required: false
-      - label: Credits
+      - label: Credits (optional)
         name: credits
         widget: list
         required: false
@@ -189,9 +192,9 @@ collections:
             fields:
               - { label: Title, name: title, widget: string }
               - { label: Date, name: date, widget: string }
-              - { label: Excerpt, name: excerpt, widget: text }
+              - { label: Summary, name: excerpt, widget: text }
               - { label: Image, name: image, widget: image }
-              - { label: Image Alt, name: image_alt, widget: string, required: false }
+              - { label: Image Description, name: image_alt, widget: string, required: false }
               - { label: URL, name: url, widget: string, required: false }
   - name: about_content
     label: About Content
@@ -204,10 +207,10 @@ collections:
             name: hero
             widget: object
             fields:
-              - { label: Kicker, name: kicker, widget: string }
+              - { label: Section Label, name: section_label, widget: string }
               - { label: Title, name: title, widget: string }
               - { label: Image, name: image, widget: image }
-              - { label: Image Alt, name: image_alt, widget: string, required: false }
+              - { label: Image Description, name: image_alt, widget: string, required: false }
           - { label: Lead, name: lead, widget: text }
           - label: Sections
             name: sections
@@ -258,7 +261,7 @@ collections:
         label: Newsletter Content
         file: _data/newsletter.yml
         fields:
-          - { label: Kicker, name: kicker, widget: string }
+          - { label: Section Label, name: section_label, widget: string }
           - { label: Title, name: title, widget: string }
           - { label: Description, name: description, widget: text }
           - { label: Placeholder, name: placeholder, widget: string }
@@ -300,14 +303,13 @@ collections:
             summary: "{{fields.name}}"
             fields:
               - { label: Name, name: name, widget: string }
-              - { label: Slug, name: slug, widget: string }
-              - { label: Genre, name: genre, widget: string }
+              - { label: Slug (used in URLs), name: slug, widget: string }
+              - { label: Genre / Style, name: genre, widget: string }
               - { label: Country, name: country, widget: string, required: false }
               - { label: Image, name: image, widget: image }
-              - { label: Image Alt, name: image_alt, widget: string, required: false }
+              - { label: Image Description, name: image_alt, widget: string, required: false }
               - { label: Bio, name: bio, widget: text }
-              - { label: Upcoming Release, name: upcoming_release, widget: string, required: false }
-              - { label: URL, name: url, widget: string, required: false }
+              - { label: Upcoming Release (optional), name: upcoming_release, widget: string, required: false }
   - name: settings
     label: Site Settings
     files:
