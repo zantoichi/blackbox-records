@@ -38,8 +38,8 @@ body_class: home-scroll-snap-container
       {{ home.hero.tagline }}
     </p>
     <div class="homepage-hero-section__action-buttons">
-      <a class="call-to-action-button call-to-action-button--primary" href="{{ home.hero.primary_url | relative_url }}">{{ home.hero.primary_label }}</a>
-      <a class="call-to-action-button call-to-action-button--outline" href="{{ home.hero.secondary_url | relative_url }}">{{ home.hero.secondary_label }}</a>
+      <a class="call-to-action-button call-to-action-button--primary" href="{{ home.hero.primary_button_link | relative_url }}">{{ home.hero.primary_button_text }}</a>
+      <a class="call-to-action-button call-to-action-button--outline" href="{{ home.hero.secondary_button_link | relative_url }}">{{ home.hero.secondary_button_text }}</a>
     </div>
   </div>
   <div class="homepage-hero-section__scroll-indicator" aria-hidden="true">
@@ -56,7 +56,7 @@ body_class: home-scroll-snap-container
         <p class="page-section-kicker-text">{{ home.latest_releases.section_label }}</p>
         <h2 class="page-section-title-text">{{ home.latest_releases.title | upcase }}</h2>
       </div>
-      <a class="page-section-header-link" href="{{ home.latest_releases.link_url | relative_url }}">{{ home.latest_releases.link_label }} <span aria-hidden="true">&rarr;</span></a>
+      <a class="page-section-header-link" href="{{ home.latest_releases.link_url | relative_url }}">{{ home.latest_releases.link_text }} <span aria-hidden="true">&rarr;</span></a>
     </div>
     <div class="release-summary-card-grid">
       {% for release in releases %}
@@ -81,7 +81,7 @@ body_class: home-scroll-snap-container
       {{ site.data.artists.items | jsonify }}
     </script>
     <div class="page-section-call-to-action-region">
-      <a class="call-to-action-button call-to-action-button--outline" href="{{ home.artists.cta_url | relative_url }}">{{ home.artists.cta_label }}</a>
+      <a class="call-to-action-button call-to-action-button--outline" href="{{ home.artists.button_link | relative_url }}">{{ home.artists.button_text }}</a>
     </div>
   </div>
 </section>
@@ -92,7 +92,7 @@ body_class: home-scroll-snap-container
         <p class="page-section-kicker-text">{{ home.news.section_label }}</p>
         <h2 class="page-section-title-text">{{ home.news.title | upcase }}</h2>
       </div>
-      <a class="page-section-header-link" href="{{ home.news.link_url | relative_url }}">{{ home.news.link_label }} <span aria-hidden="true">&rarr;</span></a>
+      <a class="page-section-header-link" href="{{ home.news.link_url | relative_url }}">{{ home.news.link_text }} <span aria-hidden="true">&rarr;</span></a>
     </div>
     <div class="news-summary-card-grid">
       {% for item in news_items %}
@@ -102,7 +102,7 @@ body_class: home-scroll-snap-container
           </div>
           <p class="news-summary-card-date-text">{{ item.date }}</p>
           <h3>{{ item.title }}</h3>
-          <p class="news-summary-card-excerpt-text">{{ item.excerpt }}</p>
+          <p class="news-summary-card-excerpt-text">{{ item.summary }}</p>
         </a>
       {% endfor %}
     </div>

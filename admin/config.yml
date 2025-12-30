@@ -83,17 +83,17 @@ collections:
             widget: object
             fields:
               - { label: Tagline, name: tagline, widget: text }
-              - { label: Primary Button Text, name: primary_label, widget: string }
-              - { label: Primary Button Link, name: primary_url, widget: string }
-              - { label: Secondary Button Text, name: secondary_label, widget: string }
-              - { label: Secondary Button Link, name: secondary_url, widget: string }
+              - { label: Primary Button Text, name: primary_button_text, widget: string }
+              - { label: Primary Button Link, name: primary_button_link, widget: string }
+              - { label: Secondary Button Text, name: secondary_button_text, widget: string }
+              - { label: Secondary Button Link, name: secondary_button_link, widget: string }
           - label: Latest Releases
             name: latest_releases
             widget: object
             fields:
               - { label: Section Label, name: section_label, widget: string }
               - { label: Title, name: title, widget: string }
-              - { label: Link Text, name: link_label, widget: string }
+              - { label: Link Text, name: link_text, widget: string }
               - { label: Link URL, name: link_url, widget: string }
           - label: Artists Section
             name: artists
@@ -101,15 +101,15 @@ collections:
             fields:
               - { label: Section Label, name: section_label, widget: string }
               - { label: Title, name: title, widget: string }
-              - { label: Button Text, name: cta_label, widget: string }
-              - { label: Button Link, name: cta_url, widget: string }
+              - { label: Button Text, name: button_text, widget: string }
+              - { label: Button Link, name: button_link, widget: string }
           - label: News Section
             name: news
             widget: object
             fields:
               - { label: Section Label, name: section_label, widget: string }
               - { label: Title, name: title, widget: string }
-              - { label: Link Text, name: link_label, widget: string }
+              - { label: Link Text, name: link_text, widget: string }
               - { label: Link URL, name: link_url, widget: string }
           - label: Journey Section
             name: journey
@@ -192,7 +192,7 @@ collections:
             fields:
               - { label: Title, name: title, widget: string }
               - { label: Date, name: date, widget: string }
-              - { label: Summary, name: excerpt, widget: text }
+              - { label: Summary, name: summary, widget: text }
               - { label: Image, name: image, widget: image }
               - { label: Image Description, name: image_alt, widget: string, required: false }
               - { label: URL, name: url, widget: string, required: false }

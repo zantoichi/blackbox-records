@@ -1,23 +1,23 @@
 hero:
   tagline: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor quis nisi tincidunt eleifend.
-  primary_label: Explore Artists
-  primary_url: /artists/
-  secondary_label: Visit Shop
-  secondary_url: /shop/
+  primary_button_text: Explore Artists
+  primary_button_link: /artists/
+  secondary_button_text: Visit Shop
+  secondary_button_link: /shop/
 latest_releases:
   section_label: Latest
   title: Latest Releases
-  link_label: View All
+  link_text: View All
   link_url: /releases/
 artists:
   section_label: Roster
   title: Featured Roster
-  cta_label: View Full Roster
-  cta_url: /artists/
+  button_text: View Full Roster
+  button_link: /artists/
 news:
   section_label: Updates
   title: Latest News
-  link_label: All News
+  link_text: All News
   link_url: /news/
 journey:
   section_label: About

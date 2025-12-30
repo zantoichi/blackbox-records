@@ -1,7 +1,7 @@
 items:
   - title: Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
     date: Dec 2024
-    excerpt: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+    summary: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
       enim ad minim veniam, quis nostrud exercitation ullamco laboris.
     image: /assets/images/news/dark-concert-venue-.jpg
     image_alt: Lorem ipsum
