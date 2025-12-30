@@ -32,7 +32,7 @@ body_class: home-scroll-snap-container
   <div class="homepage-hero-section__orbit-ring-layer homepage-hero-section__orbit-ring-layer--small" aria-hidden="true"></div>
   <div class="homepage-hero-section__content-block page-content-width-constrained-container">
     <div class="homepage-hero-section__logo-lockup">
-      <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="BlackBox Records">
+      <img src="{{ '/assets/images/brand/logo.png' | relative_url }}" alt="BlackBox Records">
     </div>
     <p class="homepage-hero-section__tagline-text">
       {{ home.hero.tagline }}

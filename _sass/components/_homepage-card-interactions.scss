@@ -23,11 +23,10 @@
 }
 
 .page-main-content-region--home .news-summary-card-media-frame img {
-  transition: transform 0.5s ease, filter 0.5s ease;
+  transition: transform 0.5s ease;
 }
 
 .page-main-content-region--home .news-summary-card-link:hover .news-summary-card-media-frame img {
-  filter: grayscale(0.2);
   transform: scale(1.06);
 }
 

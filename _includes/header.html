@@ -1,79 +1,78 @@
 <header class="global-site-header" data-header>
   <div class="page-content-width-constrained-container global-site-header__layout-row">
     <a class="global-site-header__logo-link" href="{{ '/' | relative_url }}">
-      <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="BlackBox Records">
+      <img src="{{ '/assets/images/brand/logo.png' | relative_url }}" alt="BlackBox Records">
     </a>
-    <nav aria-label="Primary" class="global-site-navigation">
+    <nav class="global-site-navigation" aria-label="Primary">
       <ul class="global-site-navigation__list">
         {% for item in site.data.nav.items %}
-        {% assign nav_url = item.url %}
-        {% assign nav_is_active = false %}
-        {% if item.key == 'releases' %}
-        {% assign nav_url = site.data.home.latest_releases.link_url %}
-        {% if page.url contains '/releases/' %}
-        {% assign nav_is_active = true %}
-        {% endif %}
-        {% elsif nav_url == '/' %}
-        {% if page.url == '/' or page.url == '/index.html' %}
-        {% assign nav_is_active = true %}
-        {% endif %}
-        {% elsif page.url == nav_url %}
-        {% assign nav_is_active = true %}
-        {% endif %}
-        {% assign nav_is_home = false %}
-        {% if nav_url == '/' %}
-        {% assign nav_is_home = true %}
-        {% endif %}
-        <li>
-          <a
-            %}
-            %} aria-current="page" class="global-site-navigation__link{% if nav_is_home %} global-site-navigation__link--home{% endif %}{% if nav_is_active %} is-current-page{% endif %}" endif href="{{ nav_url | relative_url }}" if nav_is_active {% {%>{{ item.title
-            }}</a>
-        </li>
+          {% assign nav_url = item.url %}
+          {% assign nav_is_active = false %}
+          {% if item.key == 'releases' %}
+            {% assign nav_url = site.data.home.latest_releases.link_url %}
+            {% if page.url contains '/releases/' %}
+              {% assign nav_is_active = true %}
+            {% endif %}
+          {% elsif nav_url == '/' %}
+            {% if page.url == '/' or page.url == '/index.html' %}
+              {% assign nav_is_active = true %}
+            {% endif %}
+          {% elsif page.url == nav_url %}
+            {% assign nav_is_active = true %}
+          {% endif %}
+          {% assign nav_is_home = false %}
+          {% if nav_url == '/' %}
+            {% assign nav_is_home = true %}
+          {% endif %}
+          <li>
+            <a class="global-site-navigation__link{% if nav_is_home %} global-site-navigation__link--home{% endif %}{% if nav_is_active %} is-current-page{% endif %}"
+               href="{{ nav_url | relative_url }}"
+               {% if nav_is_active %}aria-current="page"{% endif %}>
+              {{ item.title }}
+            </a>
+          </li>
         {% endfor %}
       </ul>
     </nav>
-    <button aria-controls="mobile-nav" aria-expanded="false" class="global-site-header__menu-toggle" data-nav-toggle
-            type="button">
+    <button class="global-site-header__menu-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav">
       <span class="accessibility-visually-hidden-text">Toggle navigation</span>
-      <svg aria-hidden="true" class="global-site-navigation-toggle-icon global-site-navigation-toggle-icon--open"
-           focusable="false" viewBox="0 0 24 24">
-        <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <svg class="global-site-navigation-toggle-icon global-site-navigation-toggle-icon--open" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
       </svg>
-      <svg aria-hidden="true" class="global-site-navigation-toggle-icon global-site-navigation-toggle-icon--close"
-           focusable="false" viewBox="0 0 24 24">
-        <path d="M6 6l12 12M18 6l-12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <svg class="global-site-navigation-toggle-icon global-site-navigation-toggle-icon--close" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M6 6l12 12M18 6l-12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
       </svg>
     </button>
   </div>
-  <div class="global-site-header__mobile-panel" data-mobile-nav id="mobile-nav">
+  <div class="global-site-header__mobile-panel" id="mobile-nav" data-mobile-nav>
     <nav aria-label="Mobile">
       <ul class="global-site-navigation__list">
         {% for item in site.data.nav.items %}
-        {% assign nav_url = item.url %}
-        {% assign nav_is_active = false %}
-        {% if item.key == 'releases' %}
-        {% assign nav_url = site.data.home.latest_releases.link_url %}
-        {% if page.url contains '/releases/' %}
-        {% assign nav_is_active = true %}
-        {% endif %}
-        {% elsif nav_url == '/' %}
-        {% if page.url == '/' or page.url == '/index.html' %}
-        {% assign nav_is_active = true %}
-        {% endif %}
-        {% elsif page.url == nav_url %}
-        {% assign nav_is_active = true %}
-        {% endif %}
-        {% assign nav_is_home = false %}
-        {% if nav_url == '/' %}
-        {% assign nav_is_home = true %}
-        {% endif %}
-        <li>
-          <a
-            %}
-            %} aria-current="page" class="global-site-navigation__link{% if nav_is_home %} global-site-navigation__link--home{% endif %}{% if nav_is_active %} is-current-page{% endif %}" endif href="{{ nav_url | relative_url }}" if nav_is_active {% {%>{{ item.title
-            }}</a>
-        </li>
+          {% assign nav_url = item.url %}
+          {% assign nav_is_active = false %}
+          {% if item.key == 'releases' %}
+            {% assign nav_url = site.data.home.latest_releases.link_url %}
+            {% if page.url contains '/releases/' %}
+              {% assign nav_is_active = true %}
+            {% endif %}
+          {% elsif nav_url == '/' %}
+            {% if page.url == '/' or page.url == '/index.html' %}
+              {% assign nav_is_active = true %}
+            {% endif %}
+          {% elsif page.url == nav_url %}
+            {% assign nav_is_active = true %}
+          {% endif %}
+          {% assign nav_is_home = false %}
+          {% if nav_url == '/' %}
+            {% assign nav_is_home = true %}
+          {% endif %}
+          <li>
+            <a class="global-site-navigation__link{% if nav_is_home %} global-site-navigation__link--home{% endif %}{% if nav_is_active %} is-current-page{% endif %}"
+               href="{{ nav_url | relative_url }}"
+               {% if nav_is_active %}aria-current="page"{% endif %}>
+              {{ item.title }}
+            </a>
+          </li>
         {% endfor %}
       </ul>
     </nav>
