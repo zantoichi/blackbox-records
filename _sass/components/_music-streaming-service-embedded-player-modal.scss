@@ -1,8 +1,8 @@
-.listen-modal-overlay[hidden] {
+.music-streaming-service-embedded-player-modal-overlay[hidden] {
   display: none;
 }
 
-.listen-modal-overlay {
+.music-streaming-service-embedded-player-modal-overlay {
   position: fixed;
   inset: 0;
   background: rgba(8, 8, 8, 0.85);
@@ -12,9 +12,9 @@
   z-index: 1200;
 }
 
-.listen-modal-card {
-  --listen-modal-aspect-ratio: 350 / 687;
-  --listen-modal-max-width: 22rem;
+.music-streaming-service-embedded-player-modal-card {
+  --music-streaming-service-embedded-player-modal-aspect-ratio: 350 / 687;
+  --music-streaming-service-embedded-player-modal-max-width: 22rem;
   width: min(100%, 30rem);
   background: var(--color-background-primary-surface);
   border: 1px solid var(--color-border-subtle-neutral);
@@ -24,7 +24,7 @@
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
 }
 
-.listen-modal-close-button {
+.music-streaming-service-embedded-player-modal-close-button {
   justify-self: end;
   background: transparent;
   border: 1px solid var(--color-border-subtle-neutral);
@@ -35,7 +35,7 @@
   cursor: pointer;
 }
 
-.listen-modal-title-text {
+.music-streaming-service-embedded-player-modal-title-text {
   margin: 0;
   font-size: 1rem;
   letter-spacing: 0.15em;
@@ -43,16 +43,16 @@
   color: var(--color-text-muted-secondary);
 }
 
-.listen-modal-frame {
+.music-streaming-service-embedded-player-modal-frame {
   position: relative;
-  width: min(100%, var(--listen-modal-max-width));
-  aspect-ratio: var(--listen-modal-aspect-ratio);
+  width: min(100%, var(--music-streaming-service-embedded-player-modal-max-width));
+  aspect-ratio: var(--music-streaming-service-embedded-player-modal-aspect-ratio);
   max-height: 70vh;
   margin: 0 auto;
   border: 1px solid var(--color-border-subtle-neutral);
 }
 
-.listen-modal-frame iframe {
+.music-streaming-service-embedded-player-modal-frame iframe {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -61,14 +61,14 @@
   background: #000;
 }
 
-.listen-provider-switcher {
+.music-streaming-service-embedded-player-provider-switcher {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
   justify-content: center;
 }
 
-.listen-provider-button {
+.music-streaming-service-embedded-player-provider-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -83,11 +83,11 @@
   transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
-.listen-provider-button--has-logo {
+.music-streaming-service-embedded-player-provider-button--has-logo {
   padding: 0.4rem 1.1rem;
 }
 
-.listen-provider-button-logo {
+.music-streaming-service-embedded-player-provider-button-logo {
   height: 1.1rem;
   width: auto;
   display: block;
@@ -95,17 +95,17 @@
   filter: invert(1);
 }
 
-.listen-provider-button.is-listen-provider-active {
+.music-streaming-service-embedded-player-provider-button.is-music-streaming-service-embedded-player-provider-active {
   color: var(--color-text-primary-foreground);
   border-color: var(--color-text-primary-foreground);
   background: rgba(245, 245, 245, 0.06);
 }
 
-.listen-provider-button:hover {
+.music-streaming-service-embedded-player-provider-button:hover {
   color: var(--color-text-primary-foreground);
   border-color: var(--color-text-primary-foreground);
 }
 
-body.is-listen-modal-open {
+body.is-music-streaming-service-embedded-player-modal-open {
   overflow: hidden;
 }

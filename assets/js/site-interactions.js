@@ -5,22 +5,22 @@ const FEATURED_ARTIST_GRID_SELECTOR = '[data-featured-artist-grid]'
 const FEATURED_ARTISTS_DATA_ELEMENT_ID = 'homepage-featured-artists-data'
 const DEFAULT_FEATURED_ARTIST_LIMIT = 5
 const NAVIGATION_OPEN_STATE_CLASS_NAME = 'is-site-navigation-open'
-const LISTEN_MODAL_SELECTOR = '[data-listen-modal]'
-const LISTEN_MODAL_CLOSE_SELECTOR = '[data-listen-close]'
-const LISTEN_MODAL_IFRAME_SELECTOR = '[data-listen-iframe]'
-const LISTEN_MODAL_PANEL_SELECTOR = '[data-listen-panel]'
-const LISTEN_SWITCHER_SELECTOR = '[data-listen-switcher]'
-const LISTEN_PROVIDER_BUTTON_SELECTOR = '[data-listen-provider]'
-const LISTEN_CARD_SELECTOR = '[data-listen-card]'
-const LISTEN_TRIGGER_SELECTOR = '[data-listen-trigger]'
-const LISTEN_MODAL_OPEN_STATE_CLASS_NAME = 'is-listen-modal-open'
-const LISTEN_PROVIDER_PRIORITY = ['bandcamp', 'tidal']
-const listenProviderSelectionByTitle = new Map()
+const MUSIC_STREAMING_SERVICE_EMBEDDED_PLAYER_MODAL_SELECTOR = '[data-music-streaming-service-embedded-player-modal]'
+const MUSIC_STREAMING_SERVICE_EMBEDDED_PLAYER_MODAL_CLOSE_SELECTOR = '[data-music-streaming-service-embedded-player-close]'
+const MUSIC_STREAMING_SERVICE_EMBEDDED_PLAYER_MODAL_IFRAME_SELECTOR = '[data-music-streaming-service-embedded-player-iframe]'
+const MUSIC_STREAMING_SERVICE_EMBEDDED_PLAYER_MODAL_PANEL_SELECTOR = '[data-music-streaming-service-embedded-player-panel]'
+const MUSIC_STREAMING_SERVICE_EMBEDDED_PLAYER_SWITCHER_SELECTOR = '[data-music-streaming-service-embedded-player-switcher]'
+const MUSIC_STREAMING_SERVICE_EMBEDDED_PLAYER_PROVIDER_BUTTON_SELECTOR = '[data-music-streaming-service-embedded-player-provider]'
+const MUSIC_STREAMING_SERVICE_EMBEDDED_PLAYER_CARD_SELECTOR = '[data-music-streaming-service-embedded-player-card]'
+const MUSIC_STREAMING_SERVICE_EMBEDDED_PLAYER_TRIGGER_SELECTOR = '[data-music-streaming-service-embedded-player-trigger]'
+const MUSIC_STREAMING_SERVICE_EMBEDDED_PLAYER_MODAL_OPEN_STATE_CLASS_NAME = 'is-music-streaming-service-embedded-player-modal-open'
+const MUSIC_STREAMING_SERVICE_EMBEDDED_PLAYER_PROVIDER_PRIORITY = ['bandcamp', 'tidal']
+const musicStreamingServiceEmbeddedPlayerProviderSelectionByTitle = new Map()
 
 initializeHeaderNavigation()
 initializeHomepageFeaturedArtistShowcase()
-initializeListenSwitchers()
-initializeListenModal()
+initializeMusicStreamingServiceEmbeddedPlayerSwitchers()
+initializeMusicStreamingServiceEmbeddedPlayerModal()
 
 function initializeHeaderNavigation() {
   const headerElement = findHeaderElement()
@@ -78,69 +78,69 @@ function findFeaturedArtistsDataElement() {
   return document.getElementById(FEATURED_ARTISTS_DATA_ELEMENT_ID)
 }
 
-function findListenModalElement() {
-  return document.querySelector(LISTEN_MODAL_SELECTOR)
+function findMusicStreamingServiceEmbeddedPlayerModalElement() {
+  return document.querySelector(MUSIC_STREAMING_SERVICE_EMBEDDED_PLAYER_MODAL_SELECTOR)
 }
 
-function findListenCardElements() {
-  return Array.from(document.querySelectorAll(LISTEN_CARD_SELECTOR))
+function findmusicStreamingServiceEmbeddedPlayerCardElements() {
+  return Array.from(document.querySelectorAll(MUSIC_STREAMING_SERVICE_EMBEDDED_PLAYER_CARD_SELECTOR))
 }
 
-function findListenPanels() {
-  return Array.from(document.querySelectorAll(LISTEN_MODAL_PANEL_SELECTOR))
+function findMusicStreamingServiceEmbeddedPlayerPanels() {
+  return Array.from(document.querySelectorAll(MUSIC_STREAMING_SERVICE_EMBEDDED_PLAYER_MODAL_PANEL_SELECTOR))
 }
 
-function findListenIframe(containerElement) {
-  return containerElement.querySelector(LISTEN_MODAL_IFRAME_SELECTOR)
+function findMusicStreamingServiceEmbeddedPlayerIframe(containerElement) {
+  return containerElement.querySelector(MUSIC_STREAMING_SERVICE_EMBEDDED_PLAYER_MODAL_IFRAME_SELECTOR)
 }
 
-function findListenCloseButton(modalElement) {
-  return modalElement.querySelector(LISTEN_MODAL_CLOSE_SELECTOR)
+function findMusicStreamingServiceEmbeddedPlayerCloseButton(modalElement) {
+  return modalElement.querySelector(MUSIC_STREAMING_SERVICE_EMBEDDED_PLAYER_MODAL_CLOSE_SELECTOR)
 }
 
-function findListenTitleElement(modalElement) {
-  return modalElement.querySelector('#listen-modal-title')
+function findMusicStreamingServiceEmbeddedPlayerTitleElement(modalElement) {
+  return modalElement.querySelector('#music-streaming-service-embedded-player-modal-title')
 }
 
-function findListenSwitcher(containerElement) {
-  return containerElement.querySelector(LISTEN_SWITCHER_SELECTOR)
+function findMusicStreamingServiceEmbeddedPlayerSwitcher(containerElement) {
+  return containerElement.querySelector(MUSIC_STREAMING_SERVICE_EMBEDDED_PLAYER_SWITCHER_SELECTOR)
 }
 
-function findListenProviderButtons(containerElement) {
-  return Array.from(containerElement.querySelectorAll(LISTEN_PROVIDER_BUTTON_SELECTOR))
+function findMusicStreamingServiceEmbeddedPlayerProviderButtons(containerElement) {
+  return Array.from(containerElement.querySelectorAll(MUSIC_STREAMING_SERVICE_EMBEDDED_PLAYER_PROVIDER_BUTTON_SELECTOR))
 }
 
 
-function readListenTitleFromElement(element) {
-  return element.dataset.listenTitle || ''
+function readMusicStreamingServiceEmbeddedPlayerTitleFromElement(element) {
+  return element.dataset.musicStreamingServiceEmbeddedPlayerTitle || ''
 }
 
-function readListenProvidersFromElement(element) {
+function readMusicStreamingServiceEmbeddedPlayerProvidersFromElement(element) {
   const providers = [
     {
       id: 'bandcamp',
       label: 'Bandcamp',
-      embedUrl: element.dataset.listenBandcampEmbedUrl,
+      embedUrl: element.dataset.musicStreamingServiceEmbeddedPlayerBandcampEmbedUrl,
     },
     {
       id: 'tidal',
       label: 'Tidal',
-      embedUrl: element.dataset.listenTidalEmbedUrl,
+      embedUrl: element.dataset.musicStreamingServiceEmbeddedPlayerTidalEmbedUrl,
     },
   ]
   return providers.filter((provider) => Boolean(provider.embedUrl))
 }
 
-function selectDefaultListenProvider(providers) {
+function selectDefaultMusicStreamingServiceEmbeddedPlayerProvider(providers) {
   const providerById = new Map(providers.map((provider) => [provider.id, provider]))
-  const preferredProviderId = LISTEN_PROVIDER_PRIORITY.find((id) => providerById.has(id))
+  const preferredProviderId = MUSIC_STREAMING_SERVICE_EMBEDDED_PLAYER_PROVIDER_PRIORITY.find((id) => providerById.has(id))
   return preferredProviderId ? providerById.get(preferredProviderId) : providers[0]
 }
 
-function initializeListenSwitchers() {
-  findListenPanels().forEach((containerElement) => {
-    connectListenProviderButtons(containerElement)
-    refreshListenPanel(containerElement)
+function initializeMusicStreamingServiceEmbeddedPlayerSwitchers() {
+  findMusicStreamingServiceEmbeddedPlayerPanels().forEach((containerElement) => {
+    connectMusicStreamingServiceEmbeddedPlayerProviderButtons(containerElement)
+    refreshMusicStreamingServiceEmbeddedPlayerPanel(containerElement)
   })
 }
 
@@ -151,22 +151,22 @@ function initializeHomepageFeaturedArtistShowcase() {
   renderRandomArtistsFromData(artistGridElement, artistsDataElement)
 }
 
-function initializeListenModal() {
-  const modalElement = findListenModalElement()
+function initializeMusicStreamingServiceEmbeddedPlayerModal() {
+  const modalElement = findMusicStreamingServiceEmbeddedPlayerModalElement()
   if (!modalElement) return
-  const listenCardElements = findListenCardElements()
-  if (listenCardElements.length === 0) return
-  const modalState = buildListenModalState(modalElement)
+  const musicStreamingServiceEmbeddedPlayerCardElements = findmusicStreamingServiceEmbeddedPlayerCardElements()
+  if (musicStreamingServiceEmbeddedPlayerCardElements.length === 0) return
+  const modalState = buildMusicStreamingServiceEmbeddedPlayerModalState(modalElement)
   if (!modalState) return
-  connectListenTriggers(listenCardElements, modalState)
-  connectListenModalCloseInteractions(modalState)
+  connectMusicStreamingServiceEmbeddedPlayerTriggers(musicStreamingServiceEmbeddedPlayerCardElements, modalState)
+  connectMusicStreamingServiceEmbeddedPlayerModalCloseInteractions(modalState)
 }
 
-function buildListenModalState(modalElement) {
-  const containerElement = modalElement.querySelector(LISTEN_MODAL_PANEL_SELECTOR)
-  const iframeElement = findListenIframe(modalElement)
-  const closeButton = findListenCloseButton(modalElement)
-  const titleElement = findListenTitleElement(modalElement)
+function buildMusicStreamingServiceEmbeddedPlayerModalState(modalElement) {
+  const containerElement = modalElement.querySelector(MUSIC_STREAMING_SERVICE_EMBEDDED_PLAYER_MODAL_PANEL_SELECTOR)
+  const iframeElement = findMusicStreamingServiceEmbeddedPlayerIframe(modalElement)
+  const closeButton = findMusicStreamingServiceEmbeddedPlayerCloseButton(modalElement)
+  const titleElement = findMusicStreamingServiceEmbeddedPlayerTitleElement(modalElement)
   if (!iframeElement || !closeButton || !containerElement) return null
   return {
     modalElement,
@@ -177,146 +177,146 @@ function buildListenModalState(modalElement) {
   }
 }
 
-function connectListenTriggers(listenCardElements, modalState) {
-  listenCardElements.forEach((listenCardElement) => {
-    listenCardElement.addEventListener('click', (event) => {
-      if (!event.target.closest(LISTEN_TRIGGER_SELECTOR)) return
-      const providers = readListenProvidersFromElement(listenCardElement)
+function connectMusicStreamingServiceEmbeddedPlayerTriggers(musicStreamingServiceEmbeddedPlayerCardElements, modalState) {
+  musicStreamingServiceEmbeddedPlayerCardElements.forEach((musicStreamingServiceEmbeddedPlayerCardElement) => {
+    musicStreamingServiceEmbeddedPlayerCardElement.addEventListener('click', (event) => {
+      if (!event.target.closest(MUSIC_STREAMING_SERVICE_EMBEDDED_PLAYER_TRIGGER_SELECTOR)) return
+      const providers = readMusicStreamingServiceEmbeddedPlayerProvidersFromElement(musicStreamingServiceEmbeddedPlayerCardElement)
       if (providers.length === 0) return
       event.preventDefault()
-      openListenModal(modalState, providers, readListenTitleFromElement(listenCardElement))
+      openMusicStreamingServiceEmbeddedPlayerModal(modalState, providers, readMusicStreamingServiceEmbeddedPlayerTitleFromElement(musicStreamingServiceEmbeddedPlayerCardElement))
     })
   })
 }
 
-function connectListenModalCloseInteractions(modalState) {
-  modalState.closeButton.addEventListener('click', () => closeListenModal(modalState))
+function connectMusicStreamingServiceEmbeddedPlayerModalCloseInteractions(modalState) {
+  modalState.closeButton.addEventListener('click', () => closeMusicStreamingServiceEmbeddedPlayerModal(modalState))
   modalState.modalElement.addEventListener('click', (event) => {
     if (event.target === modalState.modalElement) {
-      closeListenModal(modalState)
+      closeMusicStreamingServiceEmbeddedPlayerModal(modalState)
     }
   })
   document.addEventListener('keydown', (event) => {
     if (event.key !== 'Escape') return
     if (modalState.modalElement.hidden) return
-    closeListenModal(modalState)
+    closeMusicStreamingServiceEmbeddedPlayerModal(modalState)
   })
 }
 
-function openListenModal(modalState, providers, releaseTitle) {
-  const currentTitle = modalState.containerElement.dataset.listenCurrentTitle || ''
+function openMusicStreamingServiceEmbeddedPlayerModal(modalState, providers, releaseTitle) {
+  const currentTitle = modalState.containerElement.dataset.musicStreamingServiceEmbeddedPlayerCurrentTitle || ''
   const isSameRelease = releaseTitle && currentTitle === releaseTitle
-  setListenPanelProviderData(modalState.containerElement, providers, releaseTitle)
-  refreshListenPanel(modalState.containerElement, releaseTitle, !isSameRelease)
+  setMusicStreamingServiceEmbeddedPlayerPanelProviderData(modalState.containerElement, providers, releaseTitle)
+  refreshMusicStreamingServiceEmbeddedPlayerPanel(modalState.containerElement, releaseTitle, !isSameRelease)
   if (releaseTitle) {
-    modalState.containerElement.dataset.listenCurrentTitle = releaseTitle
+    modalState.containerElement.dataset.musicStreamingServiceEmbeddedPlayerCurrentTitle = releaseTitle
   }
   if (modalState.titleElement) {
     modalState.titleElement.textContent = releaseTitle || ''
   }
   modalState.modalElement.hidden = false
-  document.body.classList.add(LISTEN_MODAL_OPEN_STATE_CLASS_NAME)
+  document.body.classList.add(MUSIC_STREAMING_SERVICE_EMBEDDED_PLAYER_MODAL_OPEN_STATE_CLASS_NAME)
 }
 
-function closeListenModal(modalState) {
+function closeMusicStreamingServiceEmbeddedPlayerModal(modalState) {
   modalState.modalElement.hidden = true
   if (modalState.titleElement) {
     modalState.titleElement.textContent = ''
   }
-  document.body.classList.remove(LISTEN_MODAL_OPEN_STATE_CLASS_NAME)
+  document.body.classList.remove(MUSIC_STREAMING_SERVICE_EMBEDDED_PLAYER_MODAL_OPEN_STATE_CLASS_NAME)
 }
 
-function setListenPanelProviderData(containerElement, providers, releaseTitle) {
-  delete containerElement.dataset.listenBandcampEmbedUrl
-  delete containerElement.dataset.listenTidalEmbedUrl
+function setMusicStreamingServiceEmbeddedPlayerPanelProviderData(containerElement, providers, releaseTitle) {
+  delete containerElement.dataset.musicStreamingServiceEmbeddedPlayerBandcampEmbedUrl
+  delete containerElement.dataset.musicStreamingServiceEmbeddedPlayerTidalEmbedUrl
   providers.forEach((provider) => {
     if (provider.id === 'bandcamp') {
-      containerElement.dataset.listenBandcampEmbedUrl = provider.embedUrl
+      containerElement.dataset.musicStreamingServiceEmbeddedPlayerBandcampEmbedUrl = provider.embedUrl
     }
     if (provider.id === 'tidal') {
-      containerElement.dataset.listenTidalEmbedUrl = provider.embedUrl
+      containerElement.dataset.musicStreamingServiceEmbeddedPlayerTidalEmbedUrl = provider.embedUrl
     }
   })
   if (releaseTitle) {
-    containerElement.dataset.listenTitle = releaseTitle
+    containerElement.dataset.musicStreamingServiceEmbeddedPlayerTitle = releaseTitle
   }
 }
 
-function refreshListenPanel(containerElement, releaseTitle, forceInitialize = false) {
-  const providers = readListenProvidersFromElement(containerElement)
-  updateListenSwitcher(containerElement, providers)
+function refreshMusicStreamingServiceEmbeddedPlayerPanel(containerElement, releaseTitle, forceInitialize = false) {
+  const providers = readMusicStreamingServiceEmbeddedPlayerProvidersFromElement(containerElement)
+  updateMusicStreamingServiceEmbeddedPlayerSwitcher(containerElement, providers)
   if (providers.length === 0) return
   if (releaseTitle) {
-    updateListenTitle(containerElement, releaseTitle)
+    updateMusicStreamingServiceEmbeddedPlayerTitle(containerElement, releaseTitle)
   }
-  if (forceInitialize || !containerElement.dataset.listenInitialized) {
-    const cachedProviderId = readCachedListenProviderId(containerElement)
+  if (forceInitialize || !containerElement.dataset.musicStreamingServiceEmbeddedPlayerInitialized) {
+    const cachedProviderId = readCachedMusicStreamingServiceEmbeddedPlayerProviderId(containerElement)
     const cachedProvider = providers.find((provider) => provider.id === cachedProviderId)
-    applyListenProvider(containerElement, cachedProvider || selectDefaultListenProvider(providers))
-    containerElement.dataset.listenInitialized = 'true'
+    applyMusicStreamingServiceEmbeddedPlayerProvider(containerElement, cachedProvider || selectDefaultMusicStreamingServiceEmbeddedPlayerProvider(providers))
+    containerElement.dataset.musicStreamingServiceEmbeddedPlayerInitialized = 'true'
   }
 }
 
-function updateListenSwitcher(containerElement, providers) {
-  const switcher = findListenSwitcher(containerElement)
-  const buttons = findListenProviderButtons(containerElement)
+function updateMusicStreamingServiceEmbeddedPlayerSwitcher(containerElement, providers) {
+  const switcher = findMusicStreamingServiceEmbeddedPlayerSwitcher(containerElement)
+  const buttons = findMusicStreamingServiceEmbeddedPlayerProviderButtons(containerElement)
   if (!switcher) return
   const providerIds = providers.map((provider) => provider.id)
   switcher.hidden = providers.length === 0
   buttons.forEach((button) => {
-    const providerId = button.dataset.listenProvider
+    const providerId = button.dataset.musicStreamingServiceEmbeddedPlayerProvider
     button.hidden = !providerIds.includes(providerId)
   })
 }
 
-function connectListenProviderButtons(containerElement) {
-  const buttons = findListenProviderButtons(containerElement)
+function connectMusicStreamingServiceEmbeddedPlayerProviderButtons(containerElement) {
+  const buttons = findMusicStreamingServiceEmbeddedPlayerProviderButtons(containerElement)
   if (buttons.length === 0) return
   buttons.forEach((button) => {
     button.addEventListener('click', () => {
-      const providers = readListenProvidersFromElement(containerElement)
-      const provider = providers.find((item) => item.id === button.dataset.listenProvider)
+      const providers = readMusicStreamingServiceEmbeddedPlayerProvidersFromElement(containerElement)
+      const provider = providers.find((item) => item.id === button.dataset.musicStreamingServiceEmbeddedPlayerProvider)
       if (!provider) return
-      applyListenProvider(containerElement, provider)
+      applyMusicStreamingServiceEmbeddedPlayerProvider(containerElement, provider)
     })
   })
 }
 
-function applyListenProvider(containerElement, provider) {
-  const iframeElement = findListenIframe(containerElement)
-  const buttons = findListenProviderButtons(containerElement)
-  containerElement.dataset.listenActiveProvider = provider.id
-  storeCachedListenProvider(containerElement, provider.id)
+function applyMusicStreamingServiceEmbeddedPlayerProvider(containerElement, provider) {
+  const iframeElement = findMusicStreamingServiceEmbeddedPlayerIframe(containerElement)
+  const buttons = findMusicStreamingServiceEmbeddedPlayerProviderButtons(containerElement)
+  containerElement.dataset.musicStreamingServiceEmbeddedPlayerActiveProvider = provider.id
+  storeCachedMusicStreamingServiceEmbeddedPlayerProvider(containerElement, provider.id)
   if (iframeElement) {
     if (iframeElement.src !== provider.embedUrl) {
       iframeElement.src = provider.embedUrl
     }
-    const releaseTitle = readListenTitleFromElement(containerElement)
-    iframeElement.title = releaseTitle ? `${releaseTitle} player` : 'Listen player'
+    const releaseTitle = readMusicStreamingServiceEmbeddedPlayerTitleFromElement(containerElement)
+    iframeElement.title = releaseTitle ? `${releaseTitle} player` : 'Music streaming service embedded player'
   }
   buttons.forEach((button) => {
-    const isActive = button.dataset.listenProvider === provider.id
-    button.classList.toggle('is-listen-provider-active', isActive)
+    const isActive = button.dataset.musicStreamingServiceEmbeddedPlayerProvider === provider.id
+    button.classList.toggle('is-music-streaming-service-embedded-player-provider-active', isActive)
   })
 }
 
-function updateListenTitle(containerElement, releaseTitle) {
-  const titleElement = containerElement.querySelector('.listen-modal-title-text')
+function updateMusicStreamingServiceEmbeddedPlayerTitle(containerElement, releaseTitle) {
+  const titleElement = containerElement.querySelector('.music-streaming-service-embedded-player-modal-title-text')
   if (titleElement) {
     titleElement.textContent = releaseTitle || ''
   }
 }
 
-function readCachedListenProviderId(containerElement) {
-  const releaseTitle = readListenTitleFromElement(containerElement)
+function readCachedMusicStreamingServiceEmbeddedPlayerProviderId(containerElement) {
+  const releaseTitle = readMusicStreamingServiceEmbeddedPlayerTitleFromElement(containerElement)
   if (!releaseTitle) return ''
-  return listenProviderSelectionByTitle.get(releaseTitle) || ''
+  return musicStreamingServiceEmbeddedPlayerProviderSelectionByTitle.get(releaseTitle) || ''
 }
 
-function storeCachedListenProvider(containerElement, providerId) {
-  const releaseTitle = readListenTitleFromElement(containerElement)
+function storeCachedMusicStreamingServiceEmbeddedPlayerProvider(containerElement, providerId) {
+  const releaseTitle = readMusicStreamingServiceEmbeddedPlayerTitleFromElement(containerElement)
   if (!releaseTitle) return
-  listenProviderSelectionByTitle.set(releaseTitle, providerId)
+  musicStreamingServiceEmbeddedPlayerProviderSelectionByTitle.set(releaseTitle, providerId)
 }
 
 function renderRandomArtistsFromData(artistGridElement, artistsDataElement) {
@@ -451,4 +451,8 @@ function resolveArtistProfilePath(artist) {
   if (artist.slug) return `/artists/${artist.slug}/`
   return '/artists/'
 }
+
+
+
+
 

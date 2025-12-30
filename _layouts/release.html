@@ -56,11 +56,11 @@ layout: default
         {% if embed_url %}
         <button class="call-to-action-button call-to-action-button--outline"
                 type="button"
-                data-listen-card
-                data-listen-trigger
-                data-listen-title="{{ page.title | escape }} — {{ artist_name | escape }}"
-                {% if page.bandcamp_embed_url %}data-listen-bandcamp-embed-url="{{ page.bandcamp_embed_url }}"{% endif %}
-                {% if tidal_embed_url %}data-listen-tidal-embed-url="{{ tidal_embed_url }}"{% endif %}
+                data-music-streaming-service-embedded-player-card
+                data-music-streaming-service-embedded-player-trigger
+                data-music-streaming-service-embedded-player-title="{{ page.title | escape }} — {{ artist_name | escape }}"
+                {% if page.bandcamp_embed_url %}data-music-streaming-service-embedded-player-bandcamp-embed-url="{{ page.bandcamp_embed_url }}"{% endif %}
+                {% if tidal_embed_url %}data-music-streaming-service-embedded-player-tidal-embed-url="{{ tidal_embed_url }}"{% endif %}
                 >
           Listen
         </button>
