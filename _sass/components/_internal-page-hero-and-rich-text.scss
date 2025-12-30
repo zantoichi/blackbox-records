@@ -32,6 +32,10 @@
   background: linear-gradient(to top, rgba(13, 13, 13, 1), rgba(13, 13, 13, 0.5), transparent);
 }
 
+.internal-page-hero-image-frame--color img {
+  filter: none;
+}
+
 .long-form-rich-text-content {
   max-width: 64rem;
 }

@@ -1,0 +1,59 @@
+---
+layout: default
+---
+{% assign artist = site.data.artists.items | where: "slug", page.artist_slug | first %}
+{% assign artist_name = artist.name | default: page.title | default: "Artist" %}
+{% assign artist_genre = artist.genre | default: page.genre %}
+{% assign artist_country = artist.country | default: page.country %}
+{% assign artist_image = artist.image | default: page.image %}
+{% assign artist_image_alt = artist.image_alt | default: artist_name %}
+{% assign upcoming_release = artist.upcoming_release | default: page.upcoming_release %}
+{% assign hero_kicker = page.hero_kicker | default: "Artist" %}
+
+<section class="internal-page-hero-section">
+  <div class="page-content-width-constrained-container">
+    <p class="internal-page-hero-kicker-text">{{ hero_kicker }}</p>
+    <h1 class="internal-page-hero-title-text">{{ artist_name | upcase }}</h1>
+  </div>
+</section>
+{% if artist_image %}
+<section class="internal-page-hero-image-frame internal-page-hero-image-frame--color">
+  <img src="{{ artist_image | relative_url }}" alt="{{ artist_image_alt }}">
+  <div class="internal-page-hero-image-overlay-layer"></div>
+</section>
+{% endif %}
+<section class="page-section-standard-spacing">
+  <div class="page-content-width-constrained-container long-form-rich-text-content">
+    {% if artist_genre or artist_country %}
+    <p class="intro-lead-text-block">
+      {% if artist_genre %}{{ artist_genre }}{% endif %}{% if artist_genre and artist_country %} · {% endif %}{% if artist_country %}{{ artist_country }}{% endif %}
+    </p>
+    {% endif %}
+    {% if artist.bio %}
+    <p>{{ artist.bio }}</p>
+    {% endif %}
+    {% if upcoming_release %}
+    <h2>Upcoming Release</h2>
+    <p>{{ upcoming_release }}</p>
+    {% endif %}
+  </div>
+</section>
+{% assign artist_releases = site.releases | where: "artist_slug", artist.slug | sort: "release_date" | reverse %}
+{% if artist_releases.size > 0 %}
+<section class="page-section-standard-spacing-with-divider">
+  <div class="page-content-width-constrained-container">
+    <div class="page-section-header-layout-spaced">
+      <div>
+        <p class="page-section-kicker-text">Discography</p>
+        <h2 class="page-section-title-text">Releases</h2>
+      </div>
+      <a class="page-section-header-link" href="{{ '/releases/' | relative_url }}">View all <span aria-hidden="true">&rarr;</span></a>
+    </div>
+    <div class="release-summary-card-grid">
+      {% for release in artist_releases %}
+        {% include release-card.html release=release artist=artist %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
