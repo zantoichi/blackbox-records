@@ -8,12 +8,19 @@ const NAVIGATION_OPEN_STATE_CLASS_NAME = 'is-site-navigation-open'
 const RELEASE_PLAYER_MODAL_SELECTOR = '[data-release-player-modal]'
 const RELEASE_PLAYER_CLOSE_SELECTOR = '[data-release-player-close]'
 const RELEASE_PLAYER_IFRAME_SELECTOR = '[data-release-player-iframe]'
-const RELEASE_PLAYER_CARD_SELECTOR = '[data-release-player-embed-url]'
+const RELEASE_PLAYER_CONTAINER_SELECTOR = '[data-release-player-container]'
+const RELEASE_PLAYER_SWITCHER_SELECTOR = '[data-release-player-switcher]'
+const RELEASE_PLAYER_PROVIDER_BUTTON_SELECTOR = '[data-release-player-provider]'
+const RELEASE_PLAYER_EXTERNAL_LINK_SELECTOR = '[data-release-player-external-link]'
+const RELEASE_PLAYER_CARD_SELECTOR = '[data-release-player-card]'
 const RELEASE_PLAYER_TRIGGER_SELECTOR = '[data-release-player-trigger]'
 const RELEASE_PLAYER_MODAL_OPEN_STATE_CLASS_NAME = 'is-release-player-modal-open'
+const RELEASE_PLAYER_PROVIDER_PRIORITY = ['bandcamp', 'tidal']
+const releasePlayerSelectionByTitle = new Map()
 
 initializeHeaderNavigation()
 initializeHomepageFeaturedArtistShowcase()
+initializeReleasePlayerSwitchers()
 initializeReleasePlayerModal()
 
 function initializeHeaderNavigation() {
@@ -80,8 +87,12 @@ function findReleasePlayerCardElements() {
   return Array.from(document.querySelectorAll(RELEASE_PLAYER_CARD_SELECTOR))
 }
 
-function findReleasePlayerIframe(modalElement) {
-  return modalElement.querySelector(RELEASE_PLAYER_IFRAME_SELECTOR)
+function findReleasePlayerContainers() {
+  return Array.from(document.querySelectorAll(RELEASE_PLAYER_CONTAINER_SELECTOR))
+}
+
+function findReleasePlayerIframe(containerElement) {
+  return containerElement.querySelector(RELEASE_PLAYER_IFRAME_SELECTOR)
 }
 
 function findReleasePlayerCloseButton(modalElement) {
@@ -92,12 +103,51 @@ function findReleasePlayerTitleElement(modalElement) {
   return modalElement.querySelector('#release-player-modal-title')
 }
 
-function readReleasePlayerEmbedUrl(releaseElement) {
-  return releaseElement.dataset.releasePlayerEmbedUrl || ''
+function findReleasePlayerSwitcher(containerElement) {
+  return containerElement.querySelector(RELEASE_PLAYER_SWITCHER_SELECTOR)
 }
 
-function readReleasePlayerTitle(releaseElement) {
-  return releaseElement.dataset.releasePlayerTitle || ''
+function findReleasePlayerProviderButtons(containerElement) {
+  return Array.from(containerElement.querySelectorAll(RELEASE_PLAYER_PROVIDER_BUTTON_SELECTOR))
+}
+
+function findReleasePlayerExternalLink(containerElement) {
+  return containerElement.querySelector(RELEASE_PLAYER_EXTERNAL_LINK_SELECTOR)
+}
+
+function readReleasePlayerTitleFromElement(element) {
+  return element.dataset.releasePlayerTitle || ''
+}
+
+function readReleasePlayerProvidersFromElement(element) {
+  const providers = [
+    {
+      id: 'bandcamp',
+      label: 'Bandcamp',
+      embedUrl: element.dataset.releasePlayerBandcampEmbedUrl,
+      externalUrl: element.dataset.releasePlayerBandcampUrl,
+    },
+    {
+      id: 'tidal',
+      label: 'Tidal',
+      embedUrl: element.dataset.releasePlayerTidalEmbedUrl,
+      externalUrl: element.dataset.releasePlayerTidalUrl,
+    },
+  ]
+  return providers.filter((provider) => Boolean(provider.embedUrl))
+}
+
+function selectDefaultReleasePlayerProvider(providers) {
+  const providerById = new Map(providers.map((provider) => [provider.id, provider]))
+  const preferredProviderId = RELEASE_PLAYER_PROVIDER_PRIORITY.find((id) => providerById.has(id))
+  return preferredProviderId ? providerById.get(preferredProviderId) : providers[0]
+}
+
+function initializeReleasePlayerSwitchers() {
+  findReleasePlayerContainers().forEach((containerElement) => {
+    connectReleasePlayerProviderButtons(containerElement)
+    refreshReleasePlayerContainer(containerElement)
+  })
 }
 
 function initializeHomepageFeaturedArtistShowcase() {
@@ -119,12 +169,14 @@ function initializeReleasePlayerModal() {
 }
 
 function buildReleasePlayerModalState(modalElement) {
+  const containerElement = modalElement.querySelector(RELEASE_PLAYER_CONTAINER_SELECTOR)
   const iframeElement = findReleasePlayerIframe(modalElement)
   const closeButton = findReleasePlayerCloseButton(modalElement)
   const titleElement = findReleasePlayerTitleElement(modalElement)
-  if (!iframeElement || !closeButton) return null
+  if (!iframeElement || !closeButton || !containerElement) return null
   return {
     modalElement,
+    containerElement,
     iframeElement,
     closeButton,
     titleElement,
@@ -135,10 +187,10 @@ function connectReleasePlayerTriggers(releaseElements, modalState) {
   releaseElements.forEach((releaseElement) => {
     releaseElement.addEventListener('click', (event) => {
       if (!event.target.closest(RELEASE_PLAYER_TRIGGER_SELECTOR)) return
-      const embedUrl = readReleasePlayerEmbedUrl(releaseElement)
-      if (!embedUrl) return
+      const providers = readReleasePlayerProvidersFromElement(releaseElement)
+      if (providers.length === 0) return
       event.preventDefault()
-      openReleasePlayerModal(modalState, embedUrl, readReleasePlayerTitle(releaseElement))
+      openReleasePlayerModal(modalState, providers, readReleasePlayerTitleFromElement(releaseElement))
     })
   })
 }
@@ -157,23 +209,138 @@ function connectReleasePlayerCloseInteractions(modalState) {
   })
 }
 
-function openReleasePlayerModal(modalState, embedUrl, releaseTitle) {
-  modalState.iframeElement.src = embedUrl
+function openReleasePlayerModal(modalState, providers, releaseTitle) {
+  const currentReleaseTitle = modalState.containerElement.dataset.releasePlayerCurrentReleaseTitle || ''
+  const isSameRelease = releaseTitle && currentReleaseTitle === releaseTitle
+  setReleasePlayerContainerProviderData(modalState.containerElement, providers, releaseTitle)
+  refreshReleasePlayerContainer(modalState.containerElement, releaseTitle, !isSameRelease)
+  if (releaseTitle) {
+    modalState.containerElement.dataset.releasePlayerCurrentReleaseTitle = releaseTitle
+  }
   if (modalState.titleElement) {
     modalState.titleElement.textContent = releaseTitle || ''
   }
-  modalState.iframeElement.title = releaseTitle || 'Release player'
   modalState.modalElement.hidden = false
   document.body.classList.add(RELEASE_PLAYER_MODAL_OPEN_STATE_CLASS_NAME)
 }
 
 function closeReleasePlayerModal(modalState) {
   modalState.modalElement.hidden = true
-  modalState.iframeElement.src = ''
   if (modalState.titleElement) {
     modalState.titleElement.textContent = ''
   }
   document.body.classList.remove(RELEASE_PLAYER_MODAL_OPEN_STATE_CLASS_NAME)
+}
+
+function setReleasePlayerContainerProviderData(containerElement, providers, releaseTitle) {
+  delete containerElement.dataset.releasePlayerBandcampEmbedUrl
+  delete containerElement.dataset.releasePlayerBandcampUrl
+  delete containerElement.dataset.releasePlayerTidalEmbedUrl
+  delete containerElement.dataset.releasePlayerTidalUrl
+  providers.forEach((provider) => {
+    if (provider.id === 'bandcamp') {
+      containerElement.dataset.releasePlayerBandcampEmbedUrl = provider.embedUrl
+      if (provider.externalUrl) {
+        containerElement.dataset.releasePlayerBandcampUrl = provider.externalUrl
+      }
+    }
+    if (provider.id === 'tidal') {
+      containerElement.dataset.releasePlayerTidalEmbedUrl = provider.embedUrl
+      if (provider.externalUrl) {
+        containerElement.dataset.releasePlayerTidalUrl = provider.externalUrl
+      }
+    }
+  })
+  if (releaseTitle) {
+    containerElement.dataset.releasePlayerTitle = releaseTitle
+  }
+}
+
+function refreshReleasePlayerContainer(containerElement, releaseTitle, forceInitialize = false) {
+  const providers = readReleasePlayerProvidersFromElement(containerElement)
+  updateReleasePlayerSwitcher(containerElement, providers)
+  if (providers.length === 0) return
+  if (releaseTitle) {
+    updateReleasePlayerTitle(containerElement, releaseTitle)
+  }
+  if (forceInitialize || !containerElement.dataset.releasePlayerInitialized) {
+    const cachedProviderId = readCachedReleasePlayerProviderId(containerElement)
+    const cachedProvider = providers.find((provider) => provider.id === cachedProviderId)
+    applyReleasePlayerProvider(containerElement, cachedProvider || selectDefaultReleasePlayerProvider(providers))
+    containerElement.dataset.releasePlayerInitialized = 'true'
+  }
+}
+
+function updateReleasePlayerSwitcher(containerElement, providers) {
+  const switcher = findReleasePlayerSwitcher(containerElement)
+  const buttons = findReleasePlayerProviderButtons(containerElement)
+  if (!switcher) return
+  const providerIds = providers.map((provider) => provider.id)
+  switcher.hidden = providers.length === 0
+  buttons.forEach((button) => {
+    const providerId = button.dataset.releasePlayerProvider
+    button.hidden = !providerIds.includes(providerId)
+  })
+}
+
+function connectReleasePlayerProviderButtons(containerElement) {
+  const buttons = findReleasePlayerProviderButtons(containerElement)
+  if (buttons.length === 0) return
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const providers = readReleasePlayerProvidersFromElement(containerElement)
+      const provider = providers.find((item) => item.id === button.dataset.releasePlayerProvider)
+      if (!provider) return
+      applyReleasePlayerProvider(containerElement, provider)
+    })
+  })
+}
+
+function applyReleasePlayerProvider(containerElement, provider) {
+  const iframeElement = findReleasePlayerIframe(containerElement)
+  const buttons = findReleasePlayerProviderButtons(containerElement)
+  const externalLink = findReleasePlayerExternalLink(containerElement)
+  containerElement.dataset.releasePlayerActiveProvider = provider.id
+  storeCachedReleasePlayerProvider(containerElement, provider.id)
+  if (iframeElement) {
+    if (iframeElement.src !== provider.embedUrl) {
+      iframeElement.src = provider.embedUrl
+    }
+    const releaseTitle = readReleasePlayerTitleFromElement(containerElement)
+    iframeElement.title = releaseTitle ? `${releaseTitle} player` : 'Release player'
+  }
+  buttons.forEach((button) => {
+    const isActive = button.dataset.releasePlayerProvider === provider.id
+    button.classList.toggle('is-release-player-provider-active', isActive)
+  })
+  if (externalLink) {
+    if (provider.externalUrl) {
+      externalLink.href = provider.externalUrl
+      externalLink.textContent = `Open on ${provider.label}`
+      externalLink.hidden = false
+    } else {
+      externalLink.hidden = true
+    }
+  }
+}
+
+function updateReleasePlayerTitle(containerElement, releaseTitle) {
+  const titleElement = containerElement.querySelector('.release-player-modal-title-text')
+  if (titleElement) {
+    titleElement.textContent = releaseTitle || ''
+  }
+}
+
+function readCachedReleasePlayerProviderId(containerElement) {
+  const releaseTitle = readReleasePlayerTitleFromElement(containerElement)
+  if (!releaseTitle) return ''
+  return releasePlayerSelectionByTitle.get(releaseTitle) || ''
+}
+
+function storeCachedReleasePlayerProvider(containerElement, providerId) {
+  const releaseTitle = readReleasePlayerTitleFromElement(containerElement)
+  if (!releaseTitle) return
+  releasePlayerSelectionByTitle.set(releaseTitle, providerId)
 }
 
 function renderRandomArtistsFromData(artistGridElement, artistsDataElement) {

@@ -13,6 +13,8 @@
 }
 
 .release-player-modal-card {
+  --release-player-aspect-ratio: 350 / 687;
+  --release-player-max-width: 22rem;
   width: min(100%, 30rem);
   background: var(--color-background-primary-surface);
   border: 1px solid var(--color-border-subtle-neutral);
@@ -43,8 +45,8 @@
 
 .release-player-modal-frame {
   position: relative;
-  width: min(100%, 22rem);
-  aspect-ratio: 350 / 687;
+  width: min(100%, var(--release-player-max-width));
+  aspect-ratio: var(--release-player-aspect-ratio);
   max-height: 70vh;
   margin: 0 auto;
   border: 1px solid var(--color-border-subtle-neutral);
@@ -57,6 +59,51 @@
   height: 100%;
   border: 0;
   background: #000;
+}
+
+.release-player-provider-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.release-player-provider-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid var(--color-border-subtle-neutral);
+  background: transparent;
+  color: var(--color-text-muted-secondary);
+  padding: 0.35rem 0.85rem;
+  font-size: 0.65rem;
+  @include uppercase-with-letter-spacing(0.25em);
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.release-player-provider-button--has-logo {
+  padding: 0.4rem 1.1rem;
+}
+
+.release-player-provider-button-logo {
+  height: 1.1rem;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  filter: invert(1);
+}
+
+.release-player-provider-button.is-release-player-provider-active {
+  color: var(--color-text-primary-foreground);
+  border-color: var(--color-text-primary-foreground);
+  background: rgba(245, 245, 245, 0.06);
+}
+
+.release-player-provider-button:hover {
+  color: var(--color-text-primary-foreground);
+  border-color: var(--color-text-primary-foreground);
 }
 
 body.is-release-player-modal-open {

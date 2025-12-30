@@ -3,26 +3,21 @@ layout: release
 title: Barren Point
 artist_slug: mass-culture
 release_date: 2024-02-01
-cover_image: /assets/images/mass-culture-barren-point-cover.jpg
+cover_image: /assets/images/releases/mass-culture-barren-point-cover.jpg
 cover_image_alt: Barren Point by Mass Culture
 merch_url: /shop/
 bandcamp_url: https://massculture.bandcamp.com/album/barren-point-2
 bandcamp_embed_url: https://bandcamp.com/EmbeddedPlayer/album=710431064/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/
-summary: A cinematic post-metal release built on towering crescendos and deep atmospheric passages.
+tidal_url: https://tidal.com/album/294874058
+tidal_embed_url: https://embed.tidal.com/albums/294874058?coverInitially=true&disableAnalytics=true
+summary: barren point release info
 formats:
-  - Vinyl LP
-  - CD
-  - Digital
-tracklist:
-  - title: Dust Horizon
-    duration: 4:21
-  - title: Barren Point
-    duration: 6:14
-  - title: Signal Loss
-    duration: 5:02
+    - Vinyl LP
+    - CD
+    - Digital
 credits:
-  - role: Produced by
-    name: BlackBox Records
-  - role: Artwork
-    name: Studio Placeholder
+    -   role: Produced by
+        name: BlackBox Records
+    -   role: Artwork
+        name: Studio Placeholder
 ---

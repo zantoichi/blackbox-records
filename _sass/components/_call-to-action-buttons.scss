@@ -6,6 +6,7 @@
   @include uppercase-with-letter-spacing(0.2em);
   font-size: 0.75rem;
   border: 1px solid transparent;
+  cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
