@@ -13,7 +13,7 @@ content managed via Decap CMS.
 ## Local development
 
 1. `bundle install`
-2. `bundle exec jekyll serve`
+2. `bundle exec jekyll serve --config _config.yml,_config.local.yml`
 3. Open `http://127.0.0.1:4000`
 
 ## CMS (Decap)
@@ -22,7 +22,7 @@ The admin UI lives at `/admin`.
 
 Local editing uses the Decap proxy server:
 
-1. In one terminal: `bundle exec jekyll serve`
+1. In one terminal: `bundle exec jekyll serve --config _config.yml,_config.local.yml`
 2. In another terminal: `npx decap-server`
 3. Open `http://127.0.0.1:4000/admin/`
 
