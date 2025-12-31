@@ -1,0 +1,3 @@
+{% assign artists_with_country = site.data.artists.items | where_exp: "item", "item.country" %}
+{% assign country_names = artists_with_country | map: "country" | uniq %}
+{{ country_names | size }}

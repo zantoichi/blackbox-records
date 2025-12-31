@@ -10,15 +10,10 @@ body_class: home-scroll-snap-container
 {% assign artists = site.data.artists.items | slice: 0, 5 %}
 {% assign news_items = site.data.news.items | limit: 3 %}
 {% assign newsletter = site.data.newsletter %}
-{% assign current_year = 'now' | date: '%Y' | plus: 0 %}
-{% assign established_year = site.data.settings.established_year | default: current_year | plus: 0 %}
-{% assign years_active = current_year | minus: established_year | plus: 1 %}
-{% if years_active < 1 %}
-{% assign years_active = 1 %}
-{% endif %}
-{% assign artists_with_country = site.data.artists.items | where_exp: "item", "item.country" %}
-{% assign country_names = artists_with_country | map: "country" | uniq %}
-{% assign country_count = country_names | size %}
+{% capture years_active_value %}{% include label-years-active.html %}{% endcapture %}
+{% assign years_active = years_active_value | strip %}
+{% capture country_count_value %}{% include label-country-count.html %}{% endcapture %}
+{% assign country_count = country_count_value | strip %}
 <section class="homepage-hero-section" id="homepage-hero-section">
   <div class="homepage-hero-section__background-pattern-layer" aria-hidden="true">
     <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">

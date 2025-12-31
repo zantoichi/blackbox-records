@@ -7,15 +7,10 @@ description: About the label.
 {% assign newsletter = site.data.newsletter %}
 {% assign artist_count = site.data.artists.items | size %}
 {% assign release_count = site.releases | size %}
-{% assign artists_with_country = site.data.artists.items | where_exp: "item", "item.country" %}
-{% assign country_names = artists_with_country | map: "country" | uniq %}
-{% assign country_count = country_names | size %}
-{% assign current_year = 'now' | date: '%Y' | plus: 0 %}
-{% assign established_year = site.data.settings.established_year | default: current_year | plus: 0 %}
-{% assign years_active = current_year | minus: established_year | plus: 1 %}
-{% if years_active < 1 %}
-{% assign years_active = 1 %}
-{% endif %}
+{% capture years_active_value %}{% include label-years-active.html %}{% endcapture %}
+{% assign years_active = years_active_value | strip %}
+{% capture country_count_value %}{% include label-country-count.html %}{% endcapture %}
+{% assign country_count = country_count_value | strip %}
 {% include internal-page-hero.html section_label=about.hero.section_label title=about.hero.title %}
 <section class="internal-page-hero-image-frame">
   <img src="{{ about.hero.image | relative_url }}" alt="{{ about.hero.image_alt }}">
