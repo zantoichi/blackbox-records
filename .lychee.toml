@@ -1,0 +1,16 @@
+accept = [200, 206, 429]
+exclude = [
+  "http://127.0.0.1",
+  "http://localhost",
+  "http://127.0.0.1:4000",
+  "http://localhost:4000"
+]
+exclude_path = [
+  "_site",
+  "node_modules",
+  "vendor",
+  ".bundle"
+]
+max_retries = 2
+retry_wait_time = 2
+timeout = 20
