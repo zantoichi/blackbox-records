@@ -11,11 +11,12 @@ description: About the label.
 {% assign years_active = years_active_value | strip %}
 {% capture country_count_value %}{% include label-country-count.html %}{% endcapture %}
 {% assign country_count = country_count_value | strip %}
-{% include internal-page-hero.html section_label=about.hero.section_label title=about.hero.title %}
-<section class="internal-page-hero-image-frame">
-  <img src="{{ about.hero.image | relative_url }}" alt="{{ about.hero.image_alt }}">
-  <div class="internal-page-hero-image-overlay-layer"></div>
-</section>
+{% include internal-page-hero.html 
+   section_label=about.hero.section_label 
+   title=about.hero.title 
+   image=about.hero.image 
+   image_alt=about.hero.image_alt 
+%}
 <section class="page-section-standard-spacing">
   <div class="page-content-width-constrained-container long-form-rich-text-content">
     <p class="intro-lead-text-block">{{ about.lead }}</p>
@@ -63,20 +64,4 @@ description: About the label.
     {% endfor %}
   </div>
 </section>
-<section class="newsletter-signup-area">
-  <div class="newsletter-background-ring-layer" aria-hidden="true">
-    <span></span>
-    <span></span>
-  </div>
-  <div class="page-content-width-constrained-container newsletter-content-block">
-    <p class="page-section-kicker-text">{{ newsletter.section_label }}</p>
-    <h2 class="page-section-title-text">{{ newsletter.title | upcase }}</h2>
-    <p>{{ newsletter.description }}</p>
-    <form class="newsletter-signup-form">
-      <label class="accessibility-visually-hidden-text" for="about-newsletter-email">Email address</label>
-      <input id="about-newsletter-email" type="email" placeholder="{{ newsletter.placeholder }}" required>
-      <button type="submit">{{ newsletter.button_label }}</button>
-    </form>
-    <p class="newsletter-signup-note-text">{{ newsletter.note }}</p>
-  </div>
-</section>
+{% include newsletter-signup.html form_id="about-newsletter-email" %}

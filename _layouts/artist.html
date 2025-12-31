@@ -10,18 +10,13 @@ layout: default
 {% assign upcoming_release = artist.upcoming_release | default: page.upcoming_release %}
 {% assign section_label = page.section_label | default: "Artist" %}
 
-<section class="internal-page-hero-section">
-  <div class="page-content-width-constrained-container">
-    <p class="internal-page-hero-kicker-text">{{ section_label }}</p>
-    <h1 class="internal-page-hero-title-text">{{ artist_name | upcase }}</h1>
-  </div>
-</section>
-{% if artist_image %}
-<section class="internal-page-hero-image-frame internal-page-hero-image-frame--color">
-  <img src="{{ artist_image | relative_url }}" alt="{{ artist_image_alt }}">
-  <div class="internal-page-hero-image-overlay-layer"></div>
-</section>
-{% endif %}
+{% include internal-page-hero.html
+   section_label=section_label
+   title=artist_name
+   image=artist_image
+   image_alt=artist_image_alt
+   image_color=true
+%}
 <section class="page-section-standard-spacing">
   <div class="page-content-width-constrained-container long-form-rich-text-content">
     {% if artist_genre or artist_country %}

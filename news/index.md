@@ -11,14 +11,7 @@ section_label: Updates
     <div class="news-summary-card-grid news-summary-card-grid--full">
       {% assign news_items = site.news | sort: "date" | reverse %}
       {% for item in news_items %}
-        <a class="news-summary-card-link" href="{{ item.url | relative_url }}">
-          <div class="news-summary-card-media-frame">
-            <img src="{{ item.image | relative_url }}" alt="{{ item.image_alt | default: item.title }}">
-          </div>
-          <p class="news-summary-card-date-text">{{ item.date | date: "%b %Y" }}</p>
-          <h2>{{ item.title }}</h2>
-          <p class="news-summary-card-summary-text">{{ item.summary }}</p>
-        </a>
+        {% include news-card.html item=item %}
       {% endfor %}
     </div>
   </div>

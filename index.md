@@ -91,14 +91,7 @@ body_class: home-scroll-snap-container
     </div>
     <div class="news-summary-card-grid">
       {% for item in news_items %}
-        <a class="news-summary-card-link" href="{{ item.url | relative_url }}">
-          <div class="news-summary-card-media-frame">
-            <img src="{{ item.image | relative_url }}" alt="{{ item.image_alt | default: item.title }}">
-          </div>
-          <p class="news-summary-card-date-text">{{ item.date | date: "%b %Y" }}</p>
-          <h3>{{ item.title }}</h3>
-          <p class="news-summary-card-summary-text">{{ item.summary }}</p>
-        </a>
+        {% include news-card.html item=item %}
       {% endfor %}
     </div>
   </div>
@@ -139,20 +132,4 @@ body_class: home-scroll-snap-container
     </div>
   </div>
 </section>
-<section class="newsletter-signup-area" id="newsletter-signup-area">
-  <div class="newsletter-background-ring-layer" aria-hidden="true">
-    <span></span>
-    <span></span>
-  </div>
-  <div class="page-content-width-constrained-container newsletter-content-block">
-    <p class="page-section-kicker-text">{{ newsletter.section_label }}</p>
-    <h2 class="page-section-title-text">{{ newsletter.title | upcase }}</h2>
-    <p>{{ newsletter.description }}</p>
-    <form class="newsletter-signup-form">
-      <label class="accessibility-visually-hidden-text" for="newsletter-email">Email address</label>
-      <input id="newsletter-email" type="email" placeholder="{{ newsletter.placeholder }}" required>
-      <button type="submit">{{ newsletter.button_label }}</button>
-    </form>
-    <p class="newsletter-signup-note-text">{{ newsletter.note }}</p>
-  </div>
-</section>
+{% include newsletter-signup.html id="newsletter-signup-area" %}
