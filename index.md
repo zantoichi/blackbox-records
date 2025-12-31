@@ -8,7 +8,7 @@ body_class: home-scroll-snap-container
 {% assign home = site.data.home %}
 {% assign releases = site.releases | sort: "release_date" | reverse | slice: 0, 3 %}
 {% assign artists = site.data.artists.items | slice: 0, 5 %}
-{% assign news_items = site.data.news.items | limit: 3 %}
+{% assign news_items = site.news | sort: "date" | reverse | slice: 0, 3 %}
 {% assign newsletter = site.data.newsletter %}
 {% capture years_active_value %}{% include label-years-active.html %}{% endcapture %}
 {% assign years_active = years_active_value | strip %}
@@ -91,11 +91,11 @@ body_class: home-scroll-snap-container
     </div>
     <div class="news-summary-card-grid">
       {% for item in news_items %}
-        <a class="news-summary-card-link" href="{{ item.url | default: '/news/' | relative_url }}">
+        <a class="news-summary-card-link" href="{{ item.url | relative_url }}">
           <div class="news-summary-card-media-frame">
             <img src="{{ item.image | relative_url }}" alt="{{ item.image_alt | default: item.title }}">
           </div>
-          <p class="news-summary-card-date-text">{{ item.date }}</p>
+          <p class="news-summary-card-date-text">{{ item.date | date: "%b %Y" }}</p>
           <h3>{{ item.title }}</h3>
           <p class="news-summary-card-summary-text">{{ item.summary }}</p>
         </a>

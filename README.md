@@ -34,7 +34,7 @@ Commits.
 - Home sections: `_data/home.yml`
 - Artists roster: `_data/artists.yml`
 - Releases: `_releases/`
-- News: `_data/news.yml`
+- News: `_news/`
 - About content: `_data/about.yml`
 - Newsletter: `_data/newsletter.yml`
 - Navigation: `_data/nav.yml`

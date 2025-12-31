@@ -172,24 +172,20 @@ collections:
         fields:
           - { label: Role, name: role, widget: string }
           - { label: Name, name: name, widget: string }
-  - name: news_items
-    label: News Items
-    files:
-      - name: news
-        label: News
-        file: _data/news.yml
-        fields:
-          - label: Items
-            name: items
-            widget: list
-            summary: "{{fields.title}}"
-            fields:
-              - { label: Title, name: title, widget: string }
-              - { label: Date, name: date, widget: string }
-              - { label: Summary, name: summary, widget: text }
-              - { label: Image, name: image, widget: image }
-              - { label: Image Description, name: image_alt, widget: string, required: false }
-              - { label: URL, name: url, widget: string, required: false }
+  - name: news
+    label: News
+    folder: _news
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Layout, name: layout, widget: hidden, default: news }
+      - { label: Title, name: title, widget: string }
+      - { label: Date, name: date, widget: datetime, format: "YYYY-MM-DD", time_format: false }
+      - { label: Section Label, name: section_label, widget: string, required: false }
+      - { label: Summary, name: summary, widget: text }
+      - { label: Image, name: image, widget: image }
+      - { label: Image Description, name: image_alt, widget: string, required: false }
+      - { label: Body, name: body, widget: markdown }
   - name: about_content
     label: About Content
     files:

@@ -9,3 +9,6 @@ collections:
   releases:
     output: true
     permalink: /releases/:name/
+  news:
+    output: true
+    permalink: /news/:name/
