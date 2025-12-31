@@ -6,7 +6,7 @@ items:
   - title: Artists
     url: /artists/
   - title: Releases
-    key: releases
+    url: /releases/
   - title: Shop
     url: /shop/
   - title: About

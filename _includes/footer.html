@@ -9,12 +9,8 @@
       <h3>Sitemap</h3>
       <ul>
         {% for item in site.data.nav.items %}
-        {% assign nav_url = item.url %}
-        {% if item.key == 'releases' %}
-        {% assign nav_url = site.data.home.latest_releases.link_url %}
-        {% endif %}
         <li>
-          <a href="{{ nav_url | relative_url }}">{{ item.title }}</a>
+          <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
         </li>
         {% endfor %}
       </ul>
@@ -32,28 +28,18 @@
   </div>
   {% assign current_year = site.time | date: '%Y' | plus: 0 %}
   {% assign brand_name = site.title | default: 'BlackBox Records' %}
-  {% assign start_year_raw = site.data.settings.start_year | default: site.data.settings.founded_year | default:
-  site.data.settings.established_year %}
-  {% assign founded_year_raw = site.data.settings.founded_year | default: site.data.settings.established_year %}
-  {% if start_year_raw %}
-  {% assign start_year = start_year_raw | plus: 0 %}
-  {% endif %}
-  {% if founded_year_raw %}
-  {% assign founded_year = founded_year_raw | plus: 0 %}
-  {% endif %}
-  {% if start_year and start_year > current_year %}
-  {% assign start_year = current_year %}
-  {% endif %}
-  {% if start_year and start_year < current_year %}
-  {% assign copyright_years = start_year | append: '&ndash;' | append: current_year %}
+  {% assign established_year = site.data.settings.established_year | plus: 0 %}
+
+  {% if established_year > 0 and established_year < current_year %}
+    {% assign copyright_years = established_year | append: '&ndash;' | append: current_year %}
   {% else %}
-  {% assign copyright_years = current_year %}
+    {% assign copyright_years = current_year %}
   {% endif %}
   <div class="global-site-footer-bottom page-content-width-constrained-container">
     <p>&copy; {{ copyright_years }} {{ brand_name }}. <span
       class="global-site-footer-legal-text">All rights reserved.</span></p>
-    {% if founded_year and founded_year <= current_year and (start_year == nil or founded_year == start_year) %}
-    <p>Est. {{ founded_year }}</p>
+    {% if established_year > 0 and established_year <= current_year %}
+    <p>Est. {{ established_year }}</p>
     {% endif %}
   </div>
 </footer>
