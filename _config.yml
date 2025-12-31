@@ -5,6 +5,12 @@ baseurl: "/blackbox-records"
 permalink: pretty
 exclude:
   - compressed-repo.md
+  - vendor
+  - vendor/bundle
+  - .bundle
+  - node_modules
+  - Gemfile
+  - Gemfile.lock
 collections:
   releases:
     output: true
