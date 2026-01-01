@@ -35,7 +35,7 @@ jobs:
         id: restore-lychee-cache
         uses: actions/cache/restore@v4
         with:
-          path: .lycheecache
+          path: _site/.lycheecache
           key: lychee-cache-${{ github.sha }}
           restore-keys: lychee-cache-
       - name: Check for broken links
@@ -49,14 +49,15 @@ jobs:
             --exclude "http://localhost"
             --exclude "http://127.0.0.1:4000"
             --exclude "http://localhost:4000"
-            _site
+            .
+          workingDirectory: _site
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Save lychee cache
         if: always()
         uses: actions/cache/save@v4
         with:
-          path: .lycheecache
+          path: _site/.lycheecache
           key: ${{ steps.restore-lychee-cache.outputs.cache-primary-key }}
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
