@@ -31,10 +31,19 @@ jobs:
         run: bundle exec jekyll build --config _config.yml
         env:
           JEKYLL_ENV: production
+      - name: Restore lychee cache
+        id: restore-lychee-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: .lycheecache
+          key: lychee-cache-${{ github.sha }}
+          restore-keys: lychee-cache-
       - name: Check for broken links
         uses: lycheeverse/lychee-action@v2
         with:
           args: >
+            --cache
+            --max-cache-age 1d
             --accept 200,206,429
             --exclude "http://127.0.0.1"
             --exclude "http://localhost"
@@ -43,6 +52,12 @@ jobs:
             _site
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Save lychee cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: .lycheecache
+          key: ${{ steps.restore-lychee-cache.outputs.cache-primary-key }}
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
