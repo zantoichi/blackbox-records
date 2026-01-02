@@ -208,22 +208,24 @@ collections:
           - { label: Name, name: name, widget: string }
   - name: news
     label: News
+    label_singular: News Story
     folder: _news
     create: true
     slug: "{{slug}}"
+    summary: "{{title}}"
     fields:
       - { label: Layout, name: layout, widget: hidden, default: news }
       - { label: Title, name: title, widget: string }
-      - { label: Date, name: date, widget: datetime, format: "YYYY-MM-DD", time_format: false }
-      - { label: Section Label, name: section_label, widget: string, required: false }
-      - { label: Summary, name: summary, widget: text }
+      - { label: Date, name: date, widget: datetime, format: "YYYY-MM-DD", time_format: false, hint: "Date only (YYYY-MM-DD)." }
+      - { label: Section Label, name: section_label, widget: string, required: false, hint: "Optional short tag, e.g. Updates, News." }
+      - { label: Summary, name: summary, widget: text, hint: "1–2 sentence summary used in cards." }
       - label: Image
         name: image
         widget: image
         media_folder: "assets/images/news"
         public_folder: "/assets/images/news"
-      - { label: Image Description, name: image_alt, widget: string, required: false }
-      - { label: Body, name: body, widget: markdown }
+      - { label: Image Description, name: image_alt, widget: string, required: false, hint: "Short alt text for accessibility." }
+      - { label: Body, name: body, widget: markdown, hint: "Main story content." }
   - name: about_content
     label: About Content
     files:
