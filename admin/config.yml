@@ -154,7 +154,7 @@ collections:
         collection: artists_roster
         file: artists
         search_fields: ["items.*.name", "items.*.slug"]
-        display_fields: ["items.*.name", "items.*.slug"]
+        display_fields: ["items.*.name"]
         value_field: "items.*.slug"
         hint: "Select an artist from the roster."
       - { label: Release Date, name: release_date, widget: datetime, format: "YYYY-MM-DD", time_format: false, hint: "Date only (YYYY-MM-DD)." }
