@@ -148,10 +148,15 @@ collections:
     fields:
       - { label: Layout, name: layout, widget: hidden, default: release }       
       - { label: Title, name: title, widget: string }
-      - label: Artist (roster slug)
+      - label: Artist (from roster)
         name: artist_slug
-        widget: string
-        hint: "Use the artist slug from Artists Roster (e.g. mass-culture)."    
+        widget: relation
+        collection: artists_roster
+        file: artists
+        search_fields: ["items.*.name", "items.*.slug"]
+        display_fields: ["items.*.name", "items.*.slug"]
+        value_field: "items.*.slug"
+        hint: "Select an artist from the roster."
       - { label: Release Date, name: release_date, widget: datetime, format: "YYYY-MM-DD", time_format: false, hint: "Date only (YYYY-MM-DD)." }
       - { label: Cover Image, name: cover_image, widget: image }
       - { label: Cover Description, name: cover_image_alt, widget: string, required: false }
