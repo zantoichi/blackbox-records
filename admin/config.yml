@@ -15,8 +15,8 @@ commit_messages:
   deleteMedia: "chore(media): delete {{path}}"
   openAuthoring: "chore(content): open {{collection}}/{{slug}}"
 
-media_folder: "assets/images/uploads"
-public_folder: "/assets/images/uploads"
+media_folder: "/assets/images"
+public_folder: "/assets/images"
 
 collections:
   - name: home_content
