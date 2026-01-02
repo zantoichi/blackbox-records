@@ -212,9 +212,10 @@ collections:
         label: Artist Roster
         file: _data/artists.yml
         fields:
-          - label: Items
+          - label: Artists
             name: items
             widget: list
+            label_singular: Artist
             summary: "{{fields.name}}"
             fields:
               - { label: Name, name: name, widget: string }
