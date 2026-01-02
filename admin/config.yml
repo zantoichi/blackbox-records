@@ -140,31 +140,42 @@ collections:
                   - { label: Label, name: label, widget: string }
   - name: releases
     label: Releases
+    label_singular: Release
     folder: _releases
     create: true
     slug: "{{slug}}"
+    summary: "{{title}}"
     fields:
-      - { label: Layout, name: layout, widget: hidden, default: release }
+      - { label: Layout, name: layout, widget: hidden, default: release }       
       - { label: Title, name: title, widget: string }
-      - label: Artist Slug (from roster)
+      - label: Artist (roster slug)
         name: artist_slug
         widget: string
-        hint: "Use the artist slug from Artists Roster (e.g. mass-culture)."
-      - { label: Release Date, name: release_date, widget: datetime, format: "YYYY-MM-DD", time_format: false }
+        hint: "Use the artist slug from Artists Roster (e.g. mass-culture)."    
+      - { label: Release Date, name: release_date, widget: datetime, format: "YYYY-MM-DD", time_format: false, hint: "Date only (YYYY-MM-DD)." }
       - { label: Cover Image, name: cover_image, widget: image }
       - { label: Cover Description, name: cover_image_alt, widget: string, required: false }
-      - { label: Merch Link, name: merch_url, widget: string, required: false }
-      - { label: Bandcamp Player Link, name: bandcamp_embed_url, widget: string, required: false }
-      - label: Tidal Link (auto player)
+      - label: Merch Collection URL (Fourthwall)
+        name: merch_url
+        widget: string
+        required: false
+        hint: "Optional. Use a Fourthwall collection or product URL."
+      - label: Bandcamp Player Embed URL
+        name: bandcamp_embed_url
+        widget: string
+        required: false
+        hint: "Paste the Bandcamp embed src URL (from the iframe)."
+      - label: Tidal Player Embed URL
         name: tidal_url
         widget: string
         required: false
-        hint: "Paste a Tidal album or track URL. The player link is generated automatically."
+        hint: "Paste the Tidal embed src URL (from the iframe)."
       - { label: Summary, name: summary, widget: text, required: false }
       - label: Formats (optional)
         name: formats
         widget: list
         required: false
+        hint: "Examples: Vinyl LP, CD, Digital."
       - label: Credits (optional)
         name: credits
         widget: list
