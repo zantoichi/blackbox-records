@@ -220,8 +220,8 @@ collections:
         hint: "Lowercase, hyphenated (e.g. mass-culture)."
         pattern:
           [
-            "^[a-z0-9]+(?:-[a-z0-9]+)*$",
-            "Use lowercase letters, numbers, and hyphens only."
+            "^[a-z]+(?:-[a-z]+)*$",
+            "Use lowercase letters and hyphens only."
           ]
       - { label: Genre / Style, name: genre, widget: string }
       - { label: Country, name: country, widget: string, required: false }
