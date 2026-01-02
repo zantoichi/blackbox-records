@@ -120,7 +120,7 @@ collections:
               - label: Image
                 name: image
                 widget: image
-                media_folder: "assets/images/backgrounds"
+                media_folder: "/assets/images/backgrounds"
                 public_folder: "/assets/images/backgrounds"
               - { label: Image Description, name: image_alt, widget: string, required: false }
               - label: Paragraphs
@@ -165,7 +165,7 @@ collections:
       - label: Cover Image
         name: cover_image
         widget: image
-        media_folder: "assets/images/releases"
+        media_folder: "/assets/images/releases"
         public_folder: "/assets/images/releases"
       - { label: Cover Description, name: cover_image_alt, widget: string, required: false }
       - label: Merch Collection URL (Fourthwall)
@@ -222,7 +222,7 @@ collections:
       - label: Image
         name: image
         widget: image
-        media_folder: "assets/images/news"
+        media_folder: "/assets/images/news"
         public_folder: "/assets/images/news"
       - { label: Image Description, name: image_alt, widget: string, required: false, hint: "Short alt text for accessibility." }
       - { label: Body, name: body, widget: markdown, hint: "Main story content." }
@@ -242,7 +242,7 @@ collections:
               - label: Image
                 name: image
                 widget: image
-                media_folder: "assets/images/backgrounds"
+                media_folder: "/assets/images/backgrounds"
                 public_folder: "/assets/images/backgrounds"
               - { label: Image Description, name: image_alt, widget: string, required: false }
           - { label: Lead, name: lead, widget: text }
@@ -343,7 +343,7 @@ collections:
               - label: Image
                 name: image
                 widget: image
-                media_folder: "assets/images/artists"
+                media_folder: "/assets/images/artists"
                 public_folder: "/assets/images/artists"
               - { label: Image Description, name: image_alt, widget: string, required: false }
               - { label: Bio, name: bio, widget: text }
