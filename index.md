@@ -72,8 +72,22 @@ body_class: home-scroll-snap-container
         {% include artist-card.html artist=artist %}
       {% endfor %}
     </div>
+    {% capture featured_artists_json %}
+    [
+      {% for artist in site.artists %}
+        {
+          "title": {{ artist.title | jsonify }},
+          "slug": {{ artist.slug | jsonify }},
+          "image": {{ artist.image | jsonify }},
+          "image_alt": {{ artist.image_alt | jsonify }},
+          "genre": {{ artist.genre | jsonify }},
+          "bio": {{ artist.bio | jsonify }}
+        }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ]
+    {% endcapture %}
     <script type="application/json" id="homepage-featured-artists-data">
-      {{ site.artists | jsonify }}
+      {{ featured_artists_json | strip }}
     </script>
     <div class="page-section-call-to-action-region">
       <a class="call-to-action-button call-to-action-button--outline" href="{{ home.artists.button_link | relative_url }}">{{ home.artists.button_text }}</a>
