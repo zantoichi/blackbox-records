@@ -11,7 +11,7 @@ section_label: Releases
   <div class="page-content-width-constrained-container">
     <div class="release-summary-card-grid">
       {% for release in releases %}
-        {% assign release_artist = site.data.artists.items | where: "slug", release.artist_slug | first %}
+        {% assign release_artist = site.artists | where: "slug", release.artist_slug | first %}
         {% include release-card.html release=release artist=release_artist %}
       {% endfor %}
     </div>

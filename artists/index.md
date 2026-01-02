@@ -9,7 +9,8 @@ section_label: Roster
 <section class="page-section-compact-spacing">
   <div class="page-content-width-constrained-container">
     <div class="artist-roster-card-grid">
-      {% for artist in site.data.artists.items %}
+      {% assign artists = site.artists | sort: "title" %}
+      {% for artist in artists %}
         {% include artist-card.html artist=artist %}
       {% endfor %}
     </div>

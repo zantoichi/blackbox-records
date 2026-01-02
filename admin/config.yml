@@ -111,11 +111,10 @@ collections:
       - label: Artist (from roster)
         name: artist_slug
         widget: relation
-        collection: artists_roster
-        file: artists
-        search_fields: ["items.*.name", "items.*.slug"]
-        display_fields: ["items.*.name"]
-        value_field: "items.*.slug"
+        collection: artists
+        search_fields: ["title", "slug"]
+        display_fields: ["title"]
+        value_field: "slug"
         hint: "Select an artist from the roster."
       - { label: Release Date, name: release_date, widget: datetime, format: "YYYY-MM-DD", time_format: false, hint: "Date only (YYYY-MM-DD)." }
       - label: Cover Image
@@ -205,28 +204,32 @@ collections:
             fields:
               - { label: Title, name: title, widget: string }
               - { label: URL, name: url, widget: string }
-  - name: artists_roster
+  - name: artists
     label: Artists
-    files:
-      - name: artists
-        label: Artist Roster
-        file: _data/artists.yml
-        fields:
-          - label: Artists
-            name: items
-            widget: list
-            label_singular: Artist
-            summary: "{{fields.name}}"
-            fields:
-              - { label: Name, name: name, widget: string }
-              - { label: Slug (used in URLs), name: slug, widget: string }
-              - { label: Genre / Style, name: genre, widget: string }
-              - { label: Country, name: country, widget: string, required: false }
-              - label: Image
-                name: image
-                widget: image
-                media_folder: "/assets/images/artists"
-                public_folder: "/assets/images/artists"
-              - { label: Image Description, name: image_alt, widget: string, required: false }
-              - { label: Bio, name: bio, widget: text }
-              - { label: Upcoming Release (optional), name: upcoming_release, widget: string, required: false }
+    label_singular: Artist
+    folder: _artists
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    fields:
+      - { label: Layout, name: layout, widget: hidden, default: artist }
+      - { label: Artist Name, name: title, widget: string }
+      - label: Slug (used in URLs)
+        name: slug
+        widget: string
+        hint: "Lowercase, hyphenated (e.g. mass-culture)."
+        pattern:
+          [
+            "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "Use lowercase letters, numbers, and hyphens only."
+          ]
+      - { label: Genre / Style, name: genre, widget: string }
+      - { label: Country, name: country, widget: string, required: false }
+      - label: Image
+        name: image
+        widget: image
+        media_folder: "/assets/images/artists"
+        public_folder: "/assets/images/artists"
+      - { label: Image Description, name: image_alt, widget: string, required: false }
+      - { label: Bio, name: bio, widget: text }
+      - { label: Upcoming Release (optional), name: upcoming_release, widget: string, required: false }

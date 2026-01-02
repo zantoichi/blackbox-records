@@ -32,7 +32,7 @@ Commits.
 ## Content sources
 
 - Home sections: `_data/home.yml`
-- Artists roster: `_data/artists.yml`
+- Artists roster: `_artists/`
 - Releases: `_releases/`
 - News: `_news/`
 - About content: `_data/about.yml`

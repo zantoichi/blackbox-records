@@ -392,7 +392,7 @@ function createArtistCardAnchor(artist, baseUrl) {
 function createArtistImage(artist, baseUrl) {
   const imageElement = document.createElement('img')
   imageElement.src = normalizeUrl(artist.image || '', baseUrl)
-  imageElement.alt = artist.image_alt || artist.name || ''
+  imageElement.alt = artist.image_alt || resolveArtistName(artist) || ''
   return imageElement
 }
 
@@ -406,7 +406,7 @@ function createArtistContent(artist) {
   const contentElement = document.createElement('div')
   contentElement.className = 'artist-roster-card-text'
   appendOptionalGenre(contentElement, artist.genre)
-  contentElement.appendChild(createArtistTitle(artist.name))
+  contentElement.appendChild(createArtistTitle(resolveArtistName(artist)))
   return contentElement
 }
 
@@ -422,6 +422,10 @@ function createArtistTitle(artistName) {
   titleElement.textContent = (artistName || '').toUpperCase()
   titleElement.append(' ', createArrowElement())
   return titleElement
+}
+
+function resolveArtistName(artist) {
+  return artist.title || artist.name || ''
 }
 
 function createArrowElement() {

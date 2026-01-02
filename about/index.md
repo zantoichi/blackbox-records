@@ -5,7 +5,7 @@ description: About the label.
 ---
 {% assign about = site.data.about %}
 {% assign newsletter = site.data.newsletter %}
-{% assign artist_count = site.data.artists.items | size %}
+{% assign artist_count = site.artists | size %}
 {% assign release_count = site.releases | size %}
 {% capture years_active_value %}{% include label-years-active.html %}{% endcapture %}
 {% assign years_active = years_active_value | strip %}

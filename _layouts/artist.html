@@ -1,14 +1,14 @@
 ---
 layout: default
 ---
-{% assign artist = site.data.artists.items | where: "slug", page.artist_slug | first %}
-{% assign artist_name = artist.name | default: page.title | default: "Artist" %}
-{% assign artist_genre = artist.genre | default: page.genre %}
-{% assign artist_country = artist.country | default: page.country %}
-{% assign artist_image = artist.image | default: page.image %}
+{% assign artist = page %}
+{% assign artist_name = artist.title | default: artist.name | default: "Artist" %}
+{% assign artist_genre = artist.genre %}
+{% assign artist_country = artist.country %}
+{% assign artist_image = artist.image %}
 {% assign artist_image_alt = artist.image_alt | default: artist_name %}
-{% assign upcoming_release = artist.upcoming_release | default: page.upcoming_release %}
-{% assign section_label = page.section_label | default: "Artist" %}
+{% assign upcoming_release = artist.upcoming_release %}
+{% assign section_label = artist.section_label | default: "Artist" %}
 
 {% include internal-page-hero.html
    section_label=section_label

@@ -1,7 +1,7 @@
 {% assign release_item = include.release %}
 {% assign artist_item = include.artist %}
 {% assign artist_fallback_name = release_item.artist_name | default: release_item.artist_slug | default: "Artist" %}
-{% assign artist_name = artist_item.name | default: artist_fallback_name | replace: "-", " " %}
+{% assign artist_name = artist_item.title | default: artist_item.name | default: artist_fallback_name | replace: "-", " " %}
 {% assign release_year = release_item.release_date | date: '%Y' %}
 {% assign release_card_title = release_item.title | append: " — " | append: artist_name %}
 {% capture embedded_player_attributes %}

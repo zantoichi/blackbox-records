@@ -1,9 +1,9 @@
 ---
 layout: default
 ---
-{% assign release_artist = site.data.artists.items | where: "slug", page.artist_slug | first %}
+{% assign release_artist = site.artists | where: "slug", page.artist_slug | first %}
 {% assign artist_fallback_name = page.artist_name | default: page.artist_slug | default: "Artist" %}
-{% assign artist_name = release_artist.name | default: artist_fallback_name | replace: "-", " " %}
+{% assign artist_name = release_artist.title | default: release_artist.name | default: artist_fallback_name | replace: "-", " " %}
 {% assign artist_slug = release_artist.slug | default: page.artist_slug | default: "" %}
 {% if release_artist.url %}
 {% assign artist_url = release_artist.url %}

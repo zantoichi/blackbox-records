@@ -13,6 +13,9 @@ exclude:
   - Gemfile
   - Gemfile.lock
 collections:
+  artists:
+    output: true
+    permalink: /artists/:slug/
   releases:
     output: true
     permalink: /releases/:name/

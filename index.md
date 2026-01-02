@@ -7,7 +7,7 @@ body_class: home-scroll-snap-container
 ---
 {% assign home = site.data.home %}
 {% assign releases = site.releases | sort: "release_date" | reverse | slice: 0, 3 %}
-{% assign artists = site.data.artists.items | slice: 0, 5 %}
+{% assign artists = site.artists | sort: "title" | slice: 0, 5 %}
 {% assign news_items = site.news | sort: "date" | reverse | slice: 0, 3 %}
 {% assign newsletter = site.data.newsletter %}
 {% capture years_active_value %}{% include label-years-active.html %}{% endcapture %}
@@ -55,7 +55,7 @@ body_class: home-scroll-snap-container
     </div>
     <div class="release-summary-card-grid">
       {% for release in releases %}
-        {% assign release_artist = site.data.artists.items | where: "slug", release.artist_slug | first %}
+        {% assign release_artist = site.artists | where: "slug", release.artist_slug | first %}
         {% include release-card.html release=release artist=release_artist %}
       {% endfor %}
     </div>
@@ -73,7 +73,7 @@ body_class: home-scroll-snap-container
       {% endfor %}
     </div>
     <script type="application/json" id="homepage-featured-artists-data">
-      {{ site.data.artists.items | jsonify }}
+      {{ site.artists | jsonify }}
     </script>
     <div class="page-section-call-to-action-region">
       <a class="call-to-action-button call-to-action-button--outline" href="{{ home.artists.button_link | relative_url }}">{{ home.artists.button_text }}</a>
@@ -113,7 +113,7 @@ body_class: home-scroll-snap-container
       <div class="about-section-statistics-grid">
         {% for stat in home.journey.stats %}
           {% if stat.key == "artists" %}
-            {% assign stat_value = site.data.artists.items | size %}
+            {% assign stat_value = site.artists | size %}
           {% elsif stat.key == "releases" %}
             {% assign stat_value = site.releases | size %}
           {% elsif stat.key == "countries" %}
