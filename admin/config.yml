@@ -19,60 +19,8 @@ media_folder: "assets/images/uploads"
 public_folder: "/assets/images/uploads"
 
 collections:
-  - name: pages
-    label: Pages
-    files:
-      - name: home
-        label: Home
-        file: index.md
-        fields:
-          - { label: Layout, name: layout, widget: hidden, default: default }
-          - { label: Title, name: title, widget: string }
-          - { label: Description, name: description, widget: string, required: false }
-          - { label: Main Class, name: main_class, widget: hidden, default: page-main-content-region--home }
-          - { label: Body Class, name: body_class, widget: hidden, default: home-scroll-snap-container }
-      - name: artists
-        label: Artists
-        file: artists/index.md
-        fields:
-          - { label: Layout, name: layout, widget: hidden, default: default }
-          - { label: Title, name: title, widget: string }
-          - { label: Description, name: description, widget: string, required: false }
-          - { label: Section Label, name: section_label, widget: string, required: false }
-      - name: news
-        label: News
-        file: news/index.md
-        fields:
-          - { label: Layout, name: layout, widget: hidden, default: default }
-          - { label: Title, name: title, widget: string }
-          - { label: Description, name: description, widget: string, required: false }
-          - { label: Section Label, name: section_label, widget: string, required: false }
-      - name: releases
-        label: Releases
-        file: releases/index.md
-        fields:
-          - { label: Layout, name: layout, widget: hidden, default: default }
-          - { label: Title, name: title, widget: string }
-          - { label: Description, name: description, widget: string, required: false }
-          - { label: Section Label, name: section_label, widget: string, required: false }
-      - name: about
-        label: About
-        file: about/index.md
-        fields:
-          - { label: Layout, name: layout, widget: hidden, default: default }
-          - { label: Title, name: title, widget: string }
-          - { label: Description, name: description, widget: string, required: false }
-      - name: shop
-        label: Shop
-        file: shop/index.md
-        fields:
-          - { label: Layout, name: layout, widget: hidden, default: redirect }
-          - { label: Title, name: title, widget: string }
-          - { label: Description, name: description, widget: string, required: false }
-          - { label: Section Label, name: section_label, widget: string, required: false }
-          - { label: Redirect URL, name: redirect_url, widget: string, required: false }
   - name: home_content
-    label: Home Content
+    label: Home Page
     files:
       - name: home
         label: Home Sections
@@ -142,6 +90,14 @@ collections:
                       - { label: Custom (manual), value: custom }
                   - { label: Value, name: value, widget: string, required: false }
                   - { label: Label, name: label, widget: string }
+  - name: shop_link
+    label: Shop Link
+    files:
+      - name: shop
+        label: Shop Redirect
+        file: shop/index.md
+        fields:
+          - { label: Redirect URL, name: redirect_url, widget: string, hint: "Where the Shop page sends visitors." }
   - name: releases
     label: Releases
     label_singular: Release
@@ -226,86 +182,11 @@ collections:
         public_folder: "/assets/images/news"
       - { label: Image Description, name: image_alt, widget: string, required: false, hint: "Short alt text for accessibility." }
       - { label: Body, name: body, widget: markdown, hint: "Main story content." }
-  - name: about_content
-    label: About Content
-    files:
-      - name: about
-        label: About Page
-        file: _data/about.yml
-        fields:
-          - label: Hero
-            name: hero
-            widget: object
-            fields:
-              - { label: Section Label, name: section_label, widget: string }
-              - { label: Title, name: title, widget: string }
-              - label: Image
-                name: image
-                widget: image
-                media_folder: "/assets/images/backgrounds"
-                public_folder: "/assets/images/backgrounds"
-              - { label: Image Description, name: image_alt, widget: string, required: false }
-          - { label: Lead, name: lead, widget: text }
-          - label: Sections
-            name: sections
-            widget: list
-            fields:
-              - { label: Title, name: title, widget: string }
-              - label: Paragraphs
-                name: paragraphs
-                widget: list
-                field: { label: Paragraph, name: paragraph, widget: text }
-          - label: Quote
-            name: quote
-            widget: object
-            fields:
-              - { label: Text, name: text, widget: text }
-              - { label: Cite, name: cite, widget: string }
-          - label: Contact
-            name: contact
-            widget: object
-            fields:
-              - { label: Title, name: title, widget: string }
-              - { label: Intro, name: intro, widget: text }
-              - label: Items
-                name: items
-                widget: list
-                fields:
-                  - { label: Label, name: label, widget: string }
-                  - { label: Value, name: value, widget: string }
-          - label: Stats
-            name: stats
-            widget: list
-            fields:
-              - label: Type
-                name: key
-                widget: select
-                options:
-                  - { label: Artists (auto), value: artists }
-                  - { label: Releases (auto), value: releases }
-                  - { label: Countries (auto), value: countries }
-                  - { label: Year (auto), value: year }
-                  - { label: Custom (manual), value: custom }
-              - { label: Value, name: value, widget: string, required: false }
-              - { label: Label, name: label, widget: string }
-  - name: newsletter
-    label: Newsletter
-    files:
-      - name: newsletter
-        label: Newsletter Content
-        file: _data/newsletter.yml
-        fields:
-          - { label: Section Label, name: section_label, widget: string }
-          - { label: Title, name: title, widget: string }
-          - { label: Description, name: description, widget: text }
-          - { label: Placeholder, name: placeholder, widget: string }
-          - { label: Button Label, name: button_label, widget: string }
-          - { label: Note, name: note, widget: text }
   - name: data
-    label: Site Data
+    label: Site Links
     files:
       - name: navigation
-        label: Navigation
+        label: Navigation Menu
         file: _data/nav.yml
         fields:
           - label: Items
@@ -325,10 +206,10 @@ collections:
               - { label: Title, name: title, widget: string }
               - { label: URL, name: url, widget: string }
   - name: artists_roster
-    label: Artists Roster
+    label: Artists
     files:
       - name: artists
-        label: Artists
+        label: Artist Roster
         file: _data/artists.yml
         fields:
           - label: Items
@@ -348,11 +229,3 @@ collections:
               - { label: Image Description, name: image_alt, widget: string, required: false }
               - { label: Bio, name: bio, widget: text }
               - { label: Upcoming Release (optional), name: upcoming_release, widget: string, required: false }
-  - name: settings
-    label: Site Settings
-    files:
-      - name: settings
-        label: Settings
-        file: _data/settings.yml
-        fields:
-          - { label: Established Year, name: established_year, widget: number }
