@@ -169,12 +169,22 @@ collections:
         name: bandcamp_embed_url
         widget: string
         required: false
-        hint: "Paste the Bandcamp embed src URL (from the iframe)."
+        hint: "Paste the Bandcamp embed src URL (from the iframe). Instructions: https://get.bandcamp.help/hc/en-us/articles/23020711574423-How-do-I-create-a-Bandcamp-embedded-player"
+        pattern:
+          [
+            "^https?://bandcamp\\.com/EmbeddedPlayer/.*",
+            "Use the Bandcamp embed src URL (https://bandcamp.com/EmbeddedPlayer/...)."
+          ]
       - label: Tidal Player Embed URL
         name: tidal_url
         widget: string
         required: false
-        hint: "Paste the Tidal embed src URL (from the iframe)."
+        hint: "Paste the Tidal embed src URL (from the iframe). Instructions: https://developer.tidal.com/documentation/embeds/embeds-overview"
+        pattern:
+          [
+            "^https?://embed\\.tidal\\.com/.*",
+            "Use the Tidal embed src URL (https://embed.tidal.com/...)."
+          ]
       - { label: Summary, name: summary, widget: text, required: false }
       - label: Formats (optional)
         name: formats
