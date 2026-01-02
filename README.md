@@ -53,5 +53,10 @@ The shop page redirects to the external Fourthwall store.
 
 ## Deployment
 
-GitHub Pages builds from `main` using `_config.yml`. Keep plugins compatible
+GitHub Pages builds from `main` using `_config.yml`. Keep plugins compatible    
 with GitHub Pages.
+
+## Licensing
+
+- Code is MIT-licensed. See `LICENSE`.
+- Media assets in `/assets` are CC BY-ND 4.0. See `ASSETS_LICENSE.md`.
