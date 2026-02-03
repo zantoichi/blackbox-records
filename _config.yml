@@ -1,6 +1,7 @@
 title: Blackbox Records
 description: Experimental record label with a focus on boundary-pushing music.
 social_image: /assets/images/brand/logo.png
+social_image_alt: "Blackbox Records logo"
 url: "https://zantoichi.github.io"
 baseurl: "/blackbox-records"
 permalink: pretty
@@ -12,6 +13,8 @@ exclude:
   - node_modules
   - Gemfile
   - Gemfile.lock
+plugins:
+  - jekyll-sitemap
 collections:
   artists:
     output: true
