@@ -1,4 +1,5 @@
-# AGENTS.md ## Purpose Build a static record-label website with Jekyll and host it on GitHub Pages. Commerce will be provided by Fourthwall as
+# AGENTS.md #
+# Purpose Build a static record-label website with Jekyll and host it on GitHub Pages. Commerce will be provided by Fourthwall as
 
 an external site for now. Codex must treat this file as the primary persistent project guidance at startup (it does not
 replace reading code
@@ -35,4 +36,3 @@ Use placeholders for logos, wordmarks, icons, and any brand imagery.
   task) A task is done when: - `bundle exec jekyll build` succeeds.
 - Fonts are okay to be placeholders.
 - No non-placeholder branding assets are added before final phase.
-- No Payhip code is added before Phase 2 (unless explicitly authorized).

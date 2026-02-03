@@ -30,6 +30,7 @@ out/                        # Compiler output
 
 # Logs
 *.log                       # Log files
+logs/                       # Local runtime logs
 
 # IDE-independent helpers
 .vscode/                    # VSCode settings
